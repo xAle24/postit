@@ -1,0 +1,32 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    background-color: #273043;
+}
+#content {
+    width: 35vh;
+    padding: 15px;
+    background-color: #273013;
+    border-radius: 5px;
+}
+#username, #password {
+    width: 100%;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+input[type=submit] {
+    padding: 10px;
+    width: 100%;
+    margin: 10px;
+    background-color: #BEEE62;
+    color: #273043;
+    border-radius: 5px;
+    border: none;
+}
