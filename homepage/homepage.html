@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HomePage</title>
+    <link rel="stylesheet" href="homepage.css">
+</head>
+<body>
+    <header>
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+            <!-- Menu items go here -->
+        </div>
+        <button class="openbtn" onclick="openNav()">☰ Open Menu</button>  
+        <div id="right-icons">
+            <button>Icon 1</button>
+            <button>Icon 2</button>
+        </div>
+    </header>
+    <main>
+        <div class="post">
+            <img src="post.jpg" alt="Post Image">
+            <p>Post content goes here</p>
+        </div>
+        <div class="comments">
+            <p><strong>User1:</strong> Comment 1</p>
+            <p><strong>User2:</strong> Comment 2</p>
+            <!-- More comments go here -->
+        </div>
+    </main>
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+</body>
+</html>
+
+

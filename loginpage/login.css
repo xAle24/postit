@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    background-image: url('background.jpg');
+    margin-top: 10vh;
+}
+
+#content {
+    width: 35vh;
+    height: 40vh;
+    padding: 1%;
+    background-image: url('straight-post-it.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#username, #password {
+    width: 85%;
+    padding: 5%;
+    margin: 3%;
+    border-radius: 3vh;
+}
+
+input[type=submit] {
+    padding: 10%;
+    width: 90%;
+    margin: 2%;
+    background-color: #273043;
+    color: #BEEE22;
+    border-radius: 3vh;
+    border: none;
+}

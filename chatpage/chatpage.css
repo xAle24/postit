@@ -1,0 +1,22 @@
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    /* Style for the chat header */
+}
+
+.chat-messages {
+    flex-grow: 1;
+    overflow-y: auto;
+    /* Style for the chat messages */
+}
+
+.chat-input {
+    /* Style for the chat input */
+}
