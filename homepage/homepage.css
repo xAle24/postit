@@ -1,14 +1,31 @@
+body {
+    background-color: #273043;
+    background-size: contain;
+}
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
+    padding: 1vh;
 }
 #left-menu {
     display: inline-block;
 }
-#right-icons {
-    display: inline-block;
+#rightBtn {
+}
+#notificationBtn {
+    background-image: url(ringbell.png);
+    background-size: contain;
+    background-color: #BEEE72;
+    width: 5vh;
+    height: 5vh;
+}
+#chatBtn {
+    background-image: url(chatIcon.png);
+    background-size: contain;
+    background-color: #BEEE72;
+    width: 5vh;
+    height: 5vh;
 }
 .post, .comments {
     display: flex;
