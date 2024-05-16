@@ -5,37 +5,115 @@
 body {
     display: flex;
     justify-content: center;
-    background-image: url('background.jpg');
+    background-color: #273043;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.img {
+    z-index: -1;
+    object-fit: contain;
+    position: fixed;
+    margin: 0;
+    padding: 0;
+}
+.randomImage {
+    z-index: -2;
+    position: absolute;
+    max-width: 50px;
+    max-height: 50px;
+}
+@media screen and (min-width: 750px){
+body {
+    display: flex;
+    justify-content: center;
     margin-top: 10vh;
 }
 
 #content {
-    width: 55vh;
-    height: 60vh;
-    padding: 1%;
-    background-image: url('straight-post-it.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    width: 30%;
+    height: 50vh;
+    margin: 1rem;
 }
+
+.img {
+    width: 30%;
+}
+
 #form {
-    display: flex;
-    flex-direction: column;
+    display: grid;
     align-items: center;
+    margin: 1rem;
+}
+h2 {
+    width: 100%;
+    margin: 1%;
+    justify-self: center;
+    text-align: center;
 }
 #username, #password {
     width: 85%;
-    padding: 5%;
-    margin: 3%;
-    border-radius: 3vh;
+    height: 70%;
+    margin-top: 4%;
+    padding: 7%;
+    justify-self: center;
+    border-radius: 2rem;
 }
 
 input[type=submit] {
-    padding: 10%;
-    width: 90%;
-    margin: 2%;
+    width: 85%;
+    height: 80%;
+    padding: 7%;
+    margin: 5%;
+    justify-self: center;
     background-color: #273043;
     color: #BEEE22;
-    border-radius: 3vh;
+    border-radius: 5rem;
     border: none;
+}
+}
+
+@media screen and (max-width: 750px) {
+    h2 {
+        font-size: 1.5em;
+        margin: 1%;
+    }
+    body {
+        margin-top: 10vh;
+    }
+    .img {
+        width: 70%;
+    }
+    #content {
+        width: 70%;
+        height: 50vh;
+        padding: 1%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    #form {
+        display: grid;
+        width: 100%;
+        justify-items: center;
+        margin-top: 3%;
+    }
+    #username, #password {
+        width: 85%;
+        padding: 2%;
+        margin: 3%;
+        border-radius: 3rem;
+        font-size: 1em;
+    }
+    input[type=submit] {
+        width: 90%;
+        padding: 2%;
+        margin: 3%;
+        background-color: #273043;
+        color: #BEEE22;
+        border-radius: 3rem;
+        border: none;
+        font-size: 2em;
+    }
 }

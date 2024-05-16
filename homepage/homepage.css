@@ -14,16 +14,17 @@ header {
 #rightBtn {
 }
 #notificationBtn {
-    background-image: url(ringbell.png);
+    background-image: url(../resources/ringbell.png);
     background-size: contain;
-    background-color: #BEEE72;
+    background-color: #273043;
+    background-repeat: no-repeat;
     width: 5vh;
     height: 5vh;
 }
 #chatBtn {
-    background-image: url(chatIcon.png);
+    background-image: url(../resources/chatIcon.png);
     background-size: contain;
-    background-color: #BEEE72;
+    background-color: #273043;
     width: 5vh;
     height: 5vh;
 }
