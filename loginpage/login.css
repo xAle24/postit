@@ -41,11 +41,11 @@ h2 {
     display: flex;
     justify-content: center;
     width: 100%;
-    font-size: 2vw;
+    margin: 0 0 2vh 0;
+    font-size: 7vw;
 }
 
-#username,
-#password {
+#username, #password {
     width: 100%;
     padding: 5%;
     margin: 0.5rem;
@@ -57,7 +57,6 @@ input[type=submit] {
     height: 80%;
     padding: 7%;
     margin: 5%;
-    margin: 1rem;
     background-color: #273043;
     color: #BEEE22;
     border-radius: 5rem;
@@ -78,10 +77,14 @@ input[type=submit] {
         height: 35vw;
     }
     h2 {
-        font-size: 1.5rem;
+        font-size: 2.5vw;
+    }
+    input {
+        font-size: 2vw;
     }
     #registrationBtn {
         height: 14%;
+        font-size: 1.5vw;
     }
 }
 
@@ -89,12 +92,12 @@ input[type=submit] {
     #content {
         width: 90vw;
         height: 90vw;
-    }   
-    h2 {
-        display: flex;
     }
-
+    input {
+        font-size: 4vw;
+    }
     #registrationBtn {
-        height: 11%;
+        height: 15%;
+        font-size: 4vw;
     }
 }
