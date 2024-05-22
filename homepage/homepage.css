@@ -1,3 +1,7 @@
+html {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
 body {
     background-color: #273043;
     background-size: contain;
@@ -24,6 +28,28 @@ button {
 button:hover {
     border: 1px solid white;
     outline: 1px solid white;
+}
+
+form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+}
+
+form > input {
+    width: 80%;
+    padding: 5%;
+    margin: 1rem;
+}
+
+form > input[type=submit] {
+    width: 15%;
+    padding: 0.2%;
+    position: absolute;
+    bottom: 17%;
+    right: 6%;
 }
 
 #left-menu {
