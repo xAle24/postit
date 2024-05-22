@@ -16,19 +16,19 @@ button {
     background-size: contain;
     background-color: #273043;
     background-repeat: no-repeat;
+    background-position: center;
     width: 5vh;
     height: 5vh;
 }
 
 button:hover {
-    background-color: #b91c1c;
+    border: 1px solid white;
+    outline: 1px solid white;
 }
 
 #left-menu {
     display: inline-block;
 }
-
-#rightBtnDiv {}
 
 #notificationBtn {
     background-image: url(../resources/ringbell.png);
