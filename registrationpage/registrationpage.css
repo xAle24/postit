@@ -63,23 +63,26 @@ input[type=submit] {
     border: none;
 }
 @media screen and (min-width: 750px){
-#content {
-    width: 30%;
-}
-h2 {
-    font-size: 1.5rem;
-}
-#registrationBtn {
-    height: 14%;
-}
+    #content {
+        width: 35vw;
+        height: 35vw;
+    }
+    h2 {
+        font-size: 1.5rem;
+    }
+    #registrationBtn {
+        height: 14%;
+    }
 }
 
 @media screen and (max-width: 750px) {
     #content {
-        width: 80%;
+        width: 90vw;
+        height: 90vw;
     }   
     h2 {
         display: flex;
+        font-size: 1.5rem;
     }    
     #registrationBtn {
         height: 11%;
