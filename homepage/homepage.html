@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>HomePage</title>
     <link rel="stylesheet" href="homepage.css">
 </head>
+
 <body>
     <header>
         <div id="mySidenav" class="sidenav">
@@ -13,13 +15,19 @@
             <a href="#amici">Amici</a>
             <a href="#logout">Logout</a>
         </div>
-        <button class="openbtn" onclick="openNav()"></button> 
-        <div id="rightBtn">
+        <button class="openbtn" onclick="openNav()"></button>
+        <div id="rightBtnDiv">
             <button id="notificationBtn"></button>
             <button id="chatBtn" onclick="window.location.href='../chatpage/chatpage.html'"></button>
         </div>
     </header>
     <main>
+        <div class="insertPost">
+            <form id="postForm" action="homepage.html">
+                <input type="text" id="post" name="post" placeholder="Vuoi organizzare un incontro?">
+                <input id="postButton" type="submit" value="Invia">
+            </form>
+        </div>
         <div class="post">
             <img src="post.jpg" alt="Post Image">
             <p>Post content goes here</p>
@@ -39,4 +47,5 @@
         }
     </script>
 </body>
+
 </html>
