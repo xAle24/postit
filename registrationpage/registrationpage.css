@@ -38,7 +38,7 @@ h2 {
     justify-content: center;
     width: 100%;
 }
-#username, #password {
+#username, #password, #repeatPassword {
     width: 100%;
     padding: 5%;
     margin: 0.5rem;
