@@ -2,38 +2,51 @@ body {
     background-color: #273043;
     background-size: contain;
 }
+
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1vh;
 }
-#left-menu {
-    display: inline-block;
-}
-#rightBtn {
-}
-#notificationBtn {
-    background-image: url(../resources/ringbell.png);
+
+button {
+    border: none;
+    outline: none;
     background-size: contain;
     background-color: #273043;
     background-repeat: no-repeat;
     width: 5vh;
     height: 5vh;
 }
-#chatBtn {
-    background-image: url(../resources/chatIcon.png);
-    background-size: contain;
-    background-color: #273043;
-    width: 5vh;
-    height: 5vh;
+
+button:hover {
+    background-color: #b91c1c;
 }
-.post, .comments {
+
+#left-menu {
+    display: inline-block;
+}
+
+#rightBtnDiv {}
+
+#notificationBtn {
+    background-image: url(../resources/ringbell.png);
+}
+
+
+#chatBtn {
+    background-image: url(../resources/chat\ icon\ 2.png);
+}
+
+.post,
+.comments {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 20px;
 }
+
 #mySidenav {
     height: 100%;
     width: 0;
@@ -69,12 +82,7 @@ header {
 }
 
 .openbtn {
-    font-size: 20px;
-    cursor: pointer;
-    background-color: #111;
-    color: white;
-    padding: 10px 15px;
-    border: none;
+    background-image: url(../resources/menu\ icon\ 1.png);
 }
 
 .openbtn:hover {
