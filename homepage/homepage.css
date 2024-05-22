@@ -42,14 +42,28 @@ form > input {
     width: 80%;
     padding: 5%;
     margin: 1rem;
+    font-size: 2vw;
 }
 
 form > input[type=submit] {
     width: 15%;
-    padding: 0.2%;
+    padding: 0.4%;
     position: absolute;
     bottom: 17%;
     right: 6%;
+    background-color: #273043;
+    color: white;
+    border: none;
+}
+
+form > input[type=submit]:hover {
+    background-color: #273043;
+    color: white;
+    border: 2px solid #beee62;
+}
+
+input::placeholder {
+    font-size: 2vw;
 }
 
 #left-menu {
