@@ -10,3 +10,11 @@ body {
 #profile-head {
     text-align: center;
 }
+
+#backIcon {
+    width: 25px;
+    height: 25px;
+    background-image: url(../resources/back_icon.svg);
+    background-color: #273043;
+    transform: scaleX(-1);
+}
