@@ -1,0 +1,12 @@
+html {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+body {
+    background-color: #273043;
+    background-size: contain;
+}
+
+#profile-head {
+    text-align: center;
+}
