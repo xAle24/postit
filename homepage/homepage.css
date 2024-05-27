@@ -79,7 +79,6 @@ input::placeholder {
     background-image: url(../resources/chat\ icon\ 2.png);
 }
 
-.post,
 .comments {
     display: flex;
     flex-direction: column;

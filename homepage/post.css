@@ -8,7 +8,19 @@
     width: 300px; 
     height: 300px; 
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+    margin: 1rem;
+}
+
+.post>img {
+    width: 35%;
+    height: 35%;
+}
+
+.post>.post-title {
+    font-size: 20px;
+    margin: 1rem;
 }
