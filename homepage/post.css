@@ -1,12 +1,12 @@
 /* I split the styling into multiple files to keep the source files readable. */
 
 .post {
-    background-image: url('../resources/postit-no-writings/light-blue-logo-no-notice-board.png');
+    background-image: url('../resources/postit-for-posts/green-post-postit.png');
     background-size: contain; /* This ensures that the whole image is drawn, and that no corners are left out. */
     background-repeat: no-repeat;
     background-position: center;
-    width: 200px; 
-    height: 200px; 
+    width: 300px; 
+    height: 300px; 
     display: flex;
     justify-content: center;
     align-items: center;
