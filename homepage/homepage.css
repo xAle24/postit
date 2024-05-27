@@ -38,25 +38,26 @@ form {
     padding: 1rem;
 }
 
-form > input {
-    width: 80%;
+form>input {
+    width: 50%;
     padding: 5%;
     margin: 1rem;
     font-size: 2vw;
 }
 
-form > input[type=submit] {
-    width: 15%;
+/* The "post" button */
+form>input[type=submit] {
+    width: 9%;
     padding: 0.4%;
     position: absolute;
-    bottom: 17%;
-    right: 6%;
+    bottom: 14%;
+    right: 20.5%;
     background-color: #273043;
     color: white;
     border: none;
 }
 
-form > input[type=submit]:hover {
+form>input[type=submit]:hover {
     background-color: #273043;
     color: white;
     border: 2px solid #beee62;
@@ -73,7 +74,6 @@ input::placeholder {
 #notificationBtn {
     background-image: url(../resources/ringbell.png);
 }
-
 
 #chatBtn {
     background-image: url(../resources/chat\ icon\ 2.png);
