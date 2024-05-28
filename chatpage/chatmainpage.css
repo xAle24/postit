@@ -1,0 +1,29 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #273043;
+
+}
+#backBtn {
+    background-image: url(../resources/back_icon.svg);
+    transform: scaleX(-1);
+    background-size: contain;
+    background-color: #273043;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 5vh;
+    height: 5vh;
+}
+.chat-list {
+    padding-inline-start: 0;
+}
+.chat {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    background-color: #C0D6DF;
+    margin: 2%;
+}
+.chat img {
+    margin-right: 1rem;
+    width: 10%;
+}

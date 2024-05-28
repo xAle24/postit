@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="chatmainpage.css">
+</head>
+<body>
+    <button id="backBtn" onclick="location.href='../homepage/homepage.html'"></button>
+    <ul class="chat-list">
+        <div class="chat" onclick="openChat('Friend 1')">
+            <img src="../resources/logo-no-writing.png" alt="//TODO">
+            Friend 1
+        </div>
+        <div class="chat" onclick="openChat('Friend 1')">
+            <img src="../resources/logo-no-writing.png" alt="//TODO">
+            Friend 2
+        </div>
+    </ul>
+    <script>
+        function openChat(friendName) {
+            window.location.href = 'chatpage.html?name=' + encodeURIComponent(friendName);
+        }
+    </script>
+</body>
+</html>

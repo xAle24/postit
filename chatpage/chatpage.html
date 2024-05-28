@@ -1,21 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Chat Page</title>
     <link rel="stylesheet" href="chatpage.css">
 </head>
 <body>
-    <div class="chat-container">
-        <div class="chat-header">
-            <!-- Chat header goes here -->
-            <button class="icon-button" onclick="window.location.href='../homepage/homepage.html'">Icon</button>
-        </div>
-        <div class="chat-messages">
-            <!-- Chat messages go here -->
-        </div>
-        <div class="chat-input">
-            <!-- Chat input goes here -->
-        </div>
+    <div class="chat-header">
+        <button id="backBtn" onclick="location.href='../chatpage/chatmainpage.html'"></button>
+        <img id="profile-img" src="../resources/logo-no-writing.png" alt="//TODO">
+        <h1 id="chat-title"></h1>
     </div>
+    <div class="chat-window" id="chat-window"></div>
+    <div class="chat-bottom">
+        <input class="message-input" id="message-input" type="text" placeholder="Type a message...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+    <script>
+        var friendName = decodeURIComponent(window.location.search.substring(6));
+        document.getElementById('chat-title').textContent = 'Chat with ' + friendName;
+
+        function sendMessage() {
+            var messageInput = document.getElementById('message-input');
+            var chatWindow = document.getElementById('chat-window');
+            if (messageInput.value.trim() !== '') {
+                chatWindow.innerHTML += '<p><strong>You:</strong> ' + messageInput.value + '</p>';
+                messageInput.value = '';
+                chatWindow.scrollTop = chatWindow.scrollHeight;
+            }
+        }
+    </script>
 </body>
 </html>
