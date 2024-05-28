@@ -17,6 +17,16 @@ body {
     font-size: 10vw;
     padding: 0 0 1% 0;
 }
+#backBtn {
+    background-image: url(../resources/back_icon.svg);
+    transform: scaleX(-1);
+    background-size: contain;
+    background-color: #273043;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 7vh;
+    height: 7vh;
+}
 .achievement {
     display: flex;
     align-items: center;
