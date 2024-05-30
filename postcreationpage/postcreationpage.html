@@ -2,15 +2,44 @@
 <html>
 
 <head>
+    <meta charset="utf-8">
     <title>PostCreationPage</title>
     <link rel="stylesheet" href="postcreationpage.css">
 </head>
 
 <body>
-    <header>
-    </header>
     <main>
+        <button id="backBtn" onclick="location.href='../homepage/homepage.html'"></button>
+        <header>
+            <img src="../resources/logo-with-writing.png" alt="logo" class="logo">
+            <h1>Crea un nuovo post</h1>
+        </header>
+        <form id="postCreationForm">
+            <label for="postTitle">Titolo del post:</label>
+            <input type="text" id="postTitle" name="postTitle" required>
+            <label for="postDescription">Descrizione del post:</label>
+            <textarea id="postDescription" name="postDescription" required></textarea>
+            <header>
+                <p>Aggiungi disponibilità:</p>
+            </header>
+            <div id="availabilitiesContainer">
+                <ul id="availabilitiesList">
+                    <li>
+                        <label for="availabilities">Disponibilità:</label>
+                        <input type="datetime-local" id="availabilities" name="availabilities" required>
+                    </li>
+                </ul>
+            </div>
+            <div class="buttonContainer" id="buttonContainer">
+                <button type="button" id="addAvailability" class="buttonClass">Aggiungi disponibilità</button>
+                <button type="button" id="removeAvailability" class="buttonClass">Rimuovi disponibilità</button>
+            </div>
+            <label for="postLocation">Luogo dell'evento:</label>
+            <input type="text" id="postLocation" name="postLocation" required>
+            <button id="createPostButton" type="submit" class="buttonClass">Crea post</button>
+        </form>
     </main>
+    <script src="postcreationpage.js" defer></script>
 </body>
 
 </html>

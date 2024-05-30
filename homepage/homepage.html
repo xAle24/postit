@@ -24,10 +24,8 @@
     </header>
     <main>
         <div class="insertPost">
-            <form id="postForm" action="homepage.html">
-                <input type="text" id="post" name="post" placeholder="Vuoi organizzare un incontro?">
-                <input id="postButton" type="submit" value="Invia">
-            </form>
+            <p id="insertPostParagraph">Vuoi organizzare un incontro?</p>
+            <button id="createPostButton" onclick="window.location.href='../postcreationpage/postcreationpage.html'">Crea post</button>
         </div>
         <div class="postContainer">
             <div class="post">
@@ -50,7 +48,7 @@
             </div>
         </div>
     </main>
-    <script src="homepage.js"></script>
+    <script src="homepage.js" defer></script>
 </body>
 
 </html>

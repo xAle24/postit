@@ -2,6 +2,24 @@ html {
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+#backBtn {
+    background-image: url(../resources/back_icon.svg);
+    transform: scaleX(-1);
+    background-size: contain;
+    background-color: #273043;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 5vh;
+    height: 5vh;
+    margin: 0 0 2% 0;
+    border: none;
+}
+
+#backBtn:hover {
+    border: 1px solid white;
+    outline: 1px solid white;
+}
+
 body {
     background-color: #273043;
     background-size: contain;
@@ -9,18 +27,94 @@ body {
 
 header {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    flex-direction: column;
     align-items: center;
     padding: 1vh;
+    color: white;
+}
+
+header>img {
+    width: 10vh;
+    margin: 0 2%;
+}
+
+header>p {
+    font-size: 2.5vh;
+    margin: 2% 0;
+}
+
+ul {
+    box-sizing: border-box;
+    width: 100%;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+}
+
+button:hover {
+    background-color: white;
+    color: #273043;
+    border: 1px solid white;
+    outline: 1px solid white;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 5%;
+}
+
+label {
+    color: white;
+    font-size: 2.5vh;
+    margin: 2% 0;
 }
 
 button {
-    border: none;
-    outline: none;
-    background-size: contain;
-    background-color: #273043;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 5vh;
+    width: 30%;
     height: 5vh;
+    font-size: calc(1vh + 1vw);
+    background-color: #273043;
+    color: white;
+    border: 2px solid white;
+    overflow: hidden;
+    margin: 2% 0;
+}
+
+form>input,
+textarea {
+    box-sizing: border-box;
+    width: 100%;
+    height: 5vh;
+    font-size: 2.5vh;
+    padding: 1%;
+    margin: 2% 0;
+}
+
+textarea {
+    height: 20vh;
+    font-size: x-large;
+}
+
+.buttonContainer {
+    display: flex;
+    box-sizing: border-box;
+    gap: 10%;
+    width: 100%
+}
+
+form li {
+    margin: 1rem;
+}
+
+li>label {
+    font-size: 2vh;
+}
+
+#availabilitiesContainer {
+    width: 100%;
 }
