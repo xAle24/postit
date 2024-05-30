@@ -127,3 +127,9 @@ input::placeholder {
 .openbtn:hover {
     background-color: #444;
 }
+
+.postContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
