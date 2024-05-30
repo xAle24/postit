@@ -1,0 +1,64 @@
+html {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#backBtn {
+    background-image: url(../resources/back_icon.svg);
+    transform: scaleX(-1);
+    background-size: contain;
+    background-color: #273043;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 5vh;
+    height: 5vh;
+    margin: 0 0 2% 0;
+    border: none;
+}
+
+#backBtn:hover {
+    border: 1px solid white;
+    outline: 1px solid white;
+}
+
+body {
+    background-color: #273043;
+    background-size: contain;
+    color: white;
+}
+
+div.postHeader {
+    display: flex;
+    justify-content: center;
+    gap: 5%;
+    align-items: center;
+}
+
+div.postHeaderTextContainer {
+    box-sizing: border-box;
+    width: 45%;
+}
+
+.avatarContainer {
+    position: relative;
+    width: max-content;
+}
+
+.avatar {
+    position: relative;
+    z-index: 2;
+    width: 15vh;
+    height: 15vh;
+    border: 2px solid white;
+}
+
+.avatarBackground {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    z-index: 1;
+    width: 15vh;
+    height: 15vh;
+    transform: scale(1.05);
+    opacity: 1;
+    filter: blur(24px);
+}
