@@ -25,8 +25,16 @@
             <div id="availabilitiesContainer">
                 <ul id="availabilitiesList">
                     <li>
-                        <label for="availabilities">Disponibilità:</label>
-                        <input type="datetime-local" id="availabilities" name="availabilities" required>
+                        <div id="inputContainer">
+                            <fieldset> <legend>Disponibilità:</legend>
+                                <label for="availabilityDate">Data:</label>
+                                <input type="date" id="availabilityDate" name="availabilityDate" required>
+                                <label for="startTime">dalle ore</label>
+                                <input type="time" id="startTime" name="startTime" required>
+                                <label for="endTime">alle ore</label>
+                                <input type="time" id="endTime" name="endTime" required>
+                            </fieldset>
+                        </div>
                     </li>
                 </ul>
             </div>
