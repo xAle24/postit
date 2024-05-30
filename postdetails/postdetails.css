@@ -31,6 +31,8 @@ div.postHeader {
     justify-content: center;
     gap: 5%;
     align-items: center;
+    margin-top: 4%;
+    margin-bottom: 4%;
 }
 
 div.postHeaderTextContainer {
@@ -61,4 +63,33 @@ div.postHeaderTextContainer {
     transform: scale(1.05);
     opacity: 1;
     filter: blur(24px);
+}
+
+.postDetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2%;
+}
+
+.descriptionContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2%;
+    background-color: #c0d6df;
+    width: 80%;
+}
+
+article.description {
+    width: 100%;
+}
+
+.descriptionParagraph {
+    color: black;
+    text-align: center;
+    margin: 16px;
+    font-size: large;
 }

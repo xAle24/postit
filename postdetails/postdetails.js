@@ -1,0 +1,1 @@
+// TODO: add function that creates the blurry layer in the background
