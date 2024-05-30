@@ -24,3 +24,8 @@
     font-size: 20px;
     margin: 1rem;
 }
+
+div.post:hover {
+    border: 2px solid whitesmoke;
+    outline: 8px solid white;
+}
