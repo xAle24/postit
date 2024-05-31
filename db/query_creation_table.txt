@@ -1,0 +1,256 @@
+create table ACHIEVEMENT (
+     achievementID varchar(10) not null,
+     name varchar(15) not null,
+     description varchar(30) not null,
+     constraint IDACHIEVEMENT_ID primary key (achievementID));
+
+create table ACHIEVEMENT_STUDENT (
+     assignedAchievementID char(1) not null,
+     achievementID varchar(10) not null,
+     appointment date not null,
+     state char not null,
+     email varchar(30) not null,
+     constraint IDACHIEVEMENTS primary key (assignedAchievementID),
+     constraint FKfrom_ID unique (achievementID));
+
+create table ADDS (
+     first_stu_email varchar(30) not null,
+     second_stu_email varchar(30) not null,
+     constraint IDadds primary key (second_stu_email, first_stu_email));
+
+create table COMMENT (
+     commentID varchar(10) not null,
+     content varchar(50) not null,
+     meetingID varchar(10) not null,
+     email varchar(30) not null,
+     constraint IDCOMMENT primary key (commentID));
+
+create table COURSE (
+     courseID varchar(10) not null,
+     name varchar(15) not null,
+     type char not null,
+     constraint IDCOURSE_ID primary key (courseID));
+
+create table EDUCATIONAL_RESOURCE (
+     resourceID varchar(10) not null,
+     resourceName varchar(30) not null,
+     filePath varchar(50) not null,
+     type int not null,
+     email varchar(30) not null,
+     subjectID varchar(10) not null,
+     constraint IDEDUCATIONAL_RESOURCE primary key (resourceID));
+
+create table GROUPS (
+     groupID varchar(10) not null,
+     name varchar(15) not null,
+     groupParticipantsNumber int not null,
+     email varchar(30) not null,
+     constraint IDGROUP_ID primary key (groupID));
+
+create table LOCATION (
+     locationID varchar(10) not null,
+     name varchar(15) not null,
+     street varchar(20) not null,
+     streetNumber int not null,
+     city varchar(15) not null,
+     cap int not null,
+     constraint IDLOCATION primary key (locationID));
+
+create table MEETING (
+     meetingID varchar(10) not null,
+     content varchar(100) not null,
+     appointment date not null,
+     type int not null,
+     email varchar(30) not null,
+     locationID varchar(10) not null,
+     subjectID varchar(10),
+     constraint IDPOST_ID primary key (meetingID));
+
+create table MESSAGE (
+     messageID varchar(10) not null,
+     content varchar(100) not null,
+     rec_email varchar(10),
+     Sen_email varchar(10) not null,
+     groupID varchar(10),
+     constraint IDMESSAGE primary key (messageID));
+
+create table AVAILABILITY (
+     email varchar(30) not null,
+     meetingID varchar(10) not null,
+     constraint IDavailability primary key (meetingID, email));
+
+create table INSIDE (
+     subjectID varchar(10) not null,
+     courseID varchar(10) not null,
+     constraint IDinside primary key (courseID, subjectID));
+
+create table IS_IN (
+     email varchar(30) not null,
+     groupID varchar(10) not null,
+     constraint IDis_in primary key (groupID, email));
+
+create table PROFESSOR (
+     name varchar(15) not null,
+     surname varchar(15) not null,
+     birthdate date not null,
+     email varchar(30) not null,
+     constraint IDPROFESSOR_ID primary key (email));
+
+create table REACT (
+     email varchar(30) not null,
+     meetingID varchar(10) not null,
+     type int not null,
+     constraint IDreact primary key (email, meetingID));
+
+create table STUDENT (
+     name varchar(15) not null,
+     surname varchar(15) not null,
+     birthdate date not null,
+     password varchar(20) not null,
+     email varchar(30) not null,
+     constraint IDSTUDENT primary key (email));
+
+create table SUBJECT (
+     subjectID varchar(10) not null,
+     name varchar(20) not null,
+     CFU int not null,
+     constraint IDSUBJECT_ID primary key (subjectID));
+
+create table TEACHES (
+     subjectID varchar(10) not null,
+     email varchar(30) not null,
+     constraint IDteaches primary key (email, subjectID));
+
+
+-- Constraints Section
+-- ___________________ 
+
+-- Not implemented
+-- alter table ACHIEVEMENT add constraint IDACHIEVEMENT_CHK
+--     check(exists(select * from ACHIEVEMENT_STUDENT
+--                  where ACHIEVEMENT_STUDENT.achievementID = achievementID)); 
+
+alter table ACHIEVEMENT_STUDENT add constraint FKcompletes
+     foreign key (email)
+     references STUDENT (email);
+
+alter table ACHIEVEMENT_STUDENT add constraint FKfrom_FK
+     foreign key (achievementID)
+     references ACHIEVEMENT (achievementID);
+
+alter table ADDS add constraint FKSTUDENT_1
+     foreign key (second_stu_email)
+     references STUDENT (email);
+
+alter table ADDS add constraint FKadd_STU
+     foreign key (first_stu_email)
+     references STUDENT (email);
+
+alter table COMMENT add constraint FKhas
+     foreign key (meetingID)
+     references MEETING (meetingID);
+
+alter table COMMENT add constraint FKwrites
+     foreign key (email)
+     references STUDENT (email);
+
+-- Not implemented
+-- alter table COURSE add constraint IDCOURSE_CHK
+--     check(exists(select * from INSIDE
+--                  where INSIDE.courseID = courseID)); 
+
+alter table EDUCATIONAL_RESOURCE add constraint FKshares
+     foreign key (email)
+     references STUDENT (email);
+
+alter table EDUCATIONAL_RESOURCE add constraint FKcontains
+     foreign key (subjectID)
+     references SUBJECT (subjectID);
+
+-- Not implemented
+-- alter table GROUPS add constraint IDGROUP_CHK
+--     check(exists(select * from IS_IN
+--                  where IS_IN.groupID = groupID)); 
+
+alter table GROUPS add constraint FKcreates_group
+     foreign key (email)
+     references STUDENT (email);
+
+-- Not implemented
+-- alter table MEETING add constraint IDPOST_CHK
+--     check(exists(select * from AVAILABILITY
+--                  where AVAILABILITY.meetingID = meetingID)); 
+
+alter table MEETING add constraint FKcreates
+     foreign key (email)
+     references STUDENT (email);
+
+alter table MEETING add constraint FKwhere
+     foreign key (locationID)
+     references LOCATION (locationID);
+
+alter table MEETING add constraint FKto_study
+     foreign key (subjectID)
+     references SUBJECT (subjectID);
+
+alter table MESSAGE add constraint FKreceives
+     foreign key (rec_email)
+     references STUDENT (email);
+
+alter table MESSAGE add constraint FKsends
+     foreign key (Sen_email)
+     references STUDENT (email);
+
+alter table MESSAGE add constraint FKreceives_group
+     foreign key (groupID)
+     references GROUPS (groupID);
+
+alter table AVAILABILITY add constraint FKava_MEE
+     foreign key (meetingID)
+     references MEETING (meetingID);
+
+alter table AVAILABILITY add constraint FKava_STU
+     foreign key (email)
+     references STUDENT (email);
+
+alter table INSIDE add constraint FKins_COU
+     foreign key (courseID)
+     references COURSE (courseID);
+
+alter table INSIDE add constraint FKins_SUB
+     foreign key (subjectID)
+     references SUBJECT (subjectID);
+
+alter table IS_IN add constraint FKis__GRO
+     foreign key (groupID)
+     references GROUPS (groupID);
+
+alter table IS_IN add constraint FKis__STU
+     foreign key (email)
+     references STUDENT (email);
+
+-- Not implemented
+-- alter table PROFESSOR add constraint IDPROFESSOR_CHK
+--     check(exists(select * from TEACHES
+--                  where TEACHES.email = email)); 
+
+alter table REACT add constraint FKrea_MEE
+     foreign key (meetingID)
+     references MEETING (meetingID);
+
+alter table REACT add constraint FKrea_STU
+     foreign key (email)
+     references STUDENT (email);
+
+-- Not implemented
+-- alter table SUBJECT add constraint IDSUBJECT_CHK
+--     check(exists(select * from TEACHES
+--                  where TEACHES.subjectID = subjectID)); 
+
+alter table TEACHES add constraint FKtea_PRO
+     foreign key (email)
+     references PROFESSOR (email);
+
+alter table TEACHES add constraint FKtea_SUB
+     foreign key (subjectID)
+     references SUBJECT (subjectID);
