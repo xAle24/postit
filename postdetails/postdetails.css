@@ -73,12 +73,15 @@ div.postHeaderTextContainer {
     gap: 2%;
 }
 
-.descriptionContainer {
+.descriptionAndReactionsContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 2%;
+}
+
+div.descriptionContainer {
     background-color: #c0d6df;
     width: 80%;
 }
@@ -92,4 +95,56 @@ article.description {
     text-align: center;
     margin: 16px;
     font-size: large;
+}
+
+.commentsSectionHeader {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.commentsSectionHeader p {
+    font-size: x-large;
+    color: #BFD6DE;
+}
+
+.commentInputContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+    margin: 20px 0px;
+}
+
+.commentInputContainer textarea {
+    width: 90%;
+    padding: calc(1vh + 1vw);
+    color: white;
+    border: 1px solid white;
+    background-color: rgba(117, 221, 221, 0.3);
+    border-radius: 40px; /* to see circular corners, set this to the height value */
+    overflow: auto;
+    resize: none;
+    height: 1lh; /* 1lh = 1 line height */
+}
+
+.commentInputContainer textarea::placeholder {
+    padding: 0 10px;
+}
+
+.commentInputContainer button {
+    width: 5vh;
+    height: 5vh;
+    background-image: url("../resources/send.svg");
+    background-size: contain;
+    background-color: #273043;
+    background-repeat: no-repeat;
+    border: none;
+    outline: none;
+}
+
+.commentInputContainer button:hover {
+    border: 1px solid white;
+    outline: 1px solid white;
 }
