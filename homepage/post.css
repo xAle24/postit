@@ -15,6 +15,17 @@
     margin: 1rem;
 }
 
+.post a {
+    text-decoration: none;
+    color: black;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.post a:hover {
+    text-decoration: underline;
+}
+
 .post>img {
     width: 35%;
     height: 35%;
