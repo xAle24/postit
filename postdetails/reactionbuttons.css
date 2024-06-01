@@ -1,0 +1,57 @@
+.reactionButtonsContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 2%;
+    margin: 20px;
+}
+
+.reactionButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 15vw;
+    height: 5.5vw;
+    max-width: 200px;
+    max-height: 40px;
+    border-radius: 40px;
+    background-color: transparent;
+    border: 2px solid white;
+    background-repeat: no-repeat;
+    background-size: contain;
+    color: white;
+}
+
+.reactionButton:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+span.icon {
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    overflow: hidden;
+    margin-right: 5%;
+}
+
+#thumbUpIcon {
+    background-image: url(../resources/emoji/thumb-up.png);
+}
+
+#thumbDownIcon {
+    background-image: url(../resources/emoji/thumb-down.png);
+}
+
+#starryEyesIcon {
+    background-image: url(../resources/emoji/starry-eyes.png);
+}
+
+#heartIcon {
+    background-image: url(../resources/emoji/heart.png);
+}
+
+#moaiIcon {
+    background-image: url(../resources/emoji/moai.png);
+}
