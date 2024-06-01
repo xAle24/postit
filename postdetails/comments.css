@@ -1,0 +1,87 @@
+.commentsSectionHeader {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.commentsSectionHeader p {
+    font-size: x-large;
+    color: #BFD6DE;
+}
+
+.commentInputContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+    margin: 20px 0px;
+}
+
+.commentInputContainer textarea {
+    width: 90%;
+    padding: calc(1vh + 1vw);
+    color: white;
+    border: 1px solid white;
+    background-color: rgba(117, 221, 221, 0.3);
+    border-radius: 40px;
+    /* to see circular corners, set this to the height value */
+    overflow: auto;
+    resize: none;
+    height: 1lh;
+    /* 1lh = 1 line height */
+}
+
+.commentInputContainer textarea::placeholder {
+    padding: 0 10px;
+    color: white;
+}
+
+.commentInputContainer button {
+    width: 5vh;
+    height: 5vh;
+    background-image: url("../resources/send.svg");
+    background-size: contain;
+    background-color: #273043;
+    background-repeat: no-repeat;
+    border: none;
+    outline: none;
+}
+
+.commentInputContainer button:hover {
+    border: 1px solid white;
+    outline: 1px solid white;
+}
+
+.comment {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin: 20px 0px;
+}
+
+/* Code taken from: https://codepen.io/t_afif/pen/eYMbrJN */
+.comment {
+    --r: 1em;
+    /* the radius */
+    --t: 1.5em;
+    /* the size of the tail */
+
+    width: 70%;
+    padding: 1em;
+    border-inline: var(--t) solid #0000;
+    border-radius: calc(var(--r) + var(--t))/var(--r);
+    mask:
+        radial-gradient(100% 100% at var(--_p) 0, #0000 99%, #000 102%) var(--_p) 100%/var(--t) var(--t) no-repeat,
+        linear-gradient(#000 0 0) padding-box;
+    background: linear-gradient(135deg, #273043, #75DDDD /*#BEEE62, #ECCBD9*/) border-box;
+    color: #fff;
+    --_p: 0;
+    border-bottom-left-radius: 0 0;
+    place-self: start;
+}
+
+.comment .avatar, .avatarBackground {
+    width: 12vh;
+    height: 12vh;
+}

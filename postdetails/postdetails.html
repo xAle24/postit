@@ -7,11 +7,12 @@
     <link rel="stylesheet" href="postdetails.css">
     <link rel="stylesheet" href="availabilitiesbox.css">
     <link rel="stylesheet" href="reactionbuttons.css">
+    <link rel="stylesheet" href="comments.css">
 </head>
 
 <body>
     <main>
-        <button id="backBtn" onclick="location.href='../homepage/homepage.html'"></button>
+        <button id="backBtn" title="Torna alla homepage" onclick="location.href='../homepage/homepage.html'"></button>
         <header>
             <div class="postHeader">
                 <div class="avatarContainer">
@@ -19,7 +20,7 @@
                     <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatarBackground">
                 </div>
                 <div class="postHeaderTextContainer">
-                    <h1 id="postTitle">Lorem ipsum</h1>
+                    <h1 id="postTitle">Studiare Web in campus</h1>
                     <hr>
                     <h3 id="authorName">Mario Rossi</h3>
                 </div>
@@ -49,11 +50,13 @@
             <div class="locationContainer">
                 <h2 class="locationTitle">Luogo:</h2>
                 <hr>
-                <img src="../resources/position-icon.png" alt="Position Icon" class="positionIcon">
-                <p class="locationParagraph">Campus di Cesena</p>
+                <div class="iconAndLocationNameContainer">
+                    <img src="../resources/position-icon.png" alt="Position Icon" class="positionIcon">
+                    <p class="locationParagraph">Campus di Cesena</p>
+                </div>
             </div>
             <div class="availabilitiesContainer">
-                <h2 class="availabilitiesTitle">Disponibilità:</h2>
+                <h2 class="availabilitiesTitle">Disponibilità di Mario Rossi:</h2>
                 <hr>
                 <h3>Seleziona le date in cui potresti esserci!</h3>
                 <div class="availabilitiesBox">
