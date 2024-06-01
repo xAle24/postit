@@ -1,17 +1,34 @@
 <?php
-include '../db/db_connect.php';
+    include '../db/db_connect.php';
 
-$username = $_POST['username'];
-$password = $_POST['password'];
+    $name = $_POST['name'];
+    $surname = $_POST['surname'];
+    $birthdate = $_POST['date'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $repeatPassword = $_POST['repeatPassword'];
 
-$sql = "INSERT INTO student (name, password)
-VALUES ('$username', '$password')";
+    // Prepare the SQL statement
+    $stmt = $conn->prepare("SELECT * FROM student WHERE email = ?");
+    $stmt->bind_param("s", $email);
 
-if ($conn->query($sql) === TRUE) {
-    header('Location: ../homepage/homepage.html');
-} else {
-  echo "Error: " . $sql . "<br>" . $conn->error;
-}
+    // Execute the statement
+    $stmt->execute();
 
-$conn->close();
+    // Get the result
+    $result = $stmt->get_result();
+
+    // Check if the email exists in the database
+    if ($result->num_rows > 0) {
+        echo "Email already exists";
+    } else if ($password != $repeatPassword) {
+        echo "Passwords do not match";
+    } else {
+        $sql = "INSERT INTO student (name, surname, birthdate, password, email)
+        VALUES ('$name', '$surname', '$birthdate', '$password', '$email')";
+        $conn->query($sql);
+        echo "Success";
+    }
+    $stmt->close();
+    $conn->close();
 ?>

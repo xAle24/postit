@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
     <title>Registration Page</title>
     <link rel="stylesheet" href="registrationpage.css">
 </head>
 <body>
     <div id="content">
-        <form id="form" action="registration.php" method="post">
+        <form id="form" onsubmit="submitForm()">
             <h2>Benvenuto in Post-it</h2>
-            <input type="text" id="username" name="username" placeholder="Username">
+            <input type="text" id="name" name="name" placeholder="Name">
+            <input type="text" id="surname" name="surname" placeholder="Surname">
+            <input type="date" id="date" name="date">
+            <input type="text" id="email" name="email" placeholder="Email">
             <input type="password" id="password" name="password" placeholder="Password">
             <input type="password" id="repeatPassword" name="repeatPassword" placeholder="Repeat Password">
             <input type="submit" value="Register">

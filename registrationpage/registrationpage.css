@@ -6,10 +6,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 90vh;
+    height: 100vh;
     background-color: #273043;
     background-position: center;
-    margin: 5vh 0 0 0;
+    margin: 0;
 }
 
 .randomImage {
@@ -45,18 +45,17 @@ h2 {
     font-size: 7vw;
 }
 
-#username, #password, #repeatPassword {
+#name, #surname, #date, #email, #password, #repeatPassword {
     width: 100%;
-    padding: 5%;
-    margin: 0.5rem;
+    padding: 3%;
+    margin: 0.3rem;
     border-radius: 2rem;
 }
 
 input[type=submit] {
     width: 100%;
     height: 80%;
-    padding: 7%;
-    margin: 5%;
+    padding: 3%;
     background-color: #273043;
     color: #BEEE22;
     border-radius: 5rem;
@@ -71,10 +70,15 @@ input[type=submit] {
     border-radius: 5rem;
     border: none;
 }
+
+#notification {
+    background-color: #f44336;
+    color: white;
+}
 @media screen and (min-width: 750px){
     #content {
-        width: 35vw;
-        height: 35vw;
+        width: 43vw;
+        height: 43vw;
     }
     h2 {
         font-size: 2.5vw;
@@ -90,8 +94,8 @@ input[type=submit] {
 
 @media screen and (max-width: 750px) {
     #content {
-        width: 90vw;
-        height: 90vw;
+        width: 92vw;
+        height: 92vw;
     }
     input {
         font-size: 4vw;

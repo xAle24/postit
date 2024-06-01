@@ -1,6 +1,8 @@
 // This constant is used to avoid spawning the postits on the border of the screen
 const postitDiagonalDimension = 71
-
+var form = document.getElementById("form");
+function handleForm(event) { event.preventDefault(); } 
+form.addEventListener('submit', handleForm)
 window.onload = generatePostits
 window.addEventListener('resize', generatePostits)
 
@@ -38,4 +40,38 @@ function clearPostits() {
     while (postits.length > 0) {
         postits[0].parentNode.removeChild(postits[0])
     }
+}
+
+function submitForm() {
+    var password = document.getElementById("password").value;
+    var repeatPassword = document.getElementById("repeatPassword").value;
+
+    if (password !== repeatPassword) {
+        showPopup("Error: Passwords do not match.");
+    }
+    
+    $.ajax({
+        type: "post",
+        url: "registration.php",
+        data: $("#form").serialize(),
+        success: function(response) {
+            console.log(response);
+        }
+    });
+}
+
+
+function showPopup(message) {
+    // Create a popup notification
+    var notification = document.createElement("div");
+    notification.id = "notification";
+    notification.innerHTML = message;
+
+    // Add the notification to the form's parent element
+    document.getElementById("form").appendChild(notification);
+
+    // Remove the notification after 3 seconds
+    setTimeout(function() {
+        document.getElementById("form").removeChild(notification);
+    }, 3000);
 }
