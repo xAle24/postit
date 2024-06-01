@@ -48,6 +48,7 @@ function submitForm() {
 
     if (password !== repeatPassword) {
         showPopup("Error: Passwords do not match.");
+        return ;
     }
     
     $.ajax({
@@ -55,7 +56,11 @@ function submitForm() {
         url: "registration.php",
         data: $("#form").serialize(),
         success: function(response) {
-            console.log(response);
+            if (response === "Email already exists") {
+                showPopup(response);
+            } else {
+                window.location.href = "../homepage/homepage.html";
+            }
         }
     });
 }

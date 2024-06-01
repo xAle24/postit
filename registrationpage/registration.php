@@ -21,8 +21,6 @@
     // Check if the email exists in the database
     if ($result->num_rows > 0) {
         echo "Email already exists";
-    } else if ($password != $repeatPassword) {
-        echo "Passwords do not match";
     } else {
         $sql = "INSERT INTO student (name, surname, birthdate, password, email)
         VALUES ('$name', '$surname', '$birthdate', '$password', '$email')";
