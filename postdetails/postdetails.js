@@ -1,4 +1,5 @@
 // TODO: create unique ids for each post
+// TODO: add logic to the "show more comments" button
 
 // Initialize an object to store the count of clicks for each button.
 // The object will have the button id as the key and the count as the value.
@@ -10,6 +11,8 @@ let reactionCountsOfCurrentUser = {
     heartButton: 0,
     moaiButton: 0
 }
+
+let numberOfComments = 2 //TODO: change this to the actual number of comments when the php part is included
 
 let textarea = document.querySelector('.commentInputContainer textarea')
 textarea.addEventListener('input', autoResize, false)
@@ -27,19 +30,14 @@ function autoResize() {
     let paddingTop = parseFloat(computedStyle.getPropertyValue('padding-top'));
     let paddingBottom = parseFloat(computedStyle.getPropertyValue('padding-bottom'));
     let lineHeight = parseFloat(computedStyle.getPropertyValue('font-size'));
-    console.log("Padding top: " + paddingTop + ", paddingBottom: " + paddingBottom + ", lineHeight: " + lineHeight)
-    console.log("Scroll height: " + this.scrollHeight)
     
+    // Calculate the vertical padding, that needs to be removed from the scrollHeight
+    // (which is the height of the content of the textarea, including the padding but not the border)
     let verticalPadding = paddingTop + paddingBottom + lineHeight;
 
     // Set the height to the scrollHeight minus the vertical padding
     this.style.height = (this.scrollHeight - verticalPadding) + 'px';
 }
-
-/* function autoResize() {
-    let linesCount = this.value.split('\n').length
-    this.style.height = linesCount + 'lh' // lh stands for line height
-} */
 
 function createBlurryBackgroundLayer() {
     const container = document.getElementsByClassName('avatarContainer')[0]
@@ -100,7 +98,11 @@ function addComment() {
     if (textarea.value === "") {
         return
     }
+    commentText.innerHTML = commentText.textContent.replace(/\n/g, '<br>')
     container.appendChild(template.content)
     textarea.value = ""
     textarea.dispatchEvent(new Event('input')) // used to autmatically trigger autoResize() call
+
+    let commentsNumberParagraph = document.querySelector('.commentsNumber')
+    commentsNumberParagraph.textContent = ++numberOfComments;
 }

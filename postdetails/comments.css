@@ -94,6 +94,16 @@ ul {
     filter: drop-shadow(2px 2px 2px white);
 }
 
+.commentTextContainer {
+    word-wrap: break-word;
+    overflow: auto;
+}
+
+p.commentText {
+    overflow-wrap: break-word;
+    white-space: normal;
+}
+
 .moreCommentsButtonContainer {
     display: flex;
     justify-content: center;
