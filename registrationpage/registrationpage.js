@@ -43,9 +43,16 @@ function clearPostits() {
 }
 
 function submitForm() {
+    var name = document.getElementById("name").value;
+    var surname= document.getElementById("surname").value;
+    var date = document.getElementById("date").value;
+    var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
     var repeatPassword = document.getElementById("repeatPassword").value;
-
+    if (name === "" || surname === "" || email === "" || date === "" || password === "") {
+        showPopup("Error: All fields must be filled out");
+        return ;
+    }
     if (password !== repeatPassword) {
         showPopup("Error: Passwords do not match.");
         return ;

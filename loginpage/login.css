@@ -45,7 +45,7 @@ h2 {
     font-size: 7vw;
 }
 
-#username, #password {
+#email, #password {
     width: 100%;
     padding: 5%;
     margin: 0.5rem;
@@ -70,6 +70,10 @@ input[type=submit] {
     color: #BEEE22;
     border-radius: 5rem;
     border: none;
+}
+#notification {
+    background-color: #f44336;
+    color: white;
 }
 @media screen and (min-width: 750px){
     #content {

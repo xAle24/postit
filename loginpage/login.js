@@ -1,6 +1,8 @@
 // This constant is used to avoid spawning the postits on the border of the screen
 const postitDiagonalDimension = 71
-
+var form = document.getElementById("form");
+function handleForm(event) { event.preventDefault(); } 
+form.addEventListener('submit', handleForm)
 window.onload = generatePostits
 window.addEventListener('resize', generatePostits)
 
@@ -38,4 +40,42 @@ function clearPostits() {
     while (postits.length > 0) {
         postits[0].parentNode.removeChild(postits[0])
     }
+}
+
+function submitForm() {
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+    if (email === "" || password === "") {
+        showPopup("Error: All fields must be filled out");
+        return ;
+    }    
+    console.log($("#form").serialize());
+    $.ajax({
+        type: "get",
+        url: "login.php",
+        data: $("#form").serialize(),
+        success: function(response) {
+            if (response === "Success    ") {
+                window.location.href = "../homepage/homepage.html";
+            } else {
+                showPopup(response);
+            }
+        }
+    });
+}
+
+
+function showPopup(message) {
+    // Create a popup notification
+    var notification = document.createElement("div");
+    notification.id = "notification";
+    notification.innerHTML = message;
+
+    // Add the notification to the form's parent element
+    document.getElementById("form").appendChild(notification);
+
+    // Remove the notification after 3 seconds
+    setTimeout(function() {
+        document.getElementById("form").removeChild(notification);
+    }, 3000);
 }

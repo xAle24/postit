@@ -1,5 +1,6 @@
 <?php
     include '../db/db_connect.php';
+    session_start();
 
     $name = $_POST['name'];
     $surname = $_POST['surname'];
@@ -25,6 +26,10 @@
         $sql = "INSERT INTO student (name, surname, birthdate, password, email)
         VALUES ('$name', '$surname', '$birthdate', '$password', '$email')";
         $conn->query($sql);
+        $_SESSION["name"] = $row["name"];
+        $_SESSION["surname"] = $row["surname"];
+        $_SESSION["birthdate"] = $row["birthdate"];
+        $_SESSION["email"] = $row["email"];
         echo "Success";
     }
     $stmt->close();
