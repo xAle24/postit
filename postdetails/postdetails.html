@@ -2,8 +2,10 @@
 <html>
 
 <head>
+    <meta charset="UTF-8">
     <title>PostDetails</title>
     <link rel="stylesheet" href="postdetails.css">
+    <link rel="stylesheet" href="availabilitiesbox.css">
 </head>
 
 <body>
@@ -22,15 +24,96 @@
                 </div>
             </div>
         </header>
-        <div class="postDetails">
-            <div class="descriptionContainer">
-                <article class="description">
-                    <p class="descriptionParagraph">Ciao amici! Dato che sta per cominciare la sessione, che dite 
-                        di vederci in campus per studiare assieme Web?</p>
-                </article>
+        <div class="postDetailsMainContainer">
+            <div class="descriptionAndReactionsContainer">
+                <div class="descriptionContainer">
+                    <article class="description">
+                        <p class="descriptionParagraph">Ciao amici! Dato che sta per cominciare la sessione, che dite
+                            di vederci in campus per studiare assieme Web?</p>
+                    </article>
+                </div>
+                <div class="reactionButtonsContainer">
+                    <button class="reactionButton" id="likeButton"></button>
+                    <!-- &#128077 is the unicode for the thumbs up emoji -->
+                    <button class="reactionButton" id="dislikeButton"></button>
+                    <!-- &#128078 is the unicode for the thumbs down emoji -->
+                    <button class="reactionButton" id="starryEyesButton"></button>
+                    <!-- &#129321 is the unicode for the starry eyes emoji -->
+                    <button class="reactionButton" id="heartButton"></button>
+                    <!-- &#10084 is the unicode for the heart emoji -->
+                    <button class="reactionButton" id="moaiButton"></button>
+                    <!-- &#128511 is the unicode for the moai emoji -->
+                </div>
+            </div>
+            <div class="locationContainer">
+                <h2 class="locationTitle">Luogo:</h2>
+                <hr>
+                <img src="../resources/position-icon.png" alt="Position Icon" class="positionIcon">
+                <p class="locationParagraph">Campus di Cesena</p>
+            </div>
+            <div class="availabilitiesContainer">
+                <h2 class="availabilitiesTitle">Disponibilità:</h2>
+                <hr>
+                <h3>Seleziona le date in cui potresti esserci!</h3>
+                <div class="availabilitiesBox">
+                    <div class="availability">
+                        <div class="availabilityDateAndPeople">
+                            <p class="availabilityParagraph">Giovedì 4 Maggio 2028, 14:00 - 16:00</p>
+                            <p class="availablePeopleParagraph">Tu e altre 15 persone disponibili</p>
+                        </div>
+                        <div class="availabilityCheckbox">
+                            <input type="checkbox" id="availabilityCheckbox1" name="availabilityCheckbox1">
+                            <label for="availabilityCheckbox1"></label>
+                        </div>
+                    </div>
+                    <div class="availability">
+                        <div class="availabilityDateAndPeople">
+                            <p class="availabilityParagraph">Giovedì 4 Maggio 2028, 14:00 - 16:00</p>
+                            <p class="availablePeopleParagraph">Tu e altre 15 persone disponibili</p>
+                        </div>
+                        <div class="availabilityCheckbox">
+                            <input type="checkbox" id="availabilityCheckbox2" name="availabilityCheckbox2">
+                            <label for="availabilityCheckbox2"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="postComments">
+            <header class="commentsSectionHeader">
+                <h2 class="commentsTitle">Commenti</h2>
+                <p class="commentsNumber">2</p>
+            </header>
+            <hr>
+            <div class="commentInputContainer">
+                <textarea id="commentTextArea" placeholder="Scrivi un commento pubblico..."></textarea>
+                <button id="commentButton"></button>
+            </div>
+            <div class="comment">
+                <div class="avatarContainer">
+                    <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
+                    <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatarBackground">
+                </div>
+                <div class="commentTextContainer">
+                    <h3 class="commentAuthor">Mario Rossi</h3>
+                    <p class="commentText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+                        consectetur, nunc nec ultricies.</p>
+                </div>
+            </div>
+            <div class="comment">
+                <div class="avatarContainer">
+                    <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
+                    <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatarBackground">
+                </div>
+                <div class="commentTextContainer">
+                    <h3 class="commentAuthor">Mario Rossi</h3>
+                    <p class="commentText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+                        consectetur, nunc nec ultricies.</p>
+                </div>
             </div>
         </div>
     </main>
+    <script src="postdetails.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,37 @@
+.availabilitiesBox {
+    display: flex;
+    flex-direction: column;
+    gap: 3%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    overflow-y: auto;
+    background-color: #c0d6df;
+    border: 8px solid;
+    border-image: repeating-linear-gradient(45deg, #beee62, #B9E85F, #6d8838) 20;
+    color: black; /* font color */
+    height: 50vh; /* height of the box; TODO: add javascript function to make it collapsible; see
+    https://www.w3schools.com/howto/howto_js_collapsible.asp */
+}
+
+.availability {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid white;
+    background-color: #beee62;
+    width: 90%;
+    padding: 10px;
+}
+
+.availabilityCheckbox {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: 20%;
+}
+
+.availabilityCheckbox > input {
+    width: 30px;
+    height: 30px;
+}
