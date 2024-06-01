@@ -85,3 +85,25 @@
     width: 12vh;
     height: 12vh;
 }
+
+.moreCommentsButtonContainer {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0px;
+}
+
+.showMoreCommentsButton {
+    width: 5vh;
+    height: 5vh;
+    background-image: url("../resources/show-more.svg");
+    background-size: contain;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    outline: none;
+}
+
+button.showMoreCommentsButton:hover {
+    width: 6vh;
+    height: 6vh;
+}
