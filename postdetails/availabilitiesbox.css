@@ -27,11 +27,17 @@
     position: relative;
     display: flex;
     justify-content: flex-end;
-    align-items: flex-end;
+    align-items: center;
+    gap: 2%;
     width: 20%;
 }
 
 .availabilityCheckbox > input {
     width: 30px;
     height: 30px;
+}
+
+.availabilityCheckbox > label {
+    display: none;
+    color: #677377;
 }

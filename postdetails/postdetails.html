@@ -16,8 +16,7 @@
         <header>
             <div class="postHeader">
                 <div class="avatarContainer">
-                    <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
-                    <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatarBackground">
+                    <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="mainAvatar" id="mainAvatar">
                 </div>
                 <div class="postHeaderTextContainer">
                     <h1 id="postTitle">Studiare Web in campus</h1>
@@ -35,15 +34,15 @@
                     </article>
                 </div>
                 <div class="reactionButtonsContainer">
-                    <button class="reactionButton" id="likeButton"><span class="icon" id="thumbUpIcon"></span>999</button>
+                    <button class="reactionButton" id="likeButton"><span class="icon" id="thumbUpIcon"></span>0</button>
                     <!-- &#128077 is the unicode for the thumbs up emoji -->
-                    <button class="reactionButton" id="dislikeButton"><span class="icon" id="thumbDownIcon"></span>999</button>
+                    <button class="reactionButton" id="dislikeButton"><span class="icon" id="thumbDownIcon"></span>0</button>
                     <!-- &#128078 is the unicode for the thumbs down emoji -->
-                    <button class="reactionButton" id="starryEyesButton"><span class="icon" id="starryEyesIcon"></span>999</button>
+                    <button class="reactionButton" id="starryEyesButton"><span class="icon" id="starryEyesIcon"></span>0</button>
                     <!-- &#129321 is the unicode for the starry eyes emoji -->
-                    <button class="reactionButton" id="heartButton"><span class="icon" id="heartIcon"></span>999</button>
+                    <button class="reactionButton" id="heartButton"><span class="icon" id="heartIcon"></span>0</button>
                     <!-- &#10084 is the unicode for the heart emoji -->
-                    <button class="reactionButton" id="moaiButton"><span class="icon" id="moaiIcon"></span>999</button>
+                    <button class="reactionButton" id="moaiButton"><span class="icon" id="moaiIcon"></span>0</button>
                     <!-- &#128511 is the unicode for the moai emoji -->
                 </div>
             </div>
@@ -66,8 +65,8 @@
                             <p class="availablePeopleParagraph">Tu e altre 15 persone disponibili</p>
                         </div>
                         <div class="availabilityCheckbox">
-                            <input type="checkbox" id="availabilityCheckbox1" name="availabilityCheckbox1">
-                            <label for="availabilityCheckbox1"></label>
+                            <label class="availabilityCheckboxLabel" id="availabilityCheckboxLabel1" for="availabilityCheckbox1"></label>
+                            <input type="checkbox" id="availabilityCheckbox1" name="availabilityCheckbox1" onchange="onCheckboxClick.call(this)">
                         </div>
                     </div>
                     <div class="availability">
@@ -76,8 +75,8 @@
                             <p class="availablePeopleParagraph">Tu e altre 15 persone disponibili</p>
                         </div>
                         <div class="availabilityCheckbox">
-                            <input type="checkbox" id="availabilityCheckbox2" name="availabilityCheckbox2">
-                            <label for="availabilityCheckbox2"></label>
+                            <label class="availabilityCheckboxLabel" id="availabilityCheckboxLabel2" for="availabilityCheckbox2"></label>
+                            <input type="checkbox" id="availabilityCheckbox2" name="availabilityCheckbox2" onchange="onCheckboxClick.call(this)">
                         </div>
                     </div>
                 </div>
@@ -91,35 +90,40 @@
             <hr>
             <div class="commentInputContainer">
                 <textarea id="commentTextArea" placeholder="Scrivi un commento pubblico..."></textarea>
-                <button id="commentButton"></button>
+                <button id="commentButton" onclick="addComment()"></button>
             </div>
-            <div class="comment">
-                <div class="avatarContainer">
-                    <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
-                    <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatarBackground">
-                </div>
-                <div class="commentTextContainer">
-                    <h3 class="commentAuthor">Mario Rossi</h3>
-                    <p class="commentText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                        consectetur, nunc nec ultricies.</p>
-                </div>
-            </div>
-            <div class="comment">
-                <div class="avatarContainer">
-                    <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
-                    <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatarBackground">
-                </div>
-                <div class="commentTextContainer">
-                    <h3 class="commentAuthor">Mario Rossi</h3>
-                    <p class="commentText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                        consectetur, nunc nec ultricies.</p>
-                </div>
-            </div>
+            <ul class="commentsList" id="commentsList">
+                <li class="commentListItem">
+                    <div class="comment">
+                        <div class="avatarContainer">
+                            <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
+                        </div>
+                        <div class="commentTextContainer">
+                            <h3 class="commentAuthor">Mario Rossi</h3>
+                            <p class="commentText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+                                consectetur, nunc nec ultricies.</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="commentListItem">
+                    <div class="comment">
+                        <div class="avatarContainer">
+                            <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
+                        </div>
+                        <div class="commentTextContainer">
+                            <h3 class="commentAuthor">Mario Rossi</h3>
+                            <p class="commentText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+                                consectetur, nunc nec ultricies.</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
             <div class="moreCommentsButtonContainer">
                 <button class="showMoreCommentsButton" title="Mostra altri commenti"></button>
             </div>
         </div>
     </main>
+    <script src="postdetailstemplates.js"></script>
     <script src="postdetails.js"></script>
 </body>
 
