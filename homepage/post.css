@@ -24,6 +24,7 @@
 
 .post a:hover {
     text-decoration: underline;
+    color: rgb(77, 39, 218);
 }
 
 .post>img {

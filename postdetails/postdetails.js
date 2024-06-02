@@ -3,7 +3,7 @@
 
 // Initialize an object to store the count of clicks for each button.
 // The object will have the button id as the key and the count as the value.
-// One user can only react with one type of each reaction per post.
+// One user can only choose one reaction per post.
 let reactionCountsOfCurrentUser = {
     likeButton: 0,
     dislikeButton: 0,
@@ -60,17 +60,34 @@ function addEventListenersToReactionButtons() {
                 reactionCountsOfCurrentUser[button.id]--
                 button.style.backgroundColor = 'transparent'
             } else if (reactionCountsOfCurrentUser[button.id] === 0) {
+                let previousReaction = getPreviousReaction(button.id)
+                console.log(previousReaction)
+                if (previousReaction !== undefined) {
+                    reactionCountsOfCurrentUser[previousReaction.id]--
+                    writeButtonNumber(previousReaction)
+                    previousReaction.style.backgroundColor = 'transparent'
+                }
                 reactionCountsOfCurrentUser[button.id]++
                 button.style.backgroundColor = 'rgba(235, 203, 216, 0.5)'
             }
-            let textNode = Array.from(button.childNodes).find(node => node.nodeType === Node.TEXT_NODE)
-            if (textNode !== null) {
-                textNode.textContent = reactionCountsOfCurrentUser[button.id]
-            } else {
-                button.appendChild(document.createTextNode(reactionCountsOfCurrentUser[button.id]))
-            }
+            writeButtonNumber(button)
         })
     })
+}
+
+function writeButtonNumber(button) {
+    let textNode = Array.from(button.childNodes).find(node => node.nodeType === Node.TEXT_NODE)
+    if (textNode !== null) {
+        textNode.textContent = reactionCountsOfCurrentUser[button.id]
+    } else {
+        button.appendChild(document.createTextNode(reactionCountsOfCurrentUser[button.id]))
+    }
+}
+
+function getPreviousReaction(buttonId) {
+    let buttons = document.querySelectorAll('.reactionButton')
+    return [...buttons].filter(button => button.id !== buttonId)
+        .filter(button => reactionCountsOfCurrentUser[button.id] === 1)[0]
 }
 
 function onCheckboxClick() {

@@ -1,0 +1,36 @@
+html {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+body {
+    background-color: #273043;
+    background-size: contain;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1vh;
+}
+
+button {
+    border: none;
+    outline: none;
+    background-size: contain;
+    background-color: #273043;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 5vh;
+    height: 5vh;
+}
+
+button:hover {
+    border: 1px solid white;
+    outline: 1px solid white;
+}
+
+#backBtn {
+    background-image: url(../resources/back_icon.svg);
+    transform: scaleX(-1);
+}
