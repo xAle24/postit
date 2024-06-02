@@ -4,16 +4,37 @@
 <head>
     <title>Profile</title>
     <link rel="stylesheet" href="profilepage.css">
+    <link rel="stylesheet" href="../homepage/post.css">
 </head>
 
 <body>
     <div id="back-button">
-        <button id="backIcon" onclick="window.location.href='../homepage/homepage.html'"></button>
+        <button id="backBtn" onclick="window.location.href='../homepage/homepage.html'"></button>
     </div>
     <div id="profile-head">
         <h2>Person's name</h2>
         <img src="profileimage.jpg" alt="Profile Image">
     </div>
+    <div class="postContainer">
+        <div class="post" title="Vai al dettaglio del post">
+            <a href="../postdetails/postdetails.html"></a>
+            <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
+            <p class="post-author" id="example-post-author">Post author goes here</p>
+            <a href="../postdetails/postdetails.html">Post title goes here</a>
+        </div>
+        <div class="post" title="Vai al dettaglio del post">
+            <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
+            <p class="post-author" id="example-post-author">Post author goes here</p>
+            <a href="../postdetails/postdetails.html">Post title goes here</a>
+        </div>
+        <div class="post" title="Vai al dettaglio del post">
+            <a href="../postdetails/postdetails.html"></a>
+            <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
+            <p class="post-author" id="example-post-author">Post author goes here</p>
+            <a href="../postdetails/postdetails.html">Post title goes here</a>
+        </div>
+    </div>
+    <script src="profilepage.js" defer></script>
 </body>
 
 </html>
