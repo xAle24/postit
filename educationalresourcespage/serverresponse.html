@@ -1,0 +1,34 @@
+<!-- This file is only used to quickly setup a server response page after uploading the materials. -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>ServerResponse</title>
+        <link rel="stylesheet" href="serverresponse.css">
+        <style>
+            button {
+                width: fit-content;
+                height: 5vh;
+                font-size: large;
+                background-color: #273043;
+                color: white;
+            }
+
+            button:hover {
+                border: 2px solid white;
+                outline: 1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <button id="backBtn" onclick="location.href='../homepage/homepage.html'">Torna alla home</button>
+            <div class="responseContainer">
+                <h2 id="responseTitle">Risposta del server</h2>
+                <hr>
+                <hr>
+                <button id="backToResourcesBtn" onclick="location.href='educationalresourcespage.html'">Torna alla pagina dei materiali</button>
+            </div>
+        </main>
+</html>

@@ -4,6 +4,31 @@ let numOfFiles = document.getElementById('numOfFiles')
 let submitInput = document.getElementById('submitInput')
 let objectURLs = [] // Array to store the object URLs
 
+
+// TODO: ensure that only the resources created by the current user are displayed
+/**
+ * Function called when the page loads. Queries the database 
+ * for the resources and creates a new entry for each one.
+ */
+window.onload = function() {
+    $.ajax({
+        url: 'fetch_resources.php',
+        type: 'GET',
+        success: function(data) {
+            // Parse the JSON data returned by the PHP script
+            var resources = JSON.parse(data)
+
+            // Call createNewResourceEntry for each resource
+            for (var i = 0; i < resources.length; i++) {
+                createNewResourceEntry(resources[i].fileName, resources[i].href)
+            }
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.log('Error: ' + textStatus + ' ' + errorThrown)
+        }
+    })
+}
+
 fileInput.addEventListener('change', function() {
     fileList.innerHTML = ''
     let files = fileInput.files
@@ -36,12 +61,20 @@ fileInput.addEventListener('change', function() {
 // Revoke the object URLs when the user navigates away from the page
 window.onbeforeunload = cancelUpload()
 
+/**
+ * Revoke the object URLs created for the files, to free up memory.
+ */
 function revokeURLs() {
     for (let url of objectURLs) {
         URL.revokeObjectURL(url)
     }
 }
 
+/**
+ * Function called when the user clicks the "Annulla" button.
+ * It clears the file input and the list of files.
+ * It also hides the submit and cancel buttons.
+ */
 function cancelUpload() {
     fileInput.value = null
     fileList.innerHTML = ''
@@ -51,4 +84,18 @@ function cancelUpload() {
     submitInput.style.display = 'none'
     let cancelButton = document.getElementById('cancelButton')
     cancelButton.style.display = 'none'
+}
+
+/**
+ * Creates a new clickable link in the nav list of resources.
+ * This should be called on the success of the AJAX request.
+ * @param {string} fileName 
+ * @param {string} href 
+ */
+function createNewResourceEntry(fileName, href) {
+    let a = document.createElement('a')
+    let container = document.getElementById('myResourcesNav')
+    a.href = href
+    a.textContent = fileName
+    container.appendChild(a)
 }
