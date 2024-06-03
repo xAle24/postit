@@ -27,4 +27,6 @@ foreach ($_FILES as $key => $value) {
     }
 }
 
+echo "<button onclick=\"window.location.href='educationalresourcespage.html'\">Back</button>";
+
 ?>
