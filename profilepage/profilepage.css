@@ -11,10 +11,33 @@ body {
     text-align: center;
 }
 
-#backIcon {
-    width: 25px;
-    height: 25px;
+#backBtn {
     background-image: url(../resources/back_icon.svg);
-    background-color: #273043;
     transform: scaleX(-1);
+    background-size: contain;
+    background-color: #273043;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 5vh;
+    height: 5vh;
+}
+
+.postContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 5%;
+}
+
+#uploadImg {
+    color: white;
+    padding: 0;
+    border: none;
+    background: none;
+    margin: auto;
+    display: flex;
+}
+
+#modifyImg {
+    margin-top: 1%;
 }
