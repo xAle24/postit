@@ -9,7 +9,21 @@ fetch('friend.php').then(response => response.json())
             h2.textContent = student.name;
             let followBtn = template.content.querySelector('.follow-button')
             followBtn.title = 'Follow';
-            followBtn.textContent = 'Followed';
+            followBtn.textContent = 'Segui già';
+            followBtn.addEventListener("click", function(){
+                console.log(student)
+                $.ajax({
+                    type: "get",
+                    url: "removefriend.php",
+                    data: {email: student.email},
+                    success: function(response){
+                        if (response === "Success") {
+                            followBtn.title = 'Segui';
+                            followBtn.textContent = 'Segui';
+                        }
+                    }
+                });
+            });
             document.body.appendChild(template.content);
         });
     })
