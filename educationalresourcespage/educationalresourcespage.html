@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>EducationalResourcesPage</title>
+    <link rel="stylesheet" href="educationalresourcespage.css">
+    <link rel="stylesheet" href="fileuploader.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+</head>
+
+<body>
+    <main>
+        <button id="backBtn" onclick="location.href='../homepage/homepage.html'"></button>
+        <div class="resourceSearchBarContainer">
+            <input type="text" id="resourceSearchBar" placeholder="Cerca materiale">
+            <button id="resourceSearchBtn"></button>
+        </div>
+        <div class="myResourcesContainer">
+            <h2 id="myMaterialTitle">Il tuo materiale</h2>
+            <hr>
+            <nav class="myResourcesNav">
+                <a href="#">Esempio 1</a>
+                <a href="#">Esempio 2</a>
+                <a href="#">Esempio 3</a>
+                <a href="#">Esempio 4</a>
+                <a href="#">Esempio 5</a>
+                <a href="#">Esempio 6</a>
+                <a href="#">Esempio 7</a>
+                <a href="#">Esempio 8</a>
+                <a href="#">Esempio 9</a>
+                <a href="#">Esempio 10</a>
+                <a href="#">Esempio 11</a>
+                <a href="#">Esempio 12</a>
+            </nav>
+        </div>
+        <h2 id="uploadFilesTitle">Carica file</h2>
+        <div class="uploadFilesContainer">
+            <form action="" method="post" enctype="multipart/form-data">
+                <div class="fileInputContainer">
+                    <input type="file" name="fileToUpload" id="fileInput" multiple>
+                    <label for="fileInput" id="fileInputLabel" title="Carica file dal tuo dispositivo">
+                        <span id="labelContent"><i class="fas fa-upload" aria-hidden="true"></i>
+                            <!--
+                             aria hidden is used to ensure screen readers
+                             don't waste time on reading icons
+                            -->
+                            Seleziona uno o più file
+                        </span>
+                    </label>
+                    <p id="numOfFiles">Nessun file selezionato</p>
+                </div>
+                <div class="uploadedFilesDisplayer">
+                    <ul id="fileList"></ul>
+                </div>
+                <div class="submitInputContainer">
+                    <button id="cancelButton" onclick="cancelUpload()"><i class="fa-solid fa-rotate-left"></i> Annulla</button>
+                    <input id="submitInput" type="submit" value="Carica file" name="submit">
+                </div>
+            </form>
+        </div>
+    </main>
+    <script src="educationalresources.js" defer></script>
+</body>
+
+</html>

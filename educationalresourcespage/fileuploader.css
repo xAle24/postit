@@ -1,0 +1,123 @@
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    padding: 2vh 0;
+    width: 100%;
+}
+
+.uploadFilesContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #c0d6df;
+    border: 5px dashed #273043;
+    outline: 2px solid white;
+    padding: 0 2vw;
+    gap: 2%;
+    box-sizing: border-box;
+}
+
+#fileInput {
+    display: none;
+}
+
+#fileInputLabel {
+    width: 100%;
+    height: 4vh;
+    padding: 3vh 2vw;
+    border-radius: 30px;
+    box-sizing: border-box;
+    border: 2px solid #478485;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 1.5em;
+    background-color: #75DDDE;
+}
+
+#fileInputLabel p {
+    font-size: medium;
+    color: #282e30;
+    width: 100%;
+}
+
+#fileInputLabel:hover {
+    background-color: #478485;
+    border-color: #273043;
+    color: white;
+    width: 100%;
+}
+
+input[type="submit"] {
+    margin: 1vh 0;
+    display: none;
+}
+
+#cancelButton {
+    display: none;
+    background-color: #273043;
+}
+
+.uploadedFilesDisplayer {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    padding: 2vh 0;
+    width: 100%;
+}
+
+.uploadedFilesDisplayer ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.uploadedFilesDisplayer ul > li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1vh;
+    border: 2px solid white;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.submitInputContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    gap: 2vw;
+}
+
+#cancelButton, #submitInput {
+    color: white;
+    border: none;
+    outline: none;
+    padding: 1vh 2vw;
+    border-radius: 30px;
+    cursor: pointer;
+    width: fit-content;
+    margin: 2px 5px;
+}
+
+#submitInput {
+    background-color: #478485;
+}
+
+#submitInput:hover {
+    background-color: #75DDDE;
+    border: 2px solid white;
+    color: black;
+}
+
+#cancelButton:hover {
+    background-color: #2e4372;
+    border: 2px solid #273043; 
+}
