@@ -36,9 +36,9 @@
         </div>
         <h2 id="uploadFilesTitle">Carica file</h2>
         <div class="uploadFilesContainer">
-            <form action="" method="post" enctype="multipart/form-data">
+            <form action="uploadresources.php" method="post" enctype="multipart/form-data">
                 <div class="fileInputContainer">
-                    <input type="file" name="fileToUpload" id="fileInput" multiple>
+                    <input type="file" name="fileToUpload[]" id="fileInput" multiple>
                     <label for="fileInput" id="fileInputLabel" title="Carica file dal tuo dispositivo">
                         <span id="labelContent"><i class="fas fa-upload" aria-hidden="true"></i>
                             <!--
@@ -54,7 +54,8 @@
                     <ul id="fileList"></ul>
                 </div>
                 <div class="submitInputContainer">
-                    <button id="cancelButton" onclick="cancelUpload()"><i class="fa-solid fa-rotate-left"></i> Annulla</button>
+                    <!-- If you put a button inside a form and do not specify its type, it defaults to "submit". -->
+                    <button id="cancelButton" type="button" onclick="cancelUpload()"><i class="fa-solid fa-rotate-left"></i> Annulla</button>
                     <input id="submitInput" type="submit" value="Carica file" name="submit">
                 </div>
             </form>
