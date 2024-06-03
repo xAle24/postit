@@ -27,18 +27,19 @@ body {
     justify-content: space-between;
     align-items: center;
     background-color: #C0D6DF;
-    margin: 5%;
+    margin: 3%;
     padding: 2%;
 }
-.friendBlock h2 {
-    font-size: 4vw;
+.profileName {
+    font-size: 6vh;
 }
 .friendInfo {
     display: flex;
     align-items: center;
 }
-.friendInfo img {
-    width: 20%;
+.profileImg {
+    width: 18vh;
+    min-width: 90px;
     margin: 0 2% 0 0;
 }
 .follow-button {

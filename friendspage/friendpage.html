@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="friendspage.css">
 </head>
 <body>
@@ -8,12 +10,34 @@
     <div class="search-bar">
         <input id="searchbar" type="text" placeholder="Add a friend...">
     </div>
+    <ul id="results"></ul>
     <div class="friendBlock">
         <div class="friendInfo">
-            <img src="../resources/straight-post-it.png">
-            <h2>Friend's Name</h2>
+            <img class="profileImg" src="../resources/straight-post-it.png">
+            <h2 class="profileName">Da rimuovere</h2>
         </div>
-        <button class="follow-button">Follow</button>
+        <button class="follow-button">Followed</button>
     </div>
+    <script src="friend.js"></script>
+    <script>
+          $("#searchbar").on("input", function() {
+            var searchQuery = $(this).val();
+            $.ajax({
+              url: 'search.php',
+              type: 'POST',
+              data: {search: searchQuery},
+              success: function(data) {
+                console.log(data);
+                var results = JSON.parse(data);
+                // Clear the list
+                $("#results").empty();
+                // Add each friend to the list
+                $.each(results, function(index, friend) {
+                  $("#results").append("<li>" + friend.name + "</li>");
+                });
+              }
+            });
+          });
+    </script>
 </body>
 </html>
