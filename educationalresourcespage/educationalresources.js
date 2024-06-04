@@ -17,7 +17,7 @@ window.onload = function() {
         success: function(data) {
             // Parse the JSON data returned by the PHP script
             var resources = JSON.parse(data)
-
+            
             // Call createNewResourceEntry for each resource
             for (var i = 0; i < resources.length; i++) {
                 createNewResourceEntry(resources[i].fileName, resources[i].href)
@@ -27,6 +27,7 @@ window.onload = function() {
             console.log('Error: ' + textStatus + ' ' + errorThrown)
         }
     })
+    fetchExistingSubjects()
 }
 
 fileInput.addEventListener('change', function() {
@@ -98,4 +99,38 @@ function createNewResourceEntry(fileName, href) {
     a.href = href
     a.textContent = fileName
     container.appendChild(a)
+}
+
+/**
+ * Function called on window load. Fetches existing subjects in the database,
+ * and uses the entries to populate the datalist associated with
+ * the #subjectInput input field.
+ */
+function fetchExistingSubjects() {
+    fetch('fetch_subjects.php')
+    .then(response => response.json())
+    .then(subjects => {
+        // Get a reference to the datalist
+        var select = document.getElementById('subjectInput');
+
+        // Create a new option element for each subject
+        for (var i = 0; i < subjects.length; i++) {
+            var option = document.createElement('option')
+            console.log(subjects[i])
+            option.value = subjects[i].name
+            option.textContent = subjects[i].name
+            select.appendChild(option)
+        }
+    })
+}
+
+function validateForm() {
+    let subject = document.getElementById('subjectInput').value
+    let descriptionTextArea = document.getElementById('descriptionInput').value
+    let files = fileInput.files
+    if (subject === '' || descriptionTextArea === '' || files.length === 0) {
+        alert('Devi compilare tutti i campi e selezionare almeno un file')
+        return false
+    }
+    return true
 }
