@@ -109,8 +109,8 @@ function createNewResourceEntry(fileName, href) {
 
     // Adding event listeners to show and hide the delete button
     let div = resourceContainerTemplate.content.querySelector('.singleResourceContainer')
-    div.addEventListener('mouseover', displayDeleteButton)
-    div.addEventListener('mouseout', hideDeleteButton)
+    //div.addEventListener('mouseover', displayDeleteButton)
+    //div.addEventListener('mouseout', hideDeleteButton)
 
     let container = document.getElementById('myResourcesNav')
     container.appendChild(resourceContainerTemplate.content)

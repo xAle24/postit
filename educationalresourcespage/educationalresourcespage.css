@@ -133,8 +133,14 @@ hr {
     align-items: center;
 }
 
+.singleResourceContainer a {
+    overflow: hidden; /* Hide overflow */
+    text-overflow: ellipsis; /* Show '...' for overflowed text */
+}
+
 .deleteResourceButton {
-    display: none;
+    /* display: none; */
+    width: 5vh;
 }
 
 @media (max-width: 600px) {
