@@ -29,15 +29,25 @@ body {
     margin-top: 5%;
 }
 
-#uploadImg {
+#modifyImg {
+    margin-top: 1%;
+}
+
+#imageInput {
+    display: none;
+}
+
+input[type="submit"] {
+    margin: 1vh 0;
+    display: none;
+}
+
+#labelContent {
     color: white;
     padding: 0;
     border: none;
     background: none;
-    margin: auto;
-    display: flex;
-}
-
-#modifyImg {
     margin-top: 1%;
+    text-align: center;
+    display: list-item;
 }
