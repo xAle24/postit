@@ -15,8 +15,6 @@
 
     // Execute the statement
     $stmt->execute();
-
-    // Get the result
     $result = $stmt->get_result();
 
     // Check if the email exists in the database
@@ -26,10 +24,10 @@
         $sql = "INSERT INTO student (name, surname, birthdate, password, email)
         VALUES ('$name', '$surname', '$birthdate', '$password', '$email')";
         $conn->query($sql);
-        $_SESSION["name"] = $row["name"];
-        $_SESSION["surname"] = $row["surname"];
-        $_SESSION["birthdate"] = $row["birthdate"];
-        $_SESSION["email"] = $row["email"];
+        $_SESSION["name"] = $name;
+        $_SESSION["surname"] = $surname;
+        $_SESSION["birthdate"] = $birthdate;
+        $_SESSION["email"] = $email;
         echo "Success";
     }
     $stmt->close();
