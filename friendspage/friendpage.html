@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="friendspage.css">
 </head>
 <body>
@@ -8,12 +11,10 @@
     <div class="search-bar">
         <input id="searchbar" type="text" placeholder="Add a friend...">
     </div>
-    <div class="friendBlock">
-        <div class="friendInfo">
-            <img src="../resources/straight-post-it.png">
-            <h2>Friend's Name</h2>
-        </div>
-        <button class="follow-button">Follow</button>
-    </div>
+    <div id="results"></div>
+    <hr>
+    <script src="friend.js"></script>
+    <script src="friendInfoTemplates.js"></script>
+    <script src="search.js"></script>
 </body>
 </html>
