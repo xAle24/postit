@@ -113,6 +113,7 @@ hr {
     margin: 0 1vh;
     display: flex;
     align-items: center;
+    width: 100%;
     height: 100%;
     padding: 0 10px;
     border-radius: 10px;
@@ -124,6 +125,16 @@ hr {
     color: blue;
     text-decoration: underline;
     background: linear-gradient(0deg, rgba(117,221,222,1) 0%, rgba(190,238,98,1) 82%);
+}
+
+.singleResourceContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.deleteResourceButton {
+    display: none;
 }
 
 @media (max-width: 600px) {

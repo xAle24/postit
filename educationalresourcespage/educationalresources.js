@@ -17,10 +17,11 @@ window.onload = function() {
         success: function(data) {
             // Parse the JSON data returned by the PHP script
             var resources = JSON.parse(data)
+            console.log("RESOURCES:" + resources)
             
             // Call createNewResourceEntry for each resource
             for (var i = 0; i < resources.length; i++) {
-                createNewResourceEntry(resources[i].fileName, resources[i].href)
+                createNewResourceEntry(resources[i].resourceName, "../database-content/uploads/" + resources[i].resourceName)
             }
         },
         error: function(jqXHR, textStatus, errorThrown) {
@@ -90,15 +91,29 @@ function cancelUpload() {
 /**
  * Creates a new clickable link in the nav list of resources.
  * This should be called on the success of the AJAX request.
- * @param {string} fileName 
- * @param {string} href 
+ * @param {string} fileName The name of the file to visit.
+ * @param {string} href A link to the correct file in the uploads folder.
+ * In a real application, this should point to an actual location on the internet.
  */
 function createNewResourceEntry(fileName, href) {
-    let a = document.createElement('a')
-    let container = document.getElementById('myResourcesNav')
+    let resourceContainerTemplate = document.createElement('template')
+    resourceContainerTemplate.innerHTML = resourceElementTemplate // from templates.js
+    
+    let a = resourceContainerTemplate.content.querySelector('a')
     a.href = href
     a.textContent = fileName
-    container.appendChild(a)
+    a.target = '_blank' // to navigate to another tab
+
+    let button = resourceContainerTemplate.content.querySelector('button')
+    button.addEventListener('click', removeResource)
+
+    // Adding event listeners to show and hide the delete button
+    let div = resourceContainerTemplate.content.querySelector('.singleResourceContainer')
+    div.addEventListener('mouseover', displayDeleteButton)
+    div.addEventListener('mouseout', hideDeleteButton)
+
+    let container = document.getElementById('myResourcesNav')
+    container.appendChild(resourceContainerTemplate.content)
 }
 
 /**
@@ -133,4 +148,40 @@ function validateForm() {
         return false
     }
     return true
+}
+
+function removeResource() {
+    console.log('Removing resource')
+    console.log("Button parent: " + this.parentElement)
+    let singleResourceContainer = this.parentElement
+    let resourceName = singleResourceContainer.querySelector('a').textContent
+    console.log("Resource name: " + resourceName)
+
+    // Send an AJAX request to the server to remove the resource
+    $.ajax({
+        url: 'remove_resource.php',
+        type: 'POST',
+        data: { 
+            resourceFilePath: "../database-content/uploads/" + resourceName,
+            resourceName: resourceName
+        },
+        success: function(data) {
+            console.log('Resource removed successfully')
+            // Remove the resource from the page
+            singleResourceContainer.remove()
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.log('Error: ' + textStatus + ' ' + errorThrown)
+        }
+    })
+}
+
+function displayDeleteButton() {
+    let deleteButton = this.querySelector('button')
+    deleteButton.style.display = 'block'
+}
+
+function hideDeleteButton() {
+    let deleteButton = this.querySelector('button')
+    deleteButton.style.display = 'none'
 }
