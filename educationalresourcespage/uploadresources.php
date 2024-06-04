@@ -47,7 +47,14 @@ foreach ($_FILES as $key => $value) {
 
         // Attempt to move the uploaded file to your desired location
         if (move_uploaded_file($value["tmp_name"][$i], $target_file)) {
-            echo "Il file ". $value["name"][$i]. " è stato caricato. <br/>";
+            echo "Il file " . $value["name"][$i] . " è stato caricato. <br/>";
+            $sql = "INSERT INTO educational_resource (resourceID, resourceName, filePath, `type`, email, subjectID) VALUES (?, ?, ?, ?, ?, ?)";
+            $stmt = $conn->prepare($sql);
+            echo $stmt->field_count;
+            // TODO: fields are not correct. Missing subjectID; resourceID should be autoincrement
+            $stmt->bind_param("issssi", $i, $value["name"][$i], $target_file, $value["type"][$i], $_SESSION["email"], $i);
+            $stmt->execute();
+            $stmt->close();
         } else {
             echo "Si è verificato un errore nel caricamento del file " . $value["name"][$i] . "<br/>";
         }
@@ -60,4 +67,4 @@ echo "      <hr>
     </main>
 </html>";
 
-?>
+$conn->close();
