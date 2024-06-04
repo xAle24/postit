@@ -1,4 +1,5 @@
 window.onload = onWindowLoad
+let modifyButton = document.getElementById("imageInput")
 
 function onWindowLoad() {
     console.log('Window loaded')
@@ -8,10 +9,6 @@ function onWindowLoad() {
         url: 'profilepage.php',
         type: 'GET',
         success: function(data) {
-            console.log("Weee" + data)
-            // Parse the JSON data returned by the PHP script
-            // var profile = JSON.parse(data)
-            console.log("RESOURCES:" + data.imagePath)
             if (data.imagePath !== '' && data.imagePath !== null && data.imagePath !== undefined) {
                 createNewImageEntry(data.imagePath)
             } else {
@@ -23,6 +20,19 @@ function onWindowLoad() {
         }
     })
 }
+
+modifyButton.addEventListener("click", function() {
+    $.ajax({
+        url: 'modifyImage.php',
+        type: 'POST',
+        success: function() {
+            location.reload()
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.log('Error: ' + textStatus + ' ' + errorThrown)
+        }
+    })
+})
 
 function createNewImageEntry(imageName) {
     let image = document.getElementById("imageProfile")
