@@ -10,8 +10,7 @@ create table ACHIEVEMENT_STUDENT (
      appointment date not null,
      state char not null,
      email varchar(50) not null,
-     constraint ID_ACHIEVEMENT_STUDENT_ID primary key (assignedAchievementID),
-     constraint SID_ACHIE_ACHIE_ID unique (achievementID));
+     constraint ID_ACHIEVEMENT_STUDENT_ID primary key (assignedAchievementID));
 
 create table ADDS (
      first_stu_email varchar(30) not null,
@@ -250,3 +249,46 @@ BEGIN
    FROM achievement;
 END; //
 DELIMITER ;
+
+DELIMITER //
+CREATE TRIGGER update_achievement_state
+AFTER INSERT ON meeting
+FOR EACH ROW
+BEGIN
+    DECLARE achievement_id INT;
+    SELECT id INTO achievement_id FROM achievement WHERE name = 'Organizzatore novello';
+    IF achievement_id IS NOT NULL THEN
+        UPDATE achievement_student
+        SET state = 1
+        WHERE achievement_student.email = NEW.email AND achievement_student.achievementID = achievement_id;
+    END IF;
+END; //
+DELIMITER ;
+
+DELIMITER //
+CREATE TRIGGER `update_achievement_friend` 
+AFTER INSERT ON `adds` 
+FOR EACH ROW 
+BEGIN 
+     DECLARE achievement_id varchar(36); 
+     DECLARE student_count INT; 
+     SELECT achievement.achievementID INTO achievement_id FROM achievement WHERE name = 'Chi trova un amico, trova un tesoro'; 
+     SELECT COUNT(*) INTO student_count FROM adds WHERE first_stu_email = NEW.first_stu_email; 
+     IF achievement_id IS NOT NULL AND student_count = 1 
+     THEN UPDATE achievement_student SET state = 1 WHERE achievement_student.email = NEW.first_stu_email AND achievementID = achievement_id; 
+     END IF; 
+END; //
+DELIMITER //
+
+DELIMITER //
+CREATE TRIGGER `update_achievement_login` 
+AFTER INSERT ON `student` 
+FOR EACH ROW 
+BEGIN 
+     DECLARE achievement_id VARCHAR(36); 
+     SELECT achievement.achievementID INTO achievement_id FROM achievement WHERE name = 'Benvenuto in Post-I.T.'; 
+     IF achievement_id IS NOT NULL THEN UPDATE achievement_student SET state = 1 
+          WHERE achievement_student.email = NEW.email AND achievement_student.achievementID = achievement_id; 
+     END IF; 
+END; //
+DELIMITER //

@@ -47,7 +47,7 @@
                 <div class="uploadedFilesDisplayer">
                     <ul id="fileList"></ul>
                 </div>
-                <div class="submitInputContainer">
+                <div class="descriptionInputContainer">
                     <textarea form="form" name="description" id="descriptionInput"
                         placeholder="Inserisci una descrizione dei materiali che stai caricando"></textarea>
                     <select name="subject" id="subjectInput" placeholder="Seleziona materia">
@@ -59,6 +59,8 @@
                         <option value="" disabled selected hidden>Scegli la materia relativa al materiale caricato
                         </option>
                     </select>
+                </div>
+                <div class="submitInputContainer">
                     <!-- If you put a button inside a form and do not specify its type, it defaults to "submit". -->
                     <button id="cancelButton" type="button" onclick="cancelUpload()"><i
                             class="fa-solid fa-rotate-left"></i> Annulla</button>

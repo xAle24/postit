@@ -30,13 +30,12 @@ body {
 .achievement {
     display: flex;
     align-items: center;
-    justify-content: center;
     width: 60%;
     background-color: #C0D6DF;
     margin: 1%;
 }
-.achievement img {
-    margin-right: 1rem;
+.achievementImg {
+    margin: 1rem;
     width: 20%;
 }
 .unlockedbanner{
