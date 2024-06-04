@@ -4,6 +4,29 @@ function onWindowLoad() {
     console.log('Window loaded')
     const posts = document.querySelectorAll('.post') // Get all the posts on the page
     rotatePosts(posts) // Rotate the posts
+    $.ajax({
+        url: 'profilepage.php',
+        type: 'GET',
+        success: function(data) {
+            console.log("Weee" + data)
+            // Parse the JSON data returned by the PHP script
+            var profile = JSON.parse(data)
+            console.log("RESOURCES:" + profile)
+            if (profile.imagePath !== '' && profile.imagePath !== null) {
+                createNewImageEntry(profile.imagePath)
+            } else {
+                createNewImageEntry("../database-content/profile-image/Haikyuu.png")
+            }
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.log('Error: ' + textStatus + ' ' + errorThrown)
+        }
+    })
+}
+
+function createNewImageEntry(imageName) {
+    let image = document.getElementById("imageProfile")
+    image.src = imageName
 }
 
 function rotatePosts(posts) {
