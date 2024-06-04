@@ -21,7 +21,11 @@ function onWindowLoad() {
     })
 }
 
-modifyButton.addEventListener("click", function() {
+document.getElementById("imageInput").addEventListener("change", function() {
+    this.form.submit()
+})
+
+/* modifyButton.addEventListener("click", function() {
     $.ajax({
         url: 'modifyImage.php',
         type: 'POST',
@@ -32,7 +36,7 @@ modifyButton.addEventListener("click", function() {
             console.log('Error: ' + textStatus + ' ' + errorThrown)
         }
     })
-})
+}) */
 
 function createNewImageEntry(imageName) {
     let image = document.getElementById("imageProfile")

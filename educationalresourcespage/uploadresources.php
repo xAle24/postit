@@ -11,21 +11,7 @@ echo "<!DOCTYPE html>
     <head>
         <meta charset=\"UTF-8\">
         <title>ServerResponse</title>
-        <link rel=\"stylesheet\" href=\"serverresponse.css\">
-        <style>
-            button {
-                width: fit-content;
-                height: 5vh;
-                font-size: large;
-                background-color: #273043;
-                color: white;
-            }
-
-            button:hover {
-                border: 2px solid white;
-                outline: 1px solid black;
-            }
-        </style>
+        <link rel=\"stylesheet\" href=\"../common/serverresponse.css\">
     </head>
     <body>
         <main>
