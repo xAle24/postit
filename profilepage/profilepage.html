@@ -15,8 +15,21 @@
         <h2>Person's name</h2>
         <img src="profileimage.jpg" alt="Profile Image">
     </div>
-    <div id="modifyImg">
-        <button id="uploadImg" onclick="">Modifica</button>
+    <div class="uploadImageContainer">
+        <form action="" method="post" enctype="form-data">
+            <div class="imageInputContainer">
+                <input type="file" name="imageToUpload" id="imageInput">
+                <label for="imageInput" id="imageInputLabel" title="Carica immagine dal tuo dispositivo">
+                    <span id="labelContent"><i class="fas fa-upload" aria-hidden="true"></i>
+                        <!--                         
+                         aria hidden is used to ensure screen readers
+                         don't waste time on reading icons
+                         -->
+                        Modifica
+                    </span>
+                </label>
+            </div>
+        </form>
     </div>
     <div class="postContainer">
         <div class="post" title="Vai al dettaglio del post">
