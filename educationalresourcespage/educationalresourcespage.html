@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="educationalresourcespage.css">
     <link rel="stylesheet" href="fileuploader.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="templates.js"></script>
 </head>
 
 <body>
@@ -19,26 +22,17 @@
         <div class="myResourcesContainer">
             <h2 id="myMaterialTitle">Il tuo materiale</h2>
             <hr>
-            <nav class="myResourcesNav">
-                <a href="#">Esempio 1</a>
-                <a href="#">Esempio 2</a>
-                <a href="#">Esempio 3</a>
-                <a href="#">Esempio 4</a>
-                <a href="#">Esempio 5</a>
-                <a href="#">Esempio 6</a>
-                <a href="#">Esempio 7</a>
-                <a href="#">Esempio 8</a>
-                <a href="#">Esempio 9</a>
-                <a href="#">Esempio 10</a>
-                <a href="#">Esempio 11</a>
-                <a href="#">Esempio 12</a>
+            <nav class="myResourcesNav" id="myResourcesNav">
+                <!-- Existing resources related to this user will be populated here using JavaScript and PHP -->
             </nav>
         </div>
         <h2 id="uploadFilesTitle">Carica file</h2>
         <div class="uploadFilesContainer">
-            <form action="" method="post" enctype="multipart/form-data">
+            <!-- If the call to validateForm() returns true, the submission proceeds normally, otherwise it is blocked. -->
+            <form id="form" action="uploadresources.php" method="post" enctype="multipart/form-data"
+                onsubmit="return validateForm()">
                 <div class="fileInputContainer">
-                    <input type="file" name="fileToUpload" id="fileInput" multiple>
+                    <input type="file" name="fileToUpload[]" id="fileInput" multiple>
                     <label for="fileInput" id="fileInputLabel" title="Carica file dal tuo dispositivo">
                         <span id="labelContent"><i class="fas fa-upload" aria-hidden="true"></i>
                             <!--
@@ -53,8 +47,23 @@
                 <div class="uploadedFilesDisplayer">
                     <ul id="fileList"></ul>
                 </div>
+                <div class="descriptionInputContainer">
+                    <textarea form="form" name="description" id="descriptionInput"
+                        placeholder="Inserisci una descrizione dei materiali che stai caricando"></textarea>
+                    <select name="subject" id="subjectInput" placeholder="Seleziona materia">
+                        <!-- Existing subjects will be populated here using JavaScript and PHP -->
+                        <!--
+                            Una specie di placeholder. Fonte: 
+                            https://www.w3docs.com/snippets/css/how-to-create-a-placeholder-for-an-html5-select-box-by-using-only-html-and-css.html
+                        -->
+                        <option value="" disabled selected hidden>Scegli la materia relativa al materiale caricato
+                        </option>
+                    </select>
+                </div>
                 <div class="submitInputContainer">
-                    <button id="cancelButton" onclick="cancelUpload()"><i class="fa-solid fa-rotate-left"></i> Annulla</button>
+                    <!-- If you put a button inside a form and do not specify its type, it defaults to "submit". -->
+                    <button id="cancelButton" type="button" onclick="cancelUpload()"><i
+                            class="fa-solid fa-rotate-left"></i> Annulla</button>
                     <input id="submitInput" type="submit" value="Carica file" name="submit">
                 </div>
             </form>
