@@ -9,6 +9,8 @@ function onWindowLoad() {
         url: 'profilepage.php',
         type: 'GET',
         success: function(data) {
+            console.log('Data: ' + data)
+            data = JSON.parse(data)
             if (data.imagePath !== '' && data.imagePath !== null && data.imagePath !== undefined) {
                 createNewImageEntry(data.imagePath)
             } else {
@@ -24,19 +26,6 @@ function onWindowLoad() {
 document.getElementById("imageInput").addEventListener("change", function() {
     this.form.submit()
 })
-
-/* modifyButton.addEventListener("click", function() {
-    $.ajax({
-        url: 'modifyImage.php',
-        type: 'POST',
-        success: function() {
-            location.reload()
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            console.log('Error: ' + textStatus + ' ' + errorThrown)
-        }
-    })
-}) */
 
 function createNewImageEntry(imageName) {
     let image = document.getElementById("imageProfile")
