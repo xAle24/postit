@@ -10,10 +10,10 @@ function onWindowLoad() {
         success: function(data) {
             console.log("Weee" + data)
             // Parse the JSON data returned by the PHP script
-            var profile = JSON.parse(data)
-            console.log("RESOURCES:" + profile)
-            if (profile.imagePath !== '' && profile.imagePath !== null) {
-                createNewImageEntry(profile.imagePath)
+            // var profile = JSON.parse(data)
+            console.log("RESOURCES:" + data.imagePath)
+            if (data.imagePath !== '' && data.imagePath !== null && data.imagePath !== undefined) {
+                createNewImageEntry(data.imagePath)
             } else {
                 createNewImageEntry("../database-content/profile-image/Haikyuu.png")
             }
