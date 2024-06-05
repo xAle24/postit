@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <title>PostCreationPage</title>
     <link rel="stylesheet" href="postcreationpage.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -14,39 +16,68 @@
             <img src="../resources/logo-with-writing.png" alt="logo" class="logo">
             <h1>Crea un nuovo post</h1>
         </header>
-        <form id="postCreationForm">
-            <label for="postTitle">Titolo del post:</label>
-            <input type="text" id="postTitle" name="postTitle" required>
-            <label for="postDescription">Descrizione del post:</label>
-            <textarea id="postDescription" name="postDescription" required></textarea>
-            <header>
-                <p>Aggiungi disponibilità:</p>
-            </header>
-            <div id="availabilitiesContainer">
-                <ul id="availabilitiesList">
-                    <li>
-                        <div id="inputContainer">
-                            <fieldset> <legend>Disponibilità:</legend>
-                                <label for="availabilityDate">Data:</label>
-                                <input type="date" id="availabilityDate" name="availabilityDate" required>
-                                <label for="startTime">dalle ore</label>
-                                <input type="time" id="startTime" name="startTime" required>
-                                <label for="endTime">alle ore</label>
-                                <input type="time" id="endTime" name="endTime" required>
-                            </fieldset>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <div class="buttonContainer" id="buttonContainer">
-                <button type="button" id="addAvailability" class="buttonClass">Aggiungi disponibilità</button>
-            </div>
-            <label for="postLocation">Luogo dell'evento:</label>
-            <input type="text" id="postLocation" name="postLocation" required>
-            <button id="createPostButton" type="submit" class="buttonClass">Crea post</button>
-        </form>
+        <div id="formContainer">
+            <form id="postCreationForm" method="post" onsubmit="tryToSubmitData()">
+                <label for="postTitle">Titolo del post:</label>
+                <input type="text" id="postTitle" name="postTitle" required>
+                <label for="postDescription">Descrizione del post:</label>
+                <textarea id="postDescription" name="postDescription" required></textarea>
+                <header>
+                    <p>Aggiungi disponibilità:</p>
+                </header>
+                <div id="availabilitiesContainer">
+                    <ul id="availabilitiesList">
+                        <li>
+                            <div id="inputContainer">
+                                <fieldset id="availabilityFieldset">
+                                    <legend>Disponibilità:</legend>
+                                    <label for="availabilityDate">Data:</label>
+                                    <input type="date" id="availabilityDate" name="availabilityDate[]" required>
+                                    <label for="startTime">dalle ore</label>
+                                    <input type="time" id="startTime" name="startTime[]" required>
+                                    <label for="endTime">alle ore</label>
+                                    <input type="time" id="endTime" name="endTime[]" required>
+                                </fieldset>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="buttonContainer" id="buttonContainer">
+                    <button type="button" id="addAvailability" class="buttonClass">Aggiungi disponibilità</button>
+                </div>
+                <fieldset id="meetingLocationFieldset">
+                    <legend>Luogo dell'evento:</legend>
+                    <label for="postLocation">Nome del luogo:</label>
+                    <input type="text" id="postLocation" name="postLocation" required>
+                    <label for="locationStreet">Via:</label>
+                    <input type="text" id="locationStreet" name="locationStreet" required>
+                    <label for="streetNumber">Numero civico:</label>
+                    <input type="number" id="streetNumber" name="streetNumber" min="0" max="9999" required>
+                    <label for="locationCity">Città:</label>
+                    <input type="text" id="locationCity" name="locationCity" required>
+                    <label for="locationPostalCode">CAP:</label>
+                    <input type="number" id="locationPostalCode" name="locationPostalCode" min="0" max="99999" required>
+                </fieldset>
+                <div id="lastElementsContainer">
+                    <label for="meeting-type">Tipo di incontro:</label>
+                    <select id="meeting-type" name="meeting-type" required>
+                        <option value="" disabled selected hidden>Scegli il tipo di incontro
+                        </option>
+                        <option value="study-meeting">Incontro per studiare</option>
+                        <option value="hangout">Uscita informale</option>
+                    </select>
+                    <label for="studySubject">Materia:</label>
+                    <select id="subjectInput" name="subject">
+                        <option value="" disabled selected hidden>Scegli la materia</option>
+                        <!-- The available options will be filled in by JavaScript and PHP -->
+                    </select>
+                </div>
+                <button id="createPostButton" type="submit" class="buttonClass">Crea post</button>
+            </form>
+        </div>
     </main>
     <script src="postcreationpage.js" defer></script>
+    <script src="dbinteraction.js" defer></script>
 </body>
 
 </html>

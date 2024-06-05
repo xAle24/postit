@@ -1,0 +1,19 @@
+-- notification to someone that follows you
+CREATE TRIGGER new_meeting_notification
+AFTER INSERT ON MEETING
+FOR EACH ROW
+BEGIN
+    INSERT INTO NOTIFICATION (notificationID, description, state, email, timestamp)
+    SELECT UUID(), CONCAT('New meeting from: ', NEW.email), 'unread', first_stu_email, NOW()
+    FROM ADDS
+    WHERE second_stu_email = NEW.email;
+END;
+
+-- notification when someone writes you 
+CREATE TRIGGER new_message_notification
+AFTER INSERT ON MESSAGE
+FOR EACH ROW
+BEGIN
+    INSERT INTO NOTIFICATION (notificationID, description, state, email, timestamp)
+    VALUES (UUID(), CONCAT('New message from: ', NEW.Sen_email), 'unread', NEW.rec_email, NOW());
+END;
