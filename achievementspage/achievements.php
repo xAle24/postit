@@ -8,11 +8,11 @@
     $stmt->bind_param("s", $_SESSION["email"]);
     $stmt->execute();
     $result = $stmt->get_result();
-    $achievements = array();
+    $postBriefDetails = array();
     while ($row = $result->fetch_assoc()) {
-        $achievements[] = $row;
+        $postBriefDetails[] = $row;
     }
-    echo json_encode($achievements);
+    echo json_encode($postBriefDetails);
     $stmt->close();
     $conn->close();
 ?>

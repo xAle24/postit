@@ -16,3 +16,9 @@ VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]',
 INSERT INTO `location`(`locationID`, `name`, `street`, `streetNumber`,
  `city`, `cap`) 
  VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]');
+
+ -- Insertion of the post brief details in homepage
+SELECT meeting.meetingID, meeting.title, student.imagePath, student.name, student.surname
+FROM MEETING 
+JOIN ADDS ON 'miau@gmail.com' = adds.first_stu_email
+JOIN student ON student.email = 'miau@gmail.com';

@@ -2,9 +2,9 @@ window.onload = onWindowLoad
 
 function onWindowLoad() {
     console.log('Window loaded')
-    const posts = document.querySelectorAll('.post') // Get all the posts on the page
-    rotatePosts(posts) // Rotate the posts
+    fetchPosts()
 }
+
 
 function rotatePosts(posts) {
     posts.forEach(post => {
@@ -34,4 +34,40 @@ document.getElementById("notificationBtn").onclick = function() {
             x.style.display = "none";
         }, 300); // Timeout for CSS transition
     }
+}
+
+// TODO
+function fetchPosts() {
+    fetch('loadPosts.php')
+        .then(response => response.json())
+        .then(posts => {
+            posts.forEach(post => {
+                createPost(post.imagePath, post.name + ' ' + post.surname, post.meetingID, post.title)
+            })
+        })
+        .then(() =>{
+            const posts = document.querySelectorAll('.post') // Get all the posts on the page
+            console.log("Posts content: " + JSON.stringify(posts))
+            rotatePosts(posts) // Rotate the posts
+        })
+}
+
+/**
+ * Creates a new post to display in the homepage.
+ * @param {string} imagePath path to the profile image
+ * @param {string} author the author's name and surname
+ */
+function createPost(imagePath, author, postID, postTitle) {
+    let template = document.createElement('template')
+    template.innerHTML = postTemplate
+    let img = template.content.querySelector('img')
+    let p = template.content.querySelector('p')
+    let a = template.content.querySelector('a')
+    img.src = imagePath
+    p.textContent = author
+    //a.href = link
+    a.textContent = postTitle
+
+    let container = document.querySelector('.postContainer')
+    container.appendChild(template.content)
 }
