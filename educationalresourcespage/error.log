@@ -1682,3 +1682,28 @@ Query result in fetch_searched_resources.php: Array
 )
 
 JSON format in fetch_searched_resources.php: [{"resourceName":"anvil and hammer.jpg","name":"Alin","surname":"Bordeianu","filePath":"..\/database-content\/uploads\/anvil and hammer.jpg","subject":"WEB"},{"resourceName":"Banner-1200x375.jpg","name":"Alin","surname":"Bordeianu","filePath":"..\/database-content\/uploads\/Banner-1200x375.jpg","subject":"WEB"},{"resourceName":"codice.jpg","name":"Alin","surname":"Bordeianu","filePath":"..\/database-content\/uploads\/codice.jpg","subject":"WEB"},{"resourceName":"data valida infame.jpg","name":"Alin","surname":"Bordeianu","filePath":"..\/database-content\/uploads\/data valida infame.jpg","subject":"WEB"},{"resourceName":"javascript mi fa gli scherzi.jpg","name":"Giulia","surname":"Saphi","filePath":"..\/database-content\/uploads\/javascript mi fa gli scherzi.jpg","subject":"MOBILE"},{"resourceName":"Meme su Make.jpg","name":"Alin","surname":"Bordeianu","filePath":"..\/database-content\/uploads\/Meme su Make.jpg","subject":"WEB"},{"resourceName":"Modulo_1_-_Formazione_Generale_Sicurezza_e_Salute_","name":"Alin","surname":"Bordeianu","filePath":"..\/database-content\/uploads\/Modulo_1_-_Formazione_Generale_Sicurezza_e_Salute__10_ott_2021_a8e89505.png","subject":"IOT"},{"resourceName":"Monster Hunter Banner.jpg","name":"Alin","surname":"Bordeianu","filePath":"..\/database-content\/uploads\/Monster Hunter Banner.jpg","subject":"WEB"},{"resourceName":"ProductionPlan - Editor progetto - Apps Script.htm","name":"Alin","surname":"Bordeianu","filePath":"..\/database-content\/uploads\/ProductionPlan - Editor progetto - Apps Script.html","subject":"WEB"},{"resourceName":"Screenshot (98).png","name":"Alin","surname":"Bordeianu","filePath":"..\/database-content\/uploads\/Screenshot (98).png","subject":"WEB"},{"resourceName":"sfondo matematico.jpg","name":"Alin","surname":"Bordeianu","filePath":"..\/database-content\/uploads\/sfondo matematico.jpg","subject":"WEB"},{"resourceName":"TheFirstTree_ending.png","name":"Alin","surname":"Bordeianu","filePath":"..\/database-content\/uploads\/TheFirstTree_ending.png","subject":"WEB"},{"resourceName":"TheFirstTree_Submission.png","name":"Alin","surname":"Bordeianu","filePath":"..\/database-content\/uploads\/TheFirstTree_Submission.png","subject":"OOP"},{"resourceName":"Troll-Face-Meme-PNG.webp","name":"Giulia","surname":"Saphi","filePath":"..\/database-content\/uploads\/Troll-Face-Meme-PNG.webp","subject":"MOBILE"}]
+Query result in fetch_searched_resources.php: 
+JSON format in fetch_searched_resources.php: null
+Query result in fetch_searched_resources.php: 
+JSON format in fetch_searched_resources.php: null
+Query result in fetch_searched_resources.php: 
+JSON format in fetch_searched_resources.php: null
+File type: application/pdf
+Query result in fetch_searched_resources.php: Array
+(
+    [0] => Array
+        (
+            [resourceName] => CompitoBD_Lug22_sol.pdf
+            [name] => alin
+            [surname] => bord
+            [filePath] => ../database-content/uploads/CompitoBD_Lug22_sol.pdf
+            [subject] => WEB
+        )
+
+)
+
+JSON format in fetch_searched_resources.php: [{"resourceName":"CompitoBD_Lug22_sol.pdf","name":"alin","surname":"bord","filePath":"..\/database-content\/uploads\/CompitoBD_Lug22_sol.pdf","subject":"WEB"}]
+Query result in fetch_searched_resources.php: 
+JSON format in fetch_searched_resources.php: null
+Query result in fetch_searched_resources.php: 
+JSON format in fetch_searched_resources.php: null

@@ -31,7 +31,9 @@ function queryDatabase() {
             // Parse the JSON string into a JavaScript object
             let resources = JSON.parse(data)
             // Add the resources to the allResources array
-            allResources.push(...resources)
+            if (resources !== null) {
+                allResources.push(...resources)
+            }
             console.log("All fetched resources:" + JSON.stringify(resources))
         },
         error: function (jqXHR, textStatus, errorThrown) {
