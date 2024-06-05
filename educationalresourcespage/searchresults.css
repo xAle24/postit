@@ -30,8 +30,6 @@
     overflow-y: auto;
     z-index: 1; /* Use to bring the search bar content to front, and to cover the other content of the page */
     box-sizing: border-box;
-
-    
     max-height: 20vh;
     overflow-y: auto;
     padding: 1vw 1vh;
