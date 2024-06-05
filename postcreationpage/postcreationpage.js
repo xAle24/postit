@@ -39,7 +39,7 @@ function createDateInputAndLabel() {
     label.textContent = 'Data:'
     let input = document.createElement('input')
     input.type = 'date'
-    input.name = 'availabilityDate'
+    input.name = 'availabilityDate[]'
     input.required = true
     label.appendChild(input)
     return label
@@ -55,7 +55,7 @@ function createTimeInputAndLabel(timeType) {
     label.textContent = timeType
     let input = document.createElement('input')
     input.type = 'time'
-    input.name = 'startTime'
+    input.name = 'startTime[]'
     input.required = true
     label.appendChild(input)
     return label
