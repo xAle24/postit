@@ -19,6 +19,7 @@ echo "<!DOCTYPE html>
             <div class=\"responseContainer\">
                 <h2 id=\"responseTitle\">Risposta del server</h2>
                 <hr>";
+// TODO: it's better to use a link than a button to go back to the resources page
 
 foreach ($_FILES as $key => $value) {
     // $value["name"] is an array, so we need to iterate over it
@@ -39,11 +40,12 @@ foreach ($_FILES as $key => $value) {
             // echo "Found description: " . $description . "<br/>";
             $subjectID = getSubjectUUID($subject, $conn); // Fetch the subjectID using the getSubjectUUID function
             $resourceUUID = uniqid(); // Generate a UUID for resourceID
+            $file_type_code = getFileCode($value["type"][$i]);
 
             $sql = "INSERT INTO educational_resource (resourceID, resourceName, filePath, `type`, email, subjectID) VALUES (?, ?, ?, ?, ?, ?)";
             $stmt = $conn->prepare($sql);
             //echo $stmt->field_count . "<br/>";
-            $stmt->bind_param("ssssss", $resourceUUID, $value["name"][$i], $target_file_path, $value["type"][$i], $_SESSION["email"], $subjectID);
+            $stmt->bind_param("sssiss", $resourceUUID, $value["name"][$i], $target_file_path, $file_type_code, $_SESSION["email"], $subjectID);
             $stmt->execute();
             $stmt->close();
             echo "Il file " . $value["name"][$i] . " è stato caricato. <br/>";
@@ -69,6 +71,29 @@ function getSubjectUUID($subject, $conn) {
     $result = $stmt->get_result();
     $stmt->close();
     return $result->fetch_assoc()["subjectID"];
+}
+
+/**
+ * Takes a file mime type and returns a code that represents the type of the file.
+ * 0: pdf
+ * 1: image
+ * 2: video
+ * 3: audio
+ * 4: other
+ */
+function getFileCode($fileType) {
+    error_log("File type: " . $fileType . "\n", 3, "error.log");
+    if (strpos($fileType, "pdf") !== false) {
+        return 0;
+    } else if (strpos($fileType, "image") !== false) {
+        return 1;
+    } else if (strpos($fileType, "video") !== false) {
+        return 2;
+    } else if (strpos($fileType, "audio") !== false) {
+        return 3;
+    } else {
+        return 4;
+    }
 }
 
 // NOT NEEDED

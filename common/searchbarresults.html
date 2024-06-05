@@ -1,0 +1,30 @@
+<!--
+    A file containing the basic structure for creating a table to display search results.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Searchbar Results</title>
+    <link rel="stylesheet" href="searchbarresults.css">
+</head>
+<body>
+    <div class="searchResultsContainer" id="searchResultsContainer">
+        <nav>
+            <!-- Search results will be populated here using JavaScript and PHP -->
+            <table id="table">
+                <tr>
+                    <th>Nome file</th>
+                    <th>Autore</th>
+                    <th>Materia</th>
+                </tr>
+            </table>
+        </nav>
+        <button id="testButton" onclick="addLine(['Immagine1', 'Alin', 'Informatica'])">Test</button>
+    </div>
+    <div id="uselessStuff">
+        <p>Useless stuff</p>
+    </div>
+    <script src="tableinteraction.js" defer></script>
+</body>
+</html>
