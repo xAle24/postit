@@ -89,8 +89,8 @@ create table MESSAGE (
      messageID char(36) not null DEFAULT (uuid()),
      content varchar(200) not null,
      timestamp datetime not null,
-     rec_email varchar(10),
-     Sen_email varchar(10) not null,
+     rec_email varchar(50),
+     Sen_email varchar(50) not null,
      groupID char(36) DEFAULT (uuid()),
      constraint ID_MESSAGE_ID primary key (messageID));
 

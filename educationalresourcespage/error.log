@@ -1703,3 +1703,7 @@ Query result in fetch_searched_resources.php: Array
 )
 
 JSON format in fetch_searched_resources.php: [{"resourceName":"CompitoBD_Lug22_sol.pdf","name":"alin","surname":"bord","filePath":"..\/database-content\/uploads\/CompitoBD_Lug22_sol.pdf","subject":"WEB"}]
+Query result in fetch_searched_resources.php: 
+JSON format in fetch_searched_resources.php: null
+Query result in fetch_searched_resources.php: 
+JSON format in fetch_searched_resources.php: null
