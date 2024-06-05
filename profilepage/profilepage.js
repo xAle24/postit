@@ -12,7 +12,7 @@ function onWindowLoad() {
         success: function(data) {
             console.log('Data: ' + data)
             data = JSON.parse(data)
-            if (data.imagePath !== '' && data.imagePath !== null && data.imagePath !== undefined && data.imagePath !== '[value-6]') {
+            if (data.imagePath !== '' && data.imagePath !== null && data.imagePath !== undefined) {
                 createNewImageEntry(data.imagePath)
             } else {
                 createNewImageEntry("../database-content/profile-image/User-avatar.png")
