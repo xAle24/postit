@@ -2,6 +2,7 @@ create table ACHIEVEMENT (
      achievementID char(36) not null DEFAULT (uuid()),
      name varchar(50) not null,
      description varchar(200) not null,
+     imagePath varchar(200) not null,
      constraint ID_ACHIEVEMENT_ID primary key (achievementID));
 
 create table ACHIEVEMENT_STUDENT (
@@ -27,6 +28,7 @@ create table COMMENT (
      content varchar(200) not null,
      meetingID char(36) not null DEFAULT (uuid()),
      email varchar(50) not null,
+     timestamp datetime not null,
      constraint ID_COMMENT_ID primary key (commentID));
 
 create table COURSE (
@@ -74,9 +76,10 @@ create table MEETING (
      meetingID char(36) not null DEFAULT (uuid()),
      content varchar(200) not null,
      appointment date not null,
-     startTime numeric(2) not null,
-     endTime numeric(2) not null,
+     startTime time not null,
+     endTime time not null,
      type numeric(1) not null,
+     timestamp datetime not null,
      email varchar(50) not null,
      locationID char(36) not null DEFAULT (uuid()),
      subjectID varchar(10),
@@ -85,6 +88,7 @@ create table MEETING (
 create table MESSAGE (
      messageID char(36) not null DEFAULT (uuid()),
      content varchar(200) not null,
+     timestamp datetime not null,
      rec_email varchar(10),
      Sen_email varchar(10) not null,
      groupID char(36) DEFAULT (uuid()),
@@ -95,6 +99,7 @@ create table NOTIFICATION (
      description varchar(200) not null,
      state char not null,
      email varchar(50) not null,
+     timestamp datetime not null,
      constraint ID_NOTIFICATION_ID primary key (notificationID));
 
 create table PROFESSOR (
