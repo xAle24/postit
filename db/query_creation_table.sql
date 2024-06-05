@@ -14,8 +14,8 @@ create table ACHIEVEMENT_STUDENT (
      constraint ID_ACHIEVEMENT_STUDENT_ID primary key (assignedAchievementID));
 
 create table ADDS (
-     first_stu_email varchar(30) not null,
-     second_stu_email varchar(30) not null,
+     first_stu_email varchar(50) not null,
+     second_stu_email varchar(50) not null,
      constraint ID_ADDS_ID primary key (second_stu_email, first_stu_email));
 
 create table AVAILABILITY (
@@ -82,7 +82,7 @@ create table MEETING (
      timestamp datetime not null,
      email varchar(50) not null,
      locationID char(36) not null DEFAULT (uuid()),
-     subjectID varchar(10),
+     subjectID char(36),
      constraint ID_MEETING_ID primary key (meetingID));
 
 create table MESSAGE (
@@ -242,6 +242,7 @@ alter table TEACHES add constraint EQU_TEACH_PROFE
 alter table TEACHES add constraint EQU_TEACH_SUBJE_FK
      foreign key (subjectID)
      references SUBJECT (subjectID);
+
 
 -- Create the trigger
 DELIMITER //
