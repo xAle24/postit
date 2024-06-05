@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="chatmainpage.css">
 </head>
 <body>
     <button id="backBtn" onclick="location.href='../homepage/homepage.html'"></button>
-    <ul class="chat-list">
+    <ul id="chat-list" class="chat-list">
         <div class="chat" onclick="openChat('Friend 1')">
             <img src="../resources/logo-no-writing.png" alt="//TODO">
             Friend 1
@@ -20,5 +22,7 @@
             window.location.href = 'chatpage.html?name=' + encodeURIComponent(friendName);
         }
     </script>
+    <script src="chatListTemplate.js"></script>
+    <script src="chatmainpage.js"></script>
 </body>
 </html>

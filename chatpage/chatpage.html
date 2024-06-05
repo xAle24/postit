@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="chatpage.css">
 </head>
 <body>
@@ -12,10 +14,10 @@
     <div class="chat-window" id="chat-window"></div>
     <div class="chat-bottom">
         <input class="message-input" id="message-input" type="text" placeholder="Type a message...">
-        <button onclick="sendMessage()">Send</button>
+        <button id="sendButton" onclick="sendMessage()">Send</button> <!-- onclick="sendMessage()" -->
     </div>
-    <script>
-        var friendName = decodeURIComponent(window.location.search.substring(6));
+    <script src="chatpage.js">
+        /* var friendName = decodeURIComponent(window.location.search.substring(6));
         document.getElementById('chat-title').textContent = 'Chat with ' + friendName;
 
         function sendMessage() {
@@ -26,7 +28,10 @@
                 messageInput.value = '';
                 chatWindow.scrollTop = chatWindow.scrollHeight;
             }
-        }
+        } */
+
     </script>
+    <script src="messageLoad.js"></script>
+    <script src="messageSend.js"></script>
 </body>
 </html>
