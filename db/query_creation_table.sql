@@ -298,3 +298,21 @@ BEGIN
      END IF; 
 END; //
 DELIMITER //
+-- trigger that add a notification when someone start follow you 
+DELIMITER //
+CREATE TRIGGER new_follower_notification
+AFTER INSERT ON ADDS
+FOR EACH ROW
+BEGIN
+    INSERT INTO NOTIFICATION (notificationID, description, state, email, timestamp)
+    VALUES (uuid(), CONCAT('You have a new follower: ', NEW.first_stu_email), 'unread', NEW.second_stu_email, CURRENT_TIMESTAMP);
+END;
+DELIMITER //
+-- notification when someone writes you 
+CREATE TRIGGER new_message_notification
+AFTER INSERT ON MESSAGE
+FOR EACH ROW
+BEGIN
+    INSERT INTO NOTIFICATION (notificationID, description, state, email, timestamp)
+    VALUES (UUID(), CONCAT('New message from: ', NEW.Sen_email), 'unread', NEW.rec_email, NOW());
+END;

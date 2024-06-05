@@ -21,3 +21,17 @@ function openNav() {
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0"
 }
+document.getElementById("notificationBtn").onclick = function() {
+    var x = document.getElementById("notification");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+        setTimeout(function() {
+            x.className = "show";
+        }, 10); // Timeout for CSS transition
+    } else {
+        x.className = "";
+        setTimeout(function() {
+            x.style.display = "none";
+        }, 300); // Timeout for CSS transition
+    }
+}
