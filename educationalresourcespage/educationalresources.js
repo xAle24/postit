@@ -18,10 +18,11 @@ window.onload = function() {
             // Parse the JSON data returned by the PHP script
             var resources = JSON.parse(data)
             console.log("RESOURCES:" + resources)
-            
-            // Call createNewResourceEntry for each resource
-            for (var i = 0; i < resources.length; i++) {
-                createNewResourceEntry(resources[i].resourceName, "../database-content/uploads/" + resources[i].resourceName)
+            if (resources !== null) {
+                // Call createNewResourceEntry for each resource
+                for (var i = 0; i < resources.length; i++) {
+                    createNewResourceEntry(resources[i].resourceName, "../database-content/uploads/" + resources[i].resourceName)
+                }
             }
         },
         error: function(jqXHR, textStatus, errorThrown) {
