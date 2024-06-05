@@ -14,7 +14,7 @@
             <img src="../resources/logo-with-writing.png" alt="logo" class="logo">
             <h1>Crea un nuovo post</h1>
         </header>
-        <form id="postCreationForm">
+        <form id="postCreationForm" action="postcreation.php" method="post" onsubmit="return validateForm()">
             <label for="postTitle">Titolo del post:</label>
             <input type="text" id="postTitle" name="postTitle" required>
             <label for="postDescription">Descrizione del post:</label>
@@ -26,7 +26,8 @@
                 <ul id="availabilitiesList">
                     <li>
                         <div id="inputContainer">
-                            <fieldset> <legend>Disponibilità:</legend>
+                            <fieldset id="availabilityFieldset"> 
+                                <legend>Disponibilità:</legend>
                                 <label for="availabilityDate">Data:</label>
                                 <input type="date" id="availabilityDate" name="availabilityDate[]" required>
                                 <label for="startTime">dalle ore</label>
@@ -41,19 +42,36 @@
             <div class="buttonContainer" id="buttonContainer">
                 <button type="button" id="addAvailability" class="buttonClass">Aggiungi disponibilità</button>
             </div>
-            <label for="postLocation">Luogo dell'evento:</label>
-            <input type="text" id="postLocation" name="postLocation" required>
+            <fieldset id="meetingLocationFieldset">
+                <legend>Luogo dell'evento:</legend>
+                <label for="postLocation">Nome del luogo:</label>
+                <input type="text" id="postLocation" name="postLocation" required>
+                <label for="locationStreet">Via:</label>
+                <input type="text" id="locationStreet" name="locationStreet" required>
+                <label for="streetNumber">Numero civico:</label>
+                <input type="number" id="streetNumber" name="streetNumber" min="0" max="9999" required>
+                <label for="locationCity">Città:</label>
+                <input type="text" id="locationCity" name="locationCity" required>
+                <label for="locationPostalCode">CAP:</label>
+                <input type="number" id="locationPostalCode" name="locationPostalCode" min="0" max="99999" required>
+            </fieldset>
             <label for="meeting-type">Tipo di incontro:</label>
-            <select id="meeting-type" name="meeting-type">
+            <select id="meeting-type" name="meeting-type" required>
                 <option value="" disabled selected hidden>Scegli il tipo di incontro
                 </option>
                 <option value="study-meeting">Incontro per studiare</option>
                 <option value="hangout">Uscita informale</option>
             </select>
+            <label for="studySubject">Materia:</label>
+            <select id="subjectInput">
+                <option value="" disabled selected hidden>Scegli la materia</option>
+                <!-- The available options will be filled in by JavaScript and PHP -->
+            </select>
             <button id="createPostButton" type="submit" class="buttonClass">Crea post</button>
         </form>
     </main>
     <script src="postcreationpage.js" defer></script>
+    <script src="dbinteraction.js" defer></script>
 </body>
 
 </html>

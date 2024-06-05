@@ -10,11 +10,11 @@ let objectURLs = [] // Array to store the object URLs
  * Function called when the page loads. Queries the database 
  * for the resources and creates a new entry for each one.
  */
-window.onload = function() {
+window.onload = function () {
     $.ajax({
         url: 'fetch_personal_resources.php',
         type: 'GET',
-        success: function(data) {
+        success: function (data) {
             // Parse the JSON data returned by the PHP script
             var resources = JSON.parse(data)
             console.log("RESOURCES:" + resources)
@@ -25,14 +25,14 @@ window.onload = function() {
                 }
             }
         },
-        error: function(jqXHR, textStatus, errorThrown) {
+        error: function (jqXHR, textStatus, errorThrown) {
             console.log('Error: ' + textStatus + ' ' + errorThrown)
         }
     })
     fetchExistingSubjects()
 }
 
-fileInput.addEventListener('change', function() {
+fileInput.addEventListener('change', function () {
     fileList.innerHTML = ''
     let files = fileInput.files
     numOfFiles.textContent = `${files.length} file selezionat` + (files.length > 1 ? 'i' : 'o')
@@ -101,7 +101,7 @@ function cancelUpload() {
 function createNewResourceEntry(fileName, href) {
     let resourceContainerTemplate = document.createElement('template')
     resourceContainerTemplate.innerHTML = resourceElementTemplate // from templates.js
-    
+
     let a = resourceContainerTemplate.content.querySelector('a')
     a.href = href
     a.textContent = fileName
@@ -126,20 +126,20 @@ function createNewResourceEntry(fileName, href) {
  */
 function fetchExistingSubjects() {
     fetch('fetch_subjects.php')
-    .then(response => response.json())
-    .then(subjects => {
-        // Get a reference to the datalist
-        var select = document.getElementById('subjectInput');
+        .then(response => response.json())
+        .then(subjects => {
+            // Get a reference to the datalist
+            var select = document.getElementById('subjectInput');
 
-        // Create a new option element for each subject
-        for (var i = 0; i < subjects.length; i++) {
-            var option = document.createElement('option')
-            console.log(subjects[i])
-            option.value = subjects[i].name
-            option.textContent = subjects[i].name
-            select.appendChild(option)
-        }
-    })
+            // Create a new option element for each subject
+            for (var i = 0; i < subjects.length; i++) {
+                var option = document.createElement('option')
+                console.log(subjects[i])
+                option.value = subjects[i].name
+                option.textContent = subjects[i].name
+                select.appendChild(option)
+            }
+        })
 }
 
 function validateForm() {
@@ -164,16 +164,16 @@ function removeResource() {
     $.ajax({
         url: 'remove_resource.php',
         type: 'POST',
-        data: { 
+        data: {
             resourceFilePath: "../database-content/uploads/" + resourceName,
             resourceName: resourceName
         },
-        success: function(data) {
+        success: function (data) {
             console.log('Resource removed successfully')
             // Remove the resource from the page
             singleResourceContainer.remove()
         },
-        error: function(jqXHR, textStatus, errorThrown) {
+        error: function (jqXHR, textStatus, errorThrown) {
             console.log('Error: ' + textStatus + ' ' + errorThrown)
         }
     })

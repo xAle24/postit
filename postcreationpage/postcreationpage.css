@@ -91,7 +91,7 @@ legend {
 }
 
 form>input,
-textarea {
+textarea, select {
     box-sizing: border-box;
     width: 100%;
     height: 5vh;
@@ -103,6 +103,8 @@ textarea {
 textarea {
     height: 20vh;
     font-size: x-large;
+    resize: none;
+    overflow-y: auto;
 }
 
 .buttonContainer {
@@ -131,4 +133,8 @@ li label {
 
 #availabilitiesContainer {
     width: 100%;
+}
+
+fieldset label {
+    font-size: 2vh;
 }

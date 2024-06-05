@@ -1,0 +1,216 @@
+Content of $_POST: Array
+(
+    [postTitle] => dsaf
+    [postDescription] => asdfasd
+    [availabilityDate] => Array
+        (
+            [0] => 2024-06-14
+        )
+
+    [startTime] => Array
+        (
+            [0] => 20:34
+        )
+
+    [endTime] => Array
+        (
+            [0] => 21:38
+        )
+
+    [postLocation] => teshyeruhe
+    [locationStreet] => fds
+    [streetNumber] => 54
+    [locationCity] => sadf
+    [locationPostalCode] => 654
+    [meeting-type] => study-meeting
+)
+
+Content of $_POST: Array
+(
+    [postTitle] => avfsd
+    [postDescription] => afsdvas
+    [availabilityDate] => Array
+        (
+            [0] => 2024-06-08
+        )
+
+    [startTime] => Array
+        (
+            [0] => 20:36
+        )
+
+    [endTime] => Array
+        (
+            [0] => 20:41
+        )
+
+    [postLocation] => dasf
+    [locationStreet] => asdf
+    [streetNumber] => 65
+    [locationCity] => f
+    [locationPostalCode] => 5
+    [meeting-type] => study-meeting
+)
+
+Content of $_POST: Array
+(
+    [postTitle] => Hello vediamoci
+    [postDescription] => as
+    [availabilityDate] => Array
+        (
+            [0] => 2024-06-09
+        )
+
+    [startTime] => Array
+        (
+            [0] => 23:45
+        )
+
+    [endTime] => Array
+        (
+            [0] => 16:47
+        )
+
+    [postLocation] => asfdasf
+    [locationStreet] => asf
+    [streetNumber] => 65
+    [locationCity] => asdf
+    [locationPostalCode] => 6854
+    [meeting-type] => study-meeting
+)
+
+Content of $_POST: Array
+(
+    [postTitle] => asd
+    [postDescription] => asda
+    [availabilityDate] => Array
+        (
+            [0] => 2024-07-05
+        )
+
+    [startTime] => Array
+        (
+            [0] => 20:44
+        )
+
+    [endTime] => Array
+        (
+            [0] => 20:46
+        )
+
+    [postLocation] => ergqw
+    [locationStreet] => sfdg
+    [streetNumber] => 55
+    [locationCity] => afds
+    [locationPostalCode] => 987
+    [meeting-type] => study-meeting
+)
+
+Content of $_POST: Array
+(
+    [postTitle] => adfs
+    [postDescription] => asdf
+    [availabilityDate] => Array
+        (
+            [0] => 2024-06-08
+        )
+
+    [startTime] => Array
+        (
+            [0] => 20:46
+        )
+
+    [endTime] => Array
+        (
+            [0] => 20:49
+        )
+
+    [postLocation] => asfdasf
+    [locationStreet] => sdaf
+    [streetNumber] => 96
+    [locationCity] => asf
+    [locationPostalCode] => 21
+    [meeting-type] => study-meeting
+)
+
+Content of $_POST: Array
+(
+    [postTitle] => afsd
+    [postDescription] => afds
+    [availabilityDate] => Array
+        (
+            [0] => 2024-06-08
+        )
+
+    [startTime] => Array
+        (
+            [0] => 06:56
+        )
+
+    [endTime] => Array
+        (
+            [0] => 06:48
+        )
+
+    [postLocation] => asfdasf
+    [locationStreet] => fasd
+    [streetNumber] => 98
+    [locationCity] => asfd
+    [locationPostalCode] => 8
+    [meeting-type] => study-meeting
+)
+
+Content of $_POST: Array
+(
+    [postTitle] => afsd
+    [postDescription] => afds
+    [availabilityDate] => Array
+        (
+            [0] => 2024-06-08
+        )
+
+    [startTime] => Array
+        (
+            [0] => 06:56
+        )
+
+    [endTime] => Array
+        (
+            [0] => 06:48
+        )
+
+    [postLocation] => asfdasf
+    [locationStreet] => fasd
+    [streetNumber] => 98
+    [locationCity] => asfd
+    [locationPostalCode] => 8
+    [meeting-type] => hangout
+)
+
+Content of $_POST: Array
+(
+    [postTitle] => dsfa
+    [postDescription] => afd
+    [availabilityDate] => Array
+        (
+            [0] => 2024-06-02
+        )
+
+    [startTime] => Array
+        (
+            [0] => 20:50
+        )
+
+    [endTime] => Array
+        (
+            [0] => 20:53
+        )
+
+    [postLocation] => fasd
+    [locationStreet] => adsf
+    [streetNumber] => 654
+    [locationCity] => af
+    [locationPostalCode] => 56
+    [meeting-type] => hangout
+)
+

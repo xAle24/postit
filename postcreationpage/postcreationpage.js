@@ -1,5 +1,9 @@
 "use strict"
 
+const meetingTypes = {
+    STUDY: 'study-meeting',
+    HANGOUT: 'hangout'
+}
 let numberOfAvailabilities = 1
 
 document.getElementById('addAvailability').addEventListener('click', function() {
@@ -76,4 +80,18 @@ function createRemoveButton(container, li) {
         numberOfAvailabilities--
     })
     return button
+}
+
+/**
+ * If the meeting is to study, alert the user to choose a subject from
+ * the list.
+ */
+function validateForm() {
+    let meetingType = document.getElementById('meeting-type').value
+    let selectElement = document.getElementById('subjectInput')
+    if (selectElement.value === '' && meetingType === meetingTypes.STUDY) {
+        alert('Per favore, seleziona una materia da studiare durante l\'incontro')
+        return false
+    }
+    return true
 }
