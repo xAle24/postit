@@ -4,6 +4,10 @@ const meetingTypes = {
     STUDY: 'study-meeting',
     HANGOUT: 'hangout'
 }
+const timeType = {
+    START: 'dalle ore',
+    END: 'alle ore'
+}
 let numberOfAvailabilities = 1
 
 document.getElementById('addAvailability').addEventListener('click', function() {
@@ -12,6 +16,8 @@ document.getElementById('addAvailability').addEventListener('click', function() 
     li.appendChild(createFieldset(container, li))
     container.appendChild(li)
 })
+
+document.getElementById('meeting-type').addEventListener('change', toggleSubjectInput)
 
 /**
  * Creates a fieldset with a legend and three inputs: date, start time and end time.
@@ -26,13 +32,11 @@ function createFieldset(container, li) {
 
     fieldset.appendChild(legend)
     fieldset.appendChild(createDateInputAndLabel())
-    fieldset.appendChild(createTimeInputAndLabel('dalle ore'))
-    fieldset.appendChild(createTimeInputAndLabel('alle ore'))
+    fieldset.appendChild(createTimeInputAndLabel(timeType.START))
+    fieldset.appendChild(createTimeInputAndLabel(timeType.END))
     fieldset.appendChild(createRemoveButton(container, li))
     return fieldset
 }
-
-// TODO: understand how to create unique ids
 
 /**
  * Creates a label with an input of type date.
@@ -51,15 +55,15 @@ function createDateInputAndLabel() {
 
 /**
  * Creates a label with an input of type time.
- * @param {string} timeType a string representing the time type (e.g. 'dalle ore', 'alle ore') 
+ * @param {string} tType a string representing the time type (e.g. 'dalle ore', 'alle ore') 
  * @returns {HTMLLabelElement} a label with an input of type time
  */
-function createTimeInputAndLabel(timeType) {
+function createTimeInputAndLabel(tType) {
     let label = document.createElement('label')
-    label.textContent = timeType
+    label.textContent = tType
     let input = document.createElement('input')
     input.type = 'time'
-    input.name = 'startTime[]'
+    input.name = tType === timeType.START ? 'startTime[]' : 'endTime[]'
     input.required = true
     label.appendChild(input)
     return label
@@ -94,4 +98,13 @@ function validateForm() {
         return false
     }
     return true
+}
+
+/**
+ * Toggles the subject input field based on the meeting type.
+ */
+function toggleSubjectInput() {
+    let selectElement = document.getElementById('subjectInput')
+    let meetingType = document.getElementById('meeting-type').value
+    selectElement.disabled = meetingType !== meetingTypes.STUDY
 }

@@ -262,7 +262,7 @@ AFTER INSERT ON meeting
 FOR EACH ROW
 BEGIN
     DECLARE achievement_id INT;
-    SELECT id INTO achievement_id FROM achievement WHERE name = 'Organizzatore novello';
+    SELECT achievementID INTO achievement_id FROM achievement WHERE name = 'Organizzatore novello';
     IF achievement_id IS NOT NULL THEN
         UPDATE achievement_student
         SET state = 1

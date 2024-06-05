@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <title>PostCreationPage</title>
     <link rel="stylesheet" href="postcreationpage.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -14,7 +16,7 @@
             <img src="../resources/logo-with-writing.png" alt="logo" class="logo">
             <h1>Crea un nuovo post</h1>
         </header>
-        <form id="postCreationForm" action="postcreation.php" method="post" onsubmit="return validateForm()">
+        <form id="postCreationForm" method="post" onsubmit="tryToSubmitData()">
             <label for="postTitle">Titolo del post:</label>
             <input type="text" id="postTitle" name="postTitle" required>
             <label for="postDescription">Descrizione del post:</label>
@@ -26,7 +28,7 @@
                 <ul id="availabilitiesList">
                     <li>
                         <div id="inputContainer">
-                            <fieldset id="availabilityFieldset"> 
+                            <fieldset id="availabilityFieldset">
                                 <legend>Disponibilità:</legend>
                                 <label for="availabilityDate">Data:</label>
                                 <input type="date" id="availabilityDate" name="availabilityDate[]" required>
@@ -63,7 +65,7 @@
                 <option value="hangout">Uscita informale</option>
             </select>
             <label for="studySubject">Materia:</label>
-            <select id="subjectInput">
+            <select id="subjectInput" name="subject">
                 <option value="" disabled selected hidden>Scegli la materia</option>
                 <!-- The available options will be filled in by JavaScript and PHP -->
             </select>

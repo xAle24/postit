@@ -26,3 +26,20 @@ function fetchExistingSubjects() {
         }
     })
 }
+
+function tryToSubmitData() {
+    if (!validateForm()) {
+        return
+    }
+    $.ajax({
+        type: "post",
+        url: "postcreation.php",
+        data: $("#postCreationForm").serialize(),
+        success: function() {
+            console.log("Submission handled successfully!")
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.log("Error in submission: " + textStatus + " " + errorThrown)
+        }
+    })
+}

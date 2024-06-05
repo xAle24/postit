@@ -5,3 +5,14 @@ SELECT `resourceName`, student.name, student.surname, `filePath`, subject.name a
 JOIN subject ON educational_resource.`subjectID` = subject.subjectID
 JOIN student ON student.email = educational_resource.email
 ORDER BY resourceName ASC;
+
+-- Insertion of a new meeting
+INSERT INTO `meeting`(`meetingID`, `title`, `content`, `appointment`, `startTime`,
+`endTime`, `type`, `timestamp`, `email`, `locationID`, `subjectID`) 
+VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]',
+'[value-6]','[value-7]','[value-8]','[value-9]','[value-10]','[value-11]');
+
+-- Insertion of a new location
+INSERT INTO `location`(`locationID`, `name`, `street`, `streetNumber`,
+ `city`, `cap`) 
+ VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]');
