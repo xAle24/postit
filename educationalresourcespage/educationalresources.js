@@ -12,7 +12,7 @@ let objectURLs = [] // Array to store the object URLs
  */
 window.onload = function() {
     $.ajax({
-        url: 'fetch_resources.php',
+        url: 'fetch_personal_resources.php',
         type: 'GET',
         success: function(data) {
             // Parse the JSON data returned by the PHP script
@@ -58,6 +58,8 @@ fileInput.addEventListener('change', function() {
     submitInput.style.display = 'block'
     let cancelButton = document.getElementById('cancelButton')
     cancelButton.style.display = 'block'
+    let descriptionInputContainer = document.getElementById('descriptionInputContainer')
+    descriptionInputContainer.style.display = 'block'
 })
 
 // Revoke the object URLs when the user navigates away from the page

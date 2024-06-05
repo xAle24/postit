@@ -1,0 +1,42 @@
+.searchResultsContainer {
+    position: absolute; /* Used to make the searchbar expand over the other contents of the page */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border: 5px solid #ccc;
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 1; /* Use to bring the search bar content to front, and to cover the other content of the page */
+}
+
+table {
+    width: 100%;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+td, th {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background-color: #BFD6DE;
+}
+
+/* The rules below are only for testing purposes, don't include them in your file. */
+
+#uselessStuff {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aqua;
+    height: 20vh;
+    z-index: 0;
+}
+
+button {
+    z-index: 1;
+}

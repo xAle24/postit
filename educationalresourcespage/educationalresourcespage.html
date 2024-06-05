@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="educationalresourcespage.css">
     <link rel="stylesheet" href="fileuploader.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="stylesheet" href="searchresults.css"/>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="templates.js"></script>
@@ -15,9 +16,28 @@
 <body>
     <main>
         <button id="backBtn" onclick="location.href='../homepage/homepage.html'"></button>
-        <div class="resourceSearchBarContainer">
-            <input type="text" id="resourceSearchBar" placeholder="Cerca materiale">
-            <button id="resourceSearchBtn"></button>
+        <div class="searchArea">
+            <div class="resourceSearchBarContainer">
+                <input type="text" id="resourceSearchBar" placeholder="Cerca materiale">
+            </div>
+            <div class="searchResultsContainer">
+                <div class="tableContainer" id="tableContainer">
+                    <nav>
+                        <table id="table">
+                            <thead>
+                                <tr>
+                                    <th>Nome file</th>
+                                    <th>Autore</th>
+                                    <th>Materia</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Search results will be populated here using JavaScript and PHP -->
+                            </tbody>
+                        </table>
+                    </nav>
+                </div>
+            </div>
         </div>
         <div class="myResourcesContainer">
             <h2 id="myMaterialTitle">Il tuo materiale</h2>
@@ -47,7 +67,7 @@
                 <div class="uploadedFilesDisplayer">
                     <ul id="fileList"></ul>
                 </div>
-                <div class="descriptionInputContainer">
+                <div class="descriptionInputContainer" id="descriptionInputContainer">
                     <textarea form="form" name="description" id="descriptionInput"
                         placeholder="Inserisci una descrizione dei materiali che stai caricando"></textarea>
                     <select name="subject" id="subjectInput" placeholder="Seleziona materia">
@@ -70,6 +90,7 @@
         </div>
     </main>
     <script src="educationalresources.js" defer></script>
+    <script src="searchbarlogic.js" defer></script>
 </body>
 
 </html>
