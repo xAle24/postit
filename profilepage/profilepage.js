@@ -1,5 +1,6 @@
 window.onload = onWindowLoad
 let modifyButton = document.getElementById("imageInput")
+let profileNameTag = document.getElementById("personName")
 
 function onWindowLoad() {
     console.log('Window loaded')
@@ -11,10 +12,15 @@ function onWindowLoad() {
         success: function(data) {
             console.log('Data: ' + data)
             data = JSON.parse(data)
-            if (data.imagePath !== '' && data.imagePath !== null && data.imagePath !== undefined) {
+            if (data.imagePath !== '' && data.imagePath !== null && data.imagePath !== undefined && data.imagePath !== '[value-6]') {
                 createNewImageEntry(data.imagePath)
             } else {
-                createNewImageEntry("../database-content/profile-image/Haikyuu.png")
+                createNewImageEntry("../database-content/profile-image/User-avatar.png")
+            }
+            if (data.name !== '' && data.name !== null && data.name !== undefined) {
+                profileNameTag.innerHTML = data.name
+            } else {
+                profileNameTag.innerHTML = "Utente"
             }
         },
         error: function(jqXHR, textStatus, errorThrown) {

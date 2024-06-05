@@ -101,3 +101,5 @@ function removeOldImage($oldFilePath) {
         unlink($oldFilePath);
     }
 }
+
+?>

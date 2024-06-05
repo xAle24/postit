@@ -51,3 +51,8 @@ input[type="submit"] {
     text-align: center;
     display: list-item;
 }
+
+#imageProfile {
+    width: 200px;
+    height: 200px;
+}

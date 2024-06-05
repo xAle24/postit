@@ -11,3 +11,4 @@
     echo json_encode($profile);
     $stmt->close();
     $conn->close();
+?>
