@@ -1,7 +1,7 @@
 <?php
     include '../db/db_connect.php';
     session_start();
-    $sql = "SELECT student.name,student.email FROM student JOIN groups ON groups.email = student.email WHERE student.email = ?";
+    $sql = "SELECT student.name,student.email FROM student JOIN is_in ON student.email = is_in.email WHERE is_in.groupID = ?";
     $stmt = $conn->prepare($sql); 
     $stmt->bind_param("s", $_SESSION["email"]);
     $stmt->execute();

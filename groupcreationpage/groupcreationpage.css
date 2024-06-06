@@ -143,3 +143,8 @@ form input {
     cursor: pointer;
 }
 
+select {
+    min-height: 40px;
+    font-size: 2.5vh;
+    margin: 2% 4%;
+}
