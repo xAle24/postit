@@ -35,3 +35,26 @@ INSERT INTO `location`(`locationID`, `name`, `street`, `streetNumber`,
   -- e filtra solo i post in cui il first_stu_email, cioè l'email
   -- della persona che ha aggiunto l'amico, è quella della
   -- persona loggata.
+
+-- Query to fetch post details
+SELECT 
+    meeting.*, 
+    GROUP_CONCAT(comment.content SEPARATOR ', ') as comments,
+    student.name, 
+    student.surname,
+    (SELECT COUNT(*) FROM react WHERE react.meetingID = meeting.meetingID AND type = 1) AS type1_count,
+    (SELECT COUNT(*) FROM react WHERE react.meetingID = meeting.meetingID AND type = 2) AS type2_count,
+    (SELECT COUNT(*) FROM react WHERE react.meetingID = meeting.meetingID AND type = 3) AS type3_count,
+    (SELECT COUNT(*) FROM react WHERE react.meetingID = meeting.meetingID AND type = 4) AS type4_count,
+    (SELECT COUNT(*) FROM react WHERE react.meetingID = meeting.meetingID AND type = 5) AS type5_count,
+    (SELECT COUNT(*) FROM availability WHERE availability.meetingID = meeting.meetingID) AS available_people_count -- get all the available people
+FROM 
+    meeting
+LEFT JOIN 
+    comment ON meeting.meetingID = comment.meetingID
+JOIN 
+    student ON student.email = meeting.email
+WHERE 
+    meeting.meetingID = 'a0b09bad-23cc-11ef-a398-c465161dfbab'
+GROUP BY 
+    meeting.meetingID;
