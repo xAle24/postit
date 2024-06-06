@@ -1,11 +1,5 @@
 let fetchedCurrentPostDetailsData
 
-function fetchPostDetails() {
-    fetch('fetchPostDetails.php')
-        .then(response => response.json())
-        .then(response => console.log("Server response: " + JSON.stringify(response)))
-}
-
 function updateDatabase() {
     // Check if the details are ok
     if (newDetailsData.userEmail === null) {
@@ -13,7 +7,7 @@ function updateDatabase() {
     }
     $.ajax({
         type: "post",
-        url: "addReaction.php",
+        url: "updateDatabase.php",
         data: {
             selectedReaction: newDetailsData.selectedReaction,
             addedComments: newDetailsData.addedComments,

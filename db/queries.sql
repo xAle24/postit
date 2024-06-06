@@ -58,3 +58,17 @@ WHERE
     meeting.meetingID = 'a0b09bad-23cc-11ef-a398-c465161dfbab'
 GROUP BY 
     meeting.meetingID;
+
+-- Fetches post title, author name and surname, and author profile image path;
+-- used in the post details page
+SELECT 
+    meeting.title, 
+    student.name, 
+    student.surname, 
+    student.imagePath
+FROM 
+    meeting
+JOIN 
+    student ON student.email = meeting.email
+WHERE 
+    meeting.meetingID = 'a0b09bad-23cc-11ef-a398-c465161dfbab';

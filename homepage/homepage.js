@@ -72,10 +72,11 @@ function createPost(imagePath, author, postID, postTitle) {
             url: "loadPostDetails.php",
             data: {postID: postID},
             success: function(){
-                window.location.href = '../postdetails/postdetails.html';
+                console.log("In event listener, homepage/homepage.js in function createPost(), postID is set to: " + postID)
+                window.location.href = '../postdetails/postdetails.html'
             }
-        });
-    });
+        })
+    })
 
     let container = document.querySelector('.postContainer')
     container.appendChild(template.content)

@@ -19,6 +19,12 @@ textarea.addEventListener('input', autoResize, false)
 createBlurryBackgroundLayer()
 addEventListenersToReactionButtons()
 
+// FETCHING DATA FROM THE SERVER
+
+// Fetch the post details
+console.log("Fetching main post details: ")
+fetchMainPostDetails()
+
 function autoResize() {
     // Reset the height
     this.style.height = 'auto';
