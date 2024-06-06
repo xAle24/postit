@@ -24,7 +24,7 @@ $("#searchbar").on("input", function() {
                 $.ajax({
                     type: "get",
                     url: "addstudent.php",
-                    data: {email: friend.email},
+                    data: {email: friend.email, groupName: document.getElementById("groupInput").value},
                     success: function(response){
                         if (response === "Success") {
                             addBtn.title = 'Aggiunto';
