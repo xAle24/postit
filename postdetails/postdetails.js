@@ -1,32 +1,17 @@
-// TODO: create unique ids for each post
-// TODO: add logic to the "show more comments" button
-
 // FETCHING DATA FROM THE SERVER
 
 // Fetch the post details
 console.log("Fetching main post details: ")
 fetchMainPostDetails()
 fetchReactionCounts()
-fetchNumberOfAvailablePeople()
+//fetchNumberOfAvailablePeople()
 fetchComments()
 
-// Initialize an object to store the count of clicks for each button.
-// The object will have the button id as the key and the count as the value.
-// One user can only choose one reaction per post.
-let reactionCountsOfCurrentUser = {
-    likeButton: 0,
-    dislikeButton: 0,
-    starryEyesButton: 0,
-    heartButton: 0,
-    moaiButton: 0
-}
-
-let numberOfComments = 0 //TODO: change this to the actual number of comments when the php part is included
+let numberOfComments = 0
 
 let textarea = document.querySelector('.commentInputContainer textarea')
 textarea.addEventListener('input', autoResize, false)
-addEventListenersToReactionButtons()
-
+    
 function changeProfileImage(imagePath) {
     let profileImage = document.getElementById('mainAvatar')
     profileImage.src = imagePath
@@ -48,33 +33,34 @@ function setContent(content) {
     contentParagraph.textContent = content
 }
 
-function setAvailability(availability, numberOfAvailablePeople) {
+function setAvailability(availability) {
     const availabilityContainer = document.querySelector('.availabilitiesBox')
     let template = document.createElement('template')
     template.innerHTML = availabilityTemplate.trim()
     let availabilityParagraph = template.content.querySelector('.availabilityParagraph')
-    let availablePeopleParagraph = template.content.querySelector('.availablePeopleParagraph')
-    availabilityParagraph.textContent = availability.getAvailabilityDate() + ', dalle ore ' 
-    + availability.getStartTime() + ' alle ore ' + availability.getEndTime()
-    availablePeopleParagraph.textContent = numberOfAvailablePeople + ' persone disponibili'
+
+    // Creating the date
+    parseDate(availability, availabilityParagraph)
 
     // adding database update part
     let availabilityCheckbox = template.content.querySelector('#availabilityCheckbox')
-    availabilityCheckbox.addEventListener('change', function() {
+    availabilityCheckbox.addEventListener('change', function () {
         if (availabilityCheckbox.checked) {
             $.ajax({
                 url: 'updateAvailability.php',
                 type: 'POST',
-                success: function(response) {
+                success: function (response) {
                     console.log("Server response: " + response)
+                    fetchNumberOfAvailablePeople()
                 }
             })
         } else {
             $.ajax({
                 url: 'removeAvailability.php',
                 type: 'POST',
-                success: function(response) {
+                success: function (response) {
                     console.log("Server response: " + response)
+                    fetchNumberOfAvailablePeople()
                 }
             })
         }
@@ -83,7 +69,7 @@ function setAvailability(availability, numberOfAvailablePeople) {
     $.ajax({
         url: 'isUserAvailable.php',
         type: 'POST',
-        success: function(response) {
+        success: function (response) {
             console.log("Server response: " + response)
             availabilityCheckbox.checked = response === 'true'
             if (availabilityCheckbox.checked) {
@@ -95,6 +81,60 @@ function setAvailability(availability, numberOfAvailablePeople) {
     })
     availabilityContainer.appendChild(template.content)
 }
+
+function parseDate(availability, availabilityParagraph) {
+    let date = new Date(availability.getAvailabilityDate())
+    let options = { weekday: 'long', month: 'long', day: 'numeric' }
+    let formattedDate = new Intl.DateTimeFormat('it-IT', options).format(date)
+    // Capitalise the first letter
+    formattedDate = formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1)
+    let year = date.getFullYear()
+
+    let startTime = availability.getStartTime().split(':').slice(0, 2).join(':')
+    let endTime = availability.getEndTime().split(':').slice(0, 2).join(':')
+
+    availabilityParagraph.textContent =
+        formattedDate + ' ' + year
+        + ', dalle ore '
+        + startTime
+        + ' alle ore '
+        + endTime
+}
+
+function setAvailabilityDisplayedText(numberOfAvailablePeople) {
+    let availabilityNode = document.querySelector('.availability')
+    let isCheckedByCurrentUser = document.getElementById('availabilityCheckbox').checked
+    let paragraph = availabilityNode.querySelector('.availablePeopleParagraph')
+    let string
+    if (isCheckedByCurrentUser) {
+        string = "Tu "
+        switch (numberOfAvailablePeople) {
+            case 1:
+                string += "sei l'unica persona disponibile"
+                break
+            case 2:
+                string += "e un'altra persona disponibile"
+                break
+            default:
+                string += `e altre ${numberOfAvailablePeople} persone disponibili`
+        }
+        paragraph.textContent = string
+    } else {
+        string = ""
+        switch (numberOfAvailablePeople) {
+            case 0:
+                string += "Nessuna persona disponibile"
+                break
+            case 1:
+                string += "Una persona disponibile"
+                break
+            default:
+                string += `${numberOfAvailablePeople} persone disponibili`
+        }
+    }
+    paragraph.textContent = string
+}
+
 function autoResize() {
     // Reset the height
     this.style.height = 'auto';
@@ -106,7 +146,7 @@ function autoResize() {
     let paddingTop = parseFloat(computedStyle.getPropertyValue('padding-top'));
     let paddingBottom = parseFloat(computedStyle.getPropertyValue('padding-bottom'));
     let lineHeight = parseFloat(computedStyle.getPropertyValue('font-size'));
-    
+
     // Calculate the vertical padding, that needs to be removed from the scrollHeight
     // (which is the height of the content of the textarea, including the padding but not the border)
     let verticalPadding = paddingTop + paddingBottom + lineHeight;
@@ -125,47 +165,6 @@ function createBlurryBackgroundLayer() {
     container.appendChild(backgroundImage)
 }
 
-function addEventListenersToReactionButtons() {
-    // Get all the reaction buttons
-    let buttons = document.querySelectorAll('.reactionButton')
-
-    // Add a click event listener to each button
-    buttons.forEach(button => {
-        button.addEventListener('click', () => {
-            if (reactionCountsOfCurrentUser[button.id] === 1) {
-                reactionCountsOfCurrentUser[button.id]--
-                button.style.backgroundColor = 'transparent'
-            } else if (reactionCountsOfCurrentUser[button.id] === 0) {
-                let previousReaction = getPreviousReaction(button.id)
-                console.log(previousReaction)
-                if (previousReaction !== undefined) {
-                    reactionCountsOfCurrentUser[previousReaction.id]--
-                    writeButtonNumber(previousReaction)
-                    previousReaction.style.backgroundColor = 'transparent'
-                }
-                reactionCountsOfCurrentUser[button.id]++
-                button.style.backgroundColor = 'rgba(235, 203, 216, 0.5)'
-            }
-            writeButtonNumber(button)
-        })
-    })
-}
-
-function writeButtonNumber(button) {
-    let textNode = Array.from(button.childNodes).find(node => node.nodeType === Node.TEXT_NODE)
-    if (textNode !== null) {
-        textNode.textContent = reactionCountsOfCurrentUser[button.id]
-    } else {
-        button.appendChild(document.createTextNode(reactionCountsOfCurrentUser[button.id]))
-    }
-}
-
-function getPreviousReaction(buttonId) {
-    let buttons = document.querySelectorAll('.reactionButton')
-    return [...buttons].filter(button => button.id !== buttonId)
-        .filter(button => reactionCountsOfCurrentUser[button.id] === 1)[0]
-}
-
 function onCheckboxClick() {
     // Find the label with its 'for' attribute set to this input
     let label = document.querySelector(`label[for="${this.id}"]`)
@@ -180,7 +179,7 @@ function onCheckboxClick() {
 }
 
 function addComment() {
-    const textarea = document.querySelector('.commentInputContainer textarea')    
+    const textarea = document.querySelector('.commentInputContainer textarea')
     if (textarea.value === "") {
         return
     }
@@ -188,8 +187,8 @@ function addComment() {
     $.ajax({
         url: 'addComment.php',
         type: 'POST',
-        data: {content: textarea.value},
-        success: function(response) {
+        data: { content: textarea.value },
+        success: function (response) {
             console.log("Server response: " + response)
             createComment(JSON.parse(response), false) // I want this comment to be added at the top
         }
@@ -197,7 +196,7 @@ function addComment() {
     textarea.value = ""
 }
 
-function createComment(comment, append=true) {
+function createComment(comment, append = true) {
     console.log("In the postdetails.js function: " + JSON.stringify(comment))
 
     const container = document.getElementById('commentsList')
@@ -208,10 +207,10 @@ function createComment(comment, append=true) {
     let commentText = template.content.querySelector('.commentText') // get the comment text element
     commentText.textContent = comment.content
     commentText.innerHTML = commentText.textContent.replace(/\n/g, '<br>')
-    
+
     let commentsNumberParagraph = document.querySelector('.commentsNumber')
     commentsNumberParagraph.textContent = ++numberOfComments;
-    
+
     let pictureProfile = template.content.querySelector('.avatar')
     pictureProfile.src = comment.imagePath !== '' ? comment.imagePath : 'https://www.w3schools.com/howto/img_avatar.png'
     if (!append) {

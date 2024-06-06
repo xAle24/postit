@@ -52,9 +52,10 @@ function fetchMainPostDetails() {
             changeProfileImage(global_authorPicturePath)
             changePostTitle(global_postTitle)
             setAuthor(global_authorName, global_authorSurname)
-            setAvailability(global_availability, 0)
+            setAvailability(global_availability)
             setContent(global_content)
         })
+        .then(() => fetchNumberOfAvailablePeople())
 }
 
 function fetchReactionCounts() {
@@ -70,6 +71,9 @@ function fetchReactionCounts() {
                 response.type5_count
             )
         })
+        .then(() => {
+            setReactionCounts(global_reactionCounts)
+        })
 }
 
 function fetchNumberOfAvailablePeople() {
@@ -79,6 +83,9 @@ function fetchNumberOfAvailablePeople() {
             console.log("Server response: " + JSON.stringify(response))
             // TODO: populate the global variable fetchedCurrentPostDetailsData
             global_numberOfAvailablePeople = response.people_joined
+        })
+        .then(() => {
+            setAvailabilityDisplayedText(global_numberOfAvailablePeople)
         })
 }
 
