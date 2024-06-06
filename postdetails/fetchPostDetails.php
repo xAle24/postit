@@ -1,5 +1,14 @@
 <?php
     // Todo: change this to fetch actual post details
+
+    /**
+     * This file does the heavy-lifting to fetch all the post details from the database.
+     * It must include:
+     * - post title, author picture, autor name and surname
+     * - counts of each reaction
+     * - the single availability related to this post, with the count of people that already joined
+     * - the comments related to this post
+     */
     include '../db/db_connect.php';
     session_start();
 
