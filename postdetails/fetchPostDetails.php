@@ -1,4 +1,5 @@
 <?php
+    // Todo: change this to fetch actual post details
     include '../db/db_connect.php';
     session_start();
 
