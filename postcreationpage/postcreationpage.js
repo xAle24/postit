@@ -9,6 +9,9 @@ const timeType = {
     END: 'alle ore'
 }
 let numberOfAvailabilities = 1
+var form = document.getElementById("postCreationForm")
+function handleForm(event) { event.preventDefault() } 
+form.addEventListener('submit', handleForm)
 
 document.getElementById('addAvailability').addEventListener('click', function() {
     let container = document.getElementById('availabilitiesList')

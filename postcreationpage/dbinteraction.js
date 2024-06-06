@@ -37,6 +37,8 @@ function tryToSubmitData() {
         data: $("#postCreationForm").serialize(),
         success: function() {
             console.log("Submission handled successfully!")
+            document.getElementById('postCreationForm').reset()
+            alert("Post creato correttamente!")
         },
         error: function(jqXHR, textStatus, errorThrown) {
             console.log("Error in submission: " + textStatus + " " + errorThrown)
