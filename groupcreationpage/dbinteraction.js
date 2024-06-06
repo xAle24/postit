@@ -6,6 +6,7 @@ function fetchExistingGroups() {
     .then(groups => {
         // Get a reference to the datalist
         var select = document.getElementById('groupInput')
+        console.log(groups)
         // Create a new option element for each group
         for (var i = 0; i < groups.length; i++) {
             var option = document.createElement('option')

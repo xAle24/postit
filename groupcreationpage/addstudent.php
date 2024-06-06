@@ -1,10 +1,10 @@
 <?php
     include '../db/db_connect.php';
     session_start();
-    $groupname = $_POST["groupName"];
-    $sql = "INSERT INTO groups(name, email) VALUES (?,?)";
+    $groupID = $_GET["groupID"];
+    $sql = "INSERT INTO is_in(email, groupID) VALUES (?,?)";
     $stmt = $conn->prepare($sql); 
-    $stmt->bind_param("ss", $groupname, $_SESSION["email"]);
+    $stmt->bind_param("ss", $_SESSION["email"], $groupID);
     $stmt->execute();
     $result = $stmt->get_result();
     echo "Success";
