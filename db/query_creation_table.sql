@@ -308,7 +308,7 @@ BEGIN
     VALUES (uuid(), CONCAT('You have a new follower: ', NEW.first_stu_email), 'unread', NEW.second_stu_email, CURRENT_TIMESTAMP);
 END;
 DELIMITER //
--- notification when someone writes you 
+-- notification when someone writes to you 
 CREATE TRIGGER new_message_notification
 AFTER INSERT ON MESSAGE
 FOR EACH ROW
