@@ -36,7 +36,6 @@ document.getElementById("notificationBtn").onclick = function() {
     }
 }
 
-// TODO
 function fetchPosts() {
     fetch('loadPosts.php')
         .then(response => response.json())
@@ -67,6 +66,16 @@ function createPost(imagePath, author, postID, postTitle) {
     p.textContent = author
     //a.href = link
     a.textContent = postTitle
+    a.addEventListener("click", function(){
+        $.ajax({
+            type: "post",
+            url: "loadPostDetails.php",
+            data: {postID: postID},
+            success: function(){
+                window.location.href = '../postdetails/postdetails.html';
+            }
+        });
+    });
 
     let container = document.querySelector('.postContainer')
     container.appendChild(template.content)
