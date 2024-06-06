@@ -64,11 +64,11 @@ function fetchReactionCounts() {
         .then(response => {
             console.log("Server response: " + JSON.stringify(response))
             global_reactionCounts = new ReactionCounts(
+                response.type0_count,
                 response.type1_count,
                 response.type2_count,
                 response.type3_count,
-                response.type4_count,
-                response.type5_count
+                response.type4_count
             )
         })
         .then(() => {

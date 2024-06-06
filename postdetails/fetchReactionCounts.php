@@ -9,11 +9,11 @@
     session_start();
 
     $sql = "SELECT 
+                (SELECT COUNT(*) FROM react WHERE react.meetingID = meeting.meetingID AND type = 0) AS type0_count,
                 (SELECT COUNT(*) FROM react WHERE react.meetingID = meeting.meetingID AND type = 1) AS type1_count,
                 (SELECT COUNT(*) FROM react WHERE react.meetingID = meeting.meetingID AND type = 2) AS type2_count,
                 (SELECT COUNT(*) FROM react WHERE react.meetingID = meeting.meetingID AND type = 3) AS type3_count,
-                (SELECT COUNT(*) FROM react WHERE react.meetingID = meeting.meetingID AND type = 4) AS type4_count,
-                (SELECT COUNT(*) FROM react WHERE react.meetingID = meeting.meetingID AND type = 5) AS type5_count
+                (SELECT COUNT(*) FROM react WHERE react.meetingID = meeting.meetingID AND type = 4) AS type4_count
             FROM 
                 meeting
             WHERE 

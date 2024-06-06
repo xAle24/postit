@@ -55,32 +55,32 @@ class ReactionCounts {
     constructor(
         thumbsUpNumber,
         thumbsDownNumber,
-        heartNumber,
         starryEyesNumber,
+        heartNumber,
         moaiNumber
     )
     {
-        this.thumbsUpNumber = thumbsUpNumber
-        this.thumbsDownNumber = thumbsDownNumber
-        this.heartNumber = heartNumber
-        this.starryEyesNumber = starryEyesNumber
-        this.moaiNumber = moaiNumber
+        this._thumbsUpNumber = thumbsUpNumber
+        this._thumbsDownNumber = thumbsDownNumber
+        this._starryEyesNumber = starryEyesNumber
+        this._heartNumber = heartNumber
+        this._moaiNumber = moaiNumber
     }
 
     getThumbsUpNumber() {
-        return this.thumbsUpNumber
+        return this._thumbsUpNumber
     }
     getThumbsDownNumber() {
-        return this.thumbsDownNumber
+        return this._thumbsDownNumber
     }
     getHeartNumber() {
-        return this.heartNumber
+        return this._heartNumber
     }
     getStarryEyesNumber() {
-        return this.starryEyesNumber
+        return this._starryEyesNumber
     }
     getMoaiNumber() {
-        return this.moaiNumber
+        return this._moaiNumber
     }
 }
 
