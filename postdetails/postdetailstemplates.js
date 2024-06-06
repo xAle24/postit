@@ -11,3 +11,17 @@ const commentHTMLtemplate = `
     </div>
 </li>
 `
+
+const availabilityTemplate =
+`
+<div class="availability">
+    <div class="availabilityDateAndPeople">
+        <p class="availabilityParagraph">Giovedì 4 Maggio 2028, 14:00 - 16:00</p>
+        <p class="availablePeopleParagraph">Tu e altre 15 persone disponibili</p>
+    </div>
+    <div class="availabilityCheckbox">
+        <label class="availabilityCheckboxLabel" id="availabilityCheckboxLabel1" for="availabilityCheckbox"></label>
+        <input type="checkbox" id="availabilityCheckbox" name="availabilityCheckbox1" onchange="onCheckboxClick.call(this)">
+    </div>
+</div>
+`

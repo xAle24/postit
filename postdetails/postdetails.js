@@ -1,6 +1,15 @@
 // TODO: create unique ids for each post
 // TODO: add logic to the "show more comments" button
 
+// FETCHING DATA FROM THE SERVER
+
+// Fetch the post details
+console.log("Fetching main post details: ")
+fetchMainPostDetails()
+fetchReactionCounts()
+fetchNumberOfAvailablePeople()
+fetchComments()
+
 // Initialize an object to store the count of clicks for each button.
 // The object will have the button id as the key and the count as the value.
 // One user can only choose one reaction per post.
@@ -12,19 +21,62 @@ let reactionCountsOfCurrentUser = {
     moaiButton: 0
 }
 
-let numberOfComments = 2 //TODO: change this to the actual number of comments when the php part is included
+let numberOfComments = 0 //TODO: change this to the actual number of comments when the php part is included
 
 let textarea = document.querySelector('.commentInputContainer textarea')
 textarea.addEventListener('input', autoResize, false)
-createBlurryBackgroundLayer()
 addEventListenersToReactionButtons()
 
-// FETCHING DATA FROM THE SERVER
+function changeProfileImage(imagePath) {
+    let profileImage = document.getElementById('mainAvatar')
+    profileImage.src = imagePath
+    createBlurryBackgroundLayer()
+}
 
-// Fetch the post details
-console.log("Fetching main post details: ")
-fetchMainPostDetails()
+function changePostTitle(postTitle) {
+    let title = document.getElementById('postTitle')
+    title.textContent = postTitle
+}
 
+function setAuthor(authorName, authorSurname) {
+    let author = document.getElementById('authorName')
+    author.textContent = authorName + " " + authorSurname
+}
+
+function setAvailability(availability, numberOfAvailablePeople) {
+    const availabilityContainer = document.querySelector('.availabilitiesBox')
+    let template = document.createElement('template')
+    template.innerHTML = availabilityTemplate.trim()
+    let availabilityParagraph = template.content.querySelector('.availabilityParagraph')
+    let availablePeopleParagraph = template.content.querySelector('.availablePeopleParagraph')
+    availabilityParagraph.textContent = availability.getAvailabilityDate() + ', dalle ore ' 
+    + availability.getStartTime() + ' alle ore ' + availability.getEndTime()
+    availablePeopleParagraph.textContent = numberOfAvailablePeople + ' persone disponibili'
+
+    // adding database update part
+    let availabilityCheckbox = template.content.querySelector('#availabilityCheckbox')
+    availabilityCheckbox.addEventListener('change', function() {
+        if (availabilityCheckbox.checked) {
+            $.ajax({
+                url: 'updateAvailability.php',
+                type: 'POST',
+                success: function(response) {
+                    console.log("Server response: " + response)
+                }
+            })
+        } else {
+            $.ajax({
+                url: 'removeAvailability.php',
+                type: 'POST',
+                success: function(response) {
+                    console.log("Server response: " + response)
+                }
+            })
+        }
+    })
+
+    availabilityContainer.appendChild(template.content)
+}
 function autoResize() {
     // Reset the height
     this.style.height = 'auto';
@@ -128,4 +180,32 @@ function addComment() {
 
     let commentsNumberParagraph = document.querySelector('.commentsNumber')
     commentsNumberParagraph.textContent = ++numberOfComments;
+
+    // update db
+    $.ajax({
+        url: 'addComment.php',
+        type: 'POST',
+        data: {content: commentText.textContent},
+        success: function(response) {
+            console.log("Server response: " + response)
+        }
+    })
+}
+
+function createComment(comment) {
+    const container = document.getElementById('commentsList')
+    let template = document.createElement('template')
+    template.innerHTML = commentHTMLtemplate.trim()
+    let commentAuthor = template.content.querySelector('.commentAuthor') // get the comment author element
+    commentAuthor.textContent = comment.authorName + ' ' + comment.authorSurname
+    let commentText = template.content.querySelector('.commentText') // get the comment text element
+    commentText.textContent = comment.commentText
+    commentText.innerHTML = commentText.textContent.replace(/\n/g, '<br>')
+    
+    let commentsNumberParagraph = document.querySelector('.commentsNumber')
+    commentsNumberParagraph.textContent = ++numberOfComments;
+    
+    let pictureProfile = template.content.querySelector('.avatar')
+    pictureProfile.src = comment.authorPicturePath
+    container.appendChild(template.content)
 }

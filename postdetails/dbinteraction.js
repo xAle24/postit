@@ -1,4 +1,11 @@
-let fetchedCurrentPostDetailsData
+let global_postTitle
+let global_authorPicturePath
+let global_authorName
+let global_authorSurname
+let global_reactionCounts
+let global_availability
+let global_postComments = []
+let global_numberOfAvailablePeople
 
 function updateDatabase() {
     // Check if the details are ok
@@ -14,10 +21,10 @@ function updateDatabase() {
             addedAvailability: newDetailsData.addedAvailability,
             userEmail: newDetailsData.userEmail
         },
-        success: function(response) {
+        success: function (response) {
             console.log("Server response: " + response)
         },
-        error: function(response) {
+        error: function (response) {
             console.log("Server response: " + response)
         }
     })
@@ -29,6 +36,21 @@ function fetchMainPostDetails() {
         .then(response => {
             console.log("Server response: " + JSON.stringify(response))
             // TODO: populate the global variable fetchedCurrentPostDetailsData
+            global_postTitle = response.title
+            global_authorName = response.name
+            global_authorSurname = response.surname
+            global_authorPicturePath = response.imagePath
+            global_availability = new Availability(
+                response.appointment,
+                response.startTime,
+                response.endTime
+            )
+        })
+        .then(() => {
+            changeProfileImage(global_authorPicturePath)
+            changePostTitle(global_postTitle)
+            setAuthor(global_authorName, global_authorSurname)
+            setAvailability(global_availability, 0)
         })
 }
 
@@ -37,24 +59,62 @@ function fetchReactionCounts() {
         .then(response => response.json())
         .then(response => {
             console.log("Server response: " + JSON.stringify(response))
-            // TODO: populate the global variable fetchedCurrentPostDetailsData
+            global_reactionCounts = new ReactionCounts(
+                response.type1_count,
+                response.type2_count,
+                response.type3_count,
+                response.type4_count,
+                response.type5_count
+            )
         })
 }
 
-function fetchAvailability() {
-    fetch('fetchAvailability.php')
+function fetchNumberOfAvailablePeople() {
+    fetch('fetchNumberOfAvailablePeople.php')
         .then(response => response.json())
         .then(response => {
             console.log("Server response: " + JSON.stringify(response))
             // TODO: populate the global variable fetchedCurrentPostDetailsData
+            global_numberOfAvailablePeople = response.people_joined
         })
 }
 
 function fetchComments() {
     fetch('fetchComments.php')
         .then(response => response.json())
-        .then(response => {
-            console.log("Server response: " + JSON.stringify(response))
+        .then(comments => {
+            console.log("Server response: " + JSON.stringify(comments))
             // TODO: populate the global variable fetchedCurrentPostDetailsData
+            comments.forEach(comment => {
+                global_postComments.push(new Comment(
+                    comment.authorName,
+                    comment.authorSurname,
+                    comment.authorPicturePath,
+                    comment.commentText
+                ))
+                createComment(comment)
+            })
         })
+        .then(() => {
+            console.log("Global post comments: " + JSON.stringify(global_postComments))
+        })
+}
+
+function buildPostDetailsData() {
+    console.log("Global post title: " + JSON.stringify(global_postTitle))
+    console.log("Global author picture path: " + JSON.stringify(global_authorPicturePath))
+    console.log("Global author name: " + JSON.stringify(global_authorName))
+    console.log("Global author surname: " + JSON.stringify(global_authorSurname))
+    console.log("Global reaction counts: " + JSON.stringify(global_reactionCounts))
+    console.log("Global availability: " + JSON.stringify(global_availability))
+    console.log("Global post comments: " + JSON.stringify(global_postComments))
+    return new PostDetailsData(
+        global_postTitle,
+        global_authorPicturePath,
+        global_authorName,
+        global_authorSurname,
+        global_reactionCounts,
+        global_availability,
+        global_postComments
+    )
 }

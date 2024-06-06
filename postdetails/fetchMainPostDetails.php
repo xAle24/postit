@@ -8,7 +8,7 @@
     include '../db/db_connect.php';
     session_start();
 
-    $sql = "SELECT meeting.title, student.name, student.surname, student.imagePath
+    $sql = "SELECT meeting.title, student.name, student.surname, student.imagePath, meeting.appointment, meeting.startTime, meeting.endTime
             FROM 
                 meeting
             JOIN 

@@ -89,14 +89,12 @@ class PostComment {
         authorName,
         authorSurname,
         authorPicturePath,
-        commentContent,
-        commentTimestamp
+        commentContent
     ) {
         this.authorName = authorName
         this.authorSurname = authorSurname
         this.authorPicturePath = authorPicturePath
         this.commentContent = commentContent
-        this.commentTimestamp = commentTimestamp
     }
 
     getAuthorName() {
@@ -114,8 +112,28 @@ class PostComment {
     getCommentContent() {
         return this.commentContent
     }
+}
 
-    getCommentTimestamp() {
-        return this.commentTimestamp
+class Availability {
+    constructor(
+        availabilityDate,
+        startTime,
+        endTime
+    ) {
+        this.availabilityDate = availabilityDate
+        this.startTime = startTime
+        this.endTime = endTime
+    }
+
+    getAvailabilityDate() {
+        return this.availabilityDate
+    }
+
+    getStartTime() {
+        return this.startTime
+    }
+
+    getEndTime() {
+        return this.endTime
     }
 }

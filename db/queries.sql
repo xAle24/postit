@@ -72,3 +72,15 @@ JOIN
     student ON student.email = meeting.email
 WHERE 
     meeting.meetingID = 'a0b09bad-23cc-11ef-a398-c465161dfbab';
+
+-- Fetches reactions counts
+SELECT 
+    (SELECT COUNT(*) FROM react WHERE react.meetingID = meeting.meetingID AND type = 1) AS type1_count,
+    (SELECT COUNT(*) FROM react WHERE react.meetingID = meeting.meetingID AND type = 2) AS type2_count,
+    (SELECT COUNT(*) FROM react WHERE react.meetingID = meeting.meetingID AND type = 3) AS type3_count,
+    (SELECT COUNT(*) FROM react WHERE react.meetingID = meeting.meetingID AND type = 4) AS type4_count,
+    (SELECT COUNT(*) FROM react WHERE react.meetingID = meeting.meetingID AND type = 5) AS type5_count
+FROM 
+    meeting
+WHERE 
+    meeting.meetingID = 'b0ca39e5-2385-11ef-9d56-c465161dfbab';
