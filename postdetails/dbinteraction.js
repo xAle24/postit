@@ -6,6 +6,7 @@ let global_reactionCounts
 let global_availability
 let global_postComments = []
 let global_numberOfAvailablePeople
+let global_content
 
 function updateDatabase() {
     // Check if the details are ok
@@ -45,12 +46,14 @@ function fetchMainPostDetails() {
                 response.startTime,
                 response.endTime
             )
+            global_content = response.content
         })
         .then(() => {
             changeProfileImage(global_authorPicturePath)
             changePostTitle(global_postTitle)
             setAuthor(global_authorName, global_authorSurname)
             setAvailability(global_availability, 0)
+            setContent(global_content)
         })
 }
 
@@ -86,6 +89,7 @@ function fetchComments() {
             console.log("Server response: " + JSON.stringify(comments))
             // TODO: populate the global variable fetchedCurrentPostDetailsData
             comments.forEach(comment => {
+                console.log("Comment: " + JSON.stringify(comment))
                 global_postComments.push(new Comment(
                     comment.authorName,
                     comment.authorSurname,
@@ -98,6 +102,24 @@ function fetchComments() {
         .then(() => {
             console.log("Global post comments: " + JSON.stringify(global_postComments))
         })
+}
+
+function isUserAvailable() {
+    $.ajax({
+        type: "post",
+        url: "isUserAvailable.php",
+        success: function (response) {
+            console.log("Server response: " + response)
+            if (response === "true") {
+                document.getElementById('availabilityCheckbox').checked = true
+            } else {
+                document.getElementById('availabilityCheckbox').checked = false
+            }
+        },
+        error: function (response) {
+            console.log("Server response: " + response)
+        }
+    })
 }
 
 function buildPostDetailsData() {

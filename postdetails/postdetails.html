@@ -61,33 +61,14 @@
                 <hr>
                 <h3>Seleziona le date in cui potresti esserci!</h3>
                 <div class="availabilitiesBox">
-                    <div class="availability">
-                        <div class="availabilityDateAndPeople">
-                            <p class="availabilityParagraph">Giovedì 4 Maggio 2028, 14:00 - 16:00</p>
-                            <p class="availablePeopleParagraph">Tu e altre 15 persone disponibili</p>
-                        </div>
-                        <div class="availabilityCheckbox">
-                            <label class="availabilityCheckboxLabel" id="availabilityCheckboxLabel1" for="availabilityCheckbox1"></label>
-                            <input type="checkbox" id="availabilityCheckbox1" name="availabilityCheckbox1" onchange="onCheckboxClick.call(this)">
-                        </div>
-                    </div>
-                    <div class="availability">
-                        <div class="availabilityDateAndPeople">
-                            <p class="availabilityParagraph">Giovedì 4 Maggio 2028, 14:00 - 16:00</p>
-                            <p class="availablePeopleParagraph">Tu e altre 15 persone disponibili</p>
-                        </div>
-                        <div class="availabilityCheckbox">
-                            <label class="availabilityCheckboxLabel" id="availabilityCheckboxLabel2" for="availabilityCheckbox2"></label>
-                            <input type="checkbox" id="availabilityCheckbox2" name="availabilityCheckbox2" onchange="onCheckboxClick.call(this)">
-                        </div>
-                    </div>
+                    <!-- Availabilities filled in here by Javascript and PHP -->
                 </div>
             </div>
         </div>
         <div class="postComments">
             <header class="commentsSectionHeader">
                 <h2 class="commentsTitle">Commenti</h2>
-                <p class="commentsNumber" id="commentsNumber">2</p>
+                <p class="commentsNumber" id="commentsNumber">0</p>
             </header>
             <hr>
             <div class="commentInputContainer">
@@ -95,34 +76,13 @@
                 <button id="commentButton" onclick="addComment()"></button>
             </div>
             <ul class="commentsList" id="commentsList">
-                <li class="commentListItem">
-                    <div class="comment">
-                        <div class="avatarContainer">
-                            <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
-                        </div>
-                        <div class="commentTextContainer">
-                            <h3 class="commentAuthor">Mario Rossi</h3>
-                            <p class="commentText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                                consectetur, nunc nec ultricies.</p>
-                        </div>
-                    </div>
-                </li>
-                <li class="commentListItem">
-                    <div class="comment">
-                        <div class="avatarContainer">
-                            <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
-                        </div>
-                        <div class="commentTextContainer">
-                            <h3 class="commentAuthor">Mario Rossi</h3>
-                            <p class="commentText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                                consectetur, nunc nec ultricies.</p>
-                        </div>
-                    </div>
-                </li>
+                <!-- Comments filled in here by Javascript and PHP -->
             </ul>
+            <!--
             <div class="moreCommentsButtonContainer">
                 <button class="showMoreCommentsButton" title="Mostra altri commenti"></button>
             </div>
+            -->
         </div>
     </main>
     <script src="postdetailstemplates.js" defer></script>

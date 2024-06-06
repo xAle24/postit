@@ -5,13 +5,16 @@
     $sql = "SELECT 
         comment.content, 
         student.name, 
-        student.surname
+        student.surname,
+        student.imagePath
         FROM 
             comment
         JOIN 
             student ON student.email = comment.email
         WHERE 
-            comment.meetingID = ?";
+            comment.meetingID = ?
+        ORDER BY 
+            comment.timestamp DESC";
 
     $stmt = $conn->prepare($sql); 
 

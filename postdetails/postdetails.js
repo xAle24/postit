@@ -43,6 +43,11 @@ function setAuthor(authorName, authorSurname) {
     author.textContent = authorName + " " + authorSurname
 }
 
+function setContent(content) {
+    let contentParagraph = document.querySelector('.descriptionParagraph')
+    contentParagraph.textContent = content
+}
+
 function setAvailability(availability, numberOfAvailablePeople) {
     const availabilityContainer = document.querySelector('.availabilitiesBox')
     let template = document.createElement('template')
@@ -74,7 +79,20 @@ function setAvailability(availability, numberOfAvailablePeople) {
             })
         }
     })
-
+    // Asking the db if the user is available
+    $.ajax({
+        url: 'isUserAvailable.php',
+        type: 'POST',
+        success: function(response) {
+            console.log("Server response: " + response)
+            availabilityCheckbox.checked = response === 'true'
+            if (availabilityCheckbox.checked) {
+                let label = document.querySelector(`label[for="availabilityCheckbox"]`)
+                label.textContent = "Disponibile!"
+                label.style.display = "block";
+            }
+        }
+    })
     availabilityContainer.appendChild(template.content)
 }
 function autoResize() {
@@ -162,50 +180,43 @@ function onCheckboxClick() {
 }
 
 function addComment() {
-    const container = document.getElementById('commentsList')
-    const textarea = document.querySelector('.commentInputContainer textarea')
-    let template = document.createElement('template')
-    template.innerHTML = commentHTMLtemplate.trim()
-    let commentAuthor = template.content.querySelector('.commentAuthor') // get the comment author element
-    commentAuthor.textContent = "Tu"
-    let commentText = template.content.querySelector('.commentText') // get the comment text element
-    commentText.textContent = textarea.value
+    const textarea = document.querySelector('.commentInputContainer textarea')    
     if (textarea.value === "") {
         return
     }
-    commentText.innerHTML = commentText.textContent.replace(/\n/g, '<br>')
-    container.appendChild(template.content)
-    textarea.value = ""
-    textarea.dispatchEvent(new Event('input')) // used to autmatically trigger autoResize() call
-
-    let commentsNumberParagraph = document.querySelector('.commentsNumber')
-    commentsNumberParagraph.textContent = ++numberOfComments;
-
     // update db
     $.ajax({
         url: 'addComment.php',
         type: 'POST',
-        data: {content: commentText.textContent},
+        data: {content: textarea.value},
         success: function(response) {
             console.log("Server response: " + response)
+            createComment(JSON.parse(response), false) // I want this comment to be added at the top
         }
     })
+    textarea.value = ""
 }
 
-function createComment(comment) {
+function createComment(comment, append=true) {
+    console.log("In the postdetails.js function: " + JSON.stringify(comment))
+
     const container = document.getElementById('commentsList')
     let template = document.createElement('template')
     template.innerHTML = commentHTMLtemplate.trim()
     let commentAuthor = template.content.querySelector('.commentAuthor') // get the comment author element
-    commentAuthor.textContent = comment.authorName + ' ' + comment.authorSurname
+    commentAuthor.textContent = comment.name + ' ' + comment.surname
     let commentText = template.content.querySelector('.commentText') // get the comment text element
-    commentText.textContent = comment.commentText
+    commentText.textContent = comment.content
     commentText.innerHTML = commentText.textContent.replace(/\n/g, '<br>')
     
     let commentsNumberParagraph = document.querySelector('.commentsNumber')
     commentsNumberParagraph.textContent = ++numberOfComments;
     
     let pictureProfile = template.content.querySelector('.avatar')
-    pictureProfile.src = comment.authorPicturePath
-    container.appendChild(template.content)
+    pictureProfile.src = comment.imagePath !== '' ? comment.imagePath : 'https://www.w3schools.com/howto/img_avatar.png'
+    if (!append) {
+        container.prepend(template.content)
+    } else {
+        container.appendChild(template.content)
+    }
 }
