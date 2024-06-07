@@ -1,7 +1,7 @@
 // This constant is used to avoid spawning the postits on the border of the screen
 const postitDiagonalDimension = 71
 var form = document.getElementById("form");
-function handleForm(event) { event.preventDefault(); } 
+function handleForm(event) { event.preventDefault(); }
 form.addEventListener('submit', handleForm)
 window.onload = generatePostits
 window.addEventListener('resize', generatePostits)
@@ -24,6 +24,7 @@ function generatePostits() {
     for (var i = 0; i < 60; i++) {
         var img = document.createElement('img')
         img.src = images[Math.floor(Math.random() * images.length)]
+        img.alt = ''
         img.className = 'randomImage';
         img.style.top = Math.random() * (window.innerHeight - postitDiagonalDimension) + 'px'
         img.style.left = Math.random() * (window.innerWidth - postitDiagonalDimension) + 'px'
@@ -46,19 +47,19 @@ function submitForm() {
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
     if (email === "" || password === "") {
-        showPopup("Errore: tutti i campi devono essere compilati");
-        return ;
-    }    
+        alert("Errore: tutti i campi devono essere compilati");
+        return;
+    }
     console.log($("#form").serialize());
     $.ajax({
         type: "get",
         url: "login.php",
         data: $("#form").serialize(),
-        success: function(response) {
+        success: function (response) {
             if (response === "Success    ") {
                 window.location.href = "../homepage/homepage.html";
             } else {
-                showPopup(response);
+                alert(response);
             }
         }
     });
@@ -75,7 +76,7 @@ function showPopup(message) {
     document.getElementById("form").appendChild(notification);
 
     // Remove the notification after 3 seconds
-    setTimeout(function() {
+    setTimeout(function () {
         document.getElementById("form").removeChild(notification);
     }, 3000);
 }
@@ -92,3 +93,14 @@ function showPopup(message) {
         content.style.height = content.innerWidth + 'px'
     }
 }) */
+
+function setBodyHeight() {
+    // Set the height of the body to the height of the window
+    document.body.style.height = `${window.innerHeight}px`;
+}
+
+// Call the function once on page load
+setBodyHeight();
+
+// Call the function whenever the window is resized
+window.addEventListener('resize', setBodyHeight);

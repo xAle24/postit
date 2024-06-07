@@ -25,6 +25,7 @@ function generatePostits() {
         var img = document.createElement('img')
         img.src = images[Math.floor(Math.random() * images.length)]
         img.className = 'randomImage';
+        img.alt = ""
         img.style.top = Math.random() * (window.innerHeight - postitDiagonalDimension) + 'px'
         img.style.left = Math.random() * (window.innerWidth - postitDiagonalDimension) + 'px'
         img.style.transform = 'rotate(' + Math.random() * 360 + 'deg)'
@@ -50,11 +51,11 @@ function submitForm() {
     var password = document.getElementById("password").value;
     var repeatPassword = document.getElementById("repeatPassword").value;
     if (name === "" || surname === "" || email === "" || date === "" || password === "") {
-        showPopup("Error: All fields must be filled out");
+        alert("Errore: tutti i campi devono essere compilati.");
         return ;
     }
     if (password !== repeatPassword) {
-        showPopup("Error: Passwords do not match.");
+        alert("Errore: le password non corrispondono.");
         return ;
     }
     
@@ -64,7 +65,7 @@ function submitForm() {
         data: $("#form").serialize(),
         success: function(response) {
             if (response === "Email already exists") {
-                showPopup(response);
+                alert("Questo indirizzo email è già registrato.");
             } else {
                 window.location.href = "../homepage/homepage.html";
             }

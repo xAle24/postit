@@ -1,26 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="it-IT">
+
 <head>
-    <script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <title>Registration Page</title>
     <link rel="stylesheet" href="registrationpage.css">
 </head>
+
 <body>
     <div id="content">
         <form id="form" onsubmit="submitForm()">
-            <h2>Benvenuto in Post-it</h2>
-            <input type="text" id="name" name="name" placeholder="Name">
-            <input type="text" id="surname" name="surname" placeholder="Surname">
-            <input type="date" id="date" name="date">
+            <img src="../resources/logo-with-writing.png" alt="Post I.T. logo" id="logo">
+            <h2>Benvenuto in Post I.T.</h2>
+            <input type="text" id="name" name="name" placeholder="Nome">
+            <input type="text" id="surname" name="surname" placeholder="Cognome">
+            <fieldset>
+                <label for="date">Data di nascita:</label>
+                <input type="date" id="date" name="date">
+            </fieldset>
             <input type="text" id="email" name="email" placeholder="Email">
             <input type="password" id="password" name="password" placeholder="Password">
-            <input type="password" id="repeatPassword" name="repeatPassword" placeholder="Repeat Password">
-            <input type="submit" value="Register">
+            <input type="password" id="repeatPassword" name="repeatPassword" placeholder="Ripeti la password">
+            <input type="submit" value="Registrati">
         </form>
     </div>
     <script src="registrationpage.js"></script>
 </body>
+
 </html>
