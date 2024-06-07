@@ -5,6 +5,7 @@
     <title>HomePage</title>
     <link rel="stylesheet" href="homepage.css">
     <link rel="stylesheet" href="post.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 </head>
@@ -12,7 +13,7 @@
 <body>
     <header>
         <div id="mySidenav" class="sidenav">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i></i></a>
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fas fa-times"></i></a>
             <a href="../profilepage/profilepage.html">Profilo</a>
             <a href="../achievementspage/achievementspage.html">Achievements</a>
             <a href="../friendspage/friendpage.html">Amici</a>
@@ -35,26 +36,7 @@
             <button id="createPostButton" onclick="window.location.href='../postcreationpage/postcreationpage.html'">Crea post</button>
         </div>
         <div class="postContainer">
-            <div class="post" title="Vai al dettaglio del post">
-                <a href="../postdetails/postdetails.html"></a>
-                <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
-                <p class="post-author" id="example-post-author">Post author goes here</p>
-                <a href="../postdetails/postdetails.html">Post title goes here</a>
-            </div>
-            <!--
-                TODO: remove second post, and remember to give unique id to each post
-            -->
-            <div class="post" title="Vai al dettaglio del post">
-                <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
-                <p class="post-author" id="example-post-author">Post author goes here</p>
-                <a href="../postdetails/postdetails.html">Post title goes here</a>
-            </div>
-            <div class="post" title="Vai al dettaglio del post">
-                <a href="../postdetails/postdetails.html"></a>
-                <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
-                <p class="post-author" id="example-post-author">Post author goes here</p>
-                <a href="../postdetails/postdetails.html">Post title goes here</a>
-            </div>
+            <!-- Posts will be populated here using JavaScript and PHP -->
         </div>
     </main>
     <script src="homepage.js" defer></script>

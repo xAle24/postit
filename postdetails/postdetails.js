@@ -26,6 +26,8 @@ function changePostTitle(postTitle) {
 function setAuthor(authorName, authorSurname) {
     let author = document.getElementById('authorName')
     author.textContent = authorName + " " + authorSurname
+    let h2 = document.querySelector('h2.availabilitiesTitle')
+    h2.textContent = "Disponibilità di " + authorName + " " + authorSurname
 }
 
 function setContent(content) {
