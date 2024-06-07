@@ -7,7 +7,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
     background-color: #273043;
     background-position: center;
     margin: 0;
@@ -48,7 +47,7 @@ button:hover, input[type=submit]:hover {
 h2 {
     text-align: center;
     width: 100%;
-    font-size: 60px;
+    font-size: calc(1rem + 1vw + 1vh);
 }
 
 #email, #password {
@@ -76,9 +75,25 @@ button {
     background-color: #273043;
     color: #BEEE22;
     border-radius: 5rem;
+    width: 80%;
 }
 
-@media screen and (min-width: 769px){
+p {
+    color: white;
+    background-color: rgba(39, 48, 67, 0.9);
+    border-radius: 6px;
+    border: 2px solid white;
+    padding: 2% 2%;
+    margin: 10px;
+    width: 60%;
+    text-align: center;
+}
+
+p > a {
+    color: #BEEE22;
+}
+
+@media only screen and (min-width: 769px){
     input {
         font-size: 2vw;
     }
@@ -88,16 +103,40 @@ button {
     }
 }
 
-@media screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
     #content {
-        width: 600px;
-        height: 600px;
+        background-image: none;
+        width: 100%;
     }
+
+    form {
+        width: 100%;
+    }
+
     input {
         font-size: 4vw;
     }
-    #registrationBtn {
+
+    input[type=submit] {
         height: 15%;
         font-size: 4vw;
+        background-color: #BEEE22;
+        color: black;
+    }
+
+    h2 {
+        color: white;
+        background-color: rgba(39, 48, 67, 0.9);
+        border-radius: 6px;
+        border: 2px solid white;
+        padding: 2% 2%;
+    }
+
+    button {
+        margin: 10px;
+    }
+
+    body {
+        display: block; /* Otherwise when the screen is horizontal the title goes under the search bar. */
     }
 }
