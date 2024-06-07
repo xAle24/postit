@@ -26,6 +26,7 @@ body {
     height: 100%;
     background-color: #C0D6DF;
     overflow-y: scroll;
+    font-size: 22px;
 }
 #chat-title {
     display: flex;
@@ -37,9 +38,17 @@ body {
     align-items: center;
     padding: 1%;
 }
+
 .message-input {
     width: 100%;
+    font-size: 26px;
 }
+
+#sendButton {
+    height: 35px;
+    font-size: 26px;
+}
+
 @media screen and (min-width: 750px) {
     .chat-header img {
         margin-right: 1rem;
@@ -56,5 +65,11 @@ body {
     }
     .chat-header h1 {
         font-size: 5vw;
+    }
+    .message-input {
+        height: 6vh;
+    }
+    #sendButton {
+        height: 6vh;
     }
 }

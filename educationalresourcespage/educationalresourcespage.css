@@ -151,3 +151,15 @@ hr {
         grid-auto-flow: row;
     }
 }
+
+@media screen and (max-width: 750px) {
+    #numOfFiles {
+        font-size: 1.5em;
+    }
+    #fileInputLabel {
+        font-size: 2em;
+    }
+    .singleResourceContainer > a {
+        font-size: 2em;
+    }
+}
