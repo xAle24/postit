@@ -18,7 +18,7 @@
         $_SESSION["email"] = $row["email"];
         echo "Success";
     } else {
-        echo "Email or password wrong";
+        echo "Email o password errata!";
     }
     $stmt->close();
     $conn->close();
