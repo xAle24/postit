@@ -141,3 +141,10 @@ div.insertPost>button:hover {
 #notification.show {
     top: 0;
 }
+@media screen and (max-width: 769px) {
+    div.insertPost>p {
+        color: white;
+        margin: 1rem;
+        font-size: 4.2vw;
+    }
+}
