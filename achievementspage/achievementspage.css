@@ -1,22 +1,33 @@
 body {
+    background-color: #273043;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 0;
+}
+
+main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #273043;
-    font-family: Arial, sans-serif;
-    margin: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
+
 .randomImage {
     z-index: -2;
     position: absolute;
     max-width: 50px;
     max-height: 50px;
 }
+
 .banner {
+    display: flex;
+    flex-direction: row;
     text-align: center;
     font-size: 10vw;
     padding: 0 0 1% 0;
+    color: white;
 }
+
 #backBtn {
     background-image: url(../resources/back_icon.svg);
     transform: scaleX(-1);
@@ -26,27 +37,83 @@ body {
     background-position: center;
     width: 7vh;
     height: 7vh;
+    border: 1px solid white;
+    outline: none;
 }
+
+#backBtn:hover {
+    border: 2px solid white;
+}
+
 .achievement {
     display: flex;
     align-items: center;
     width: 60%;
     background-color: #C0D6DF;
     margin: 1%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
+
 .achievementImg {
     margin: 1rem;
     width: 20%;
 }
-.unlockedbanner{
+
+.unlockedbanner {
     width: 100%;
     text-align: center;
-    font-size: 5vw;
+    font-size:  max(8vw, 5vh);
     background-color: #C0D6DF;
 }
+
+.achievementH2 {
+    font-size: 2em;
+}
+
+.achievementP {
+    font-size: 1.5em;
+}
+
 .lockedbanner {
+    margin-top: 50px;
     width: 100%;
     text-align: center;
-    font-size: 5vw;
+    font-size: max(8vw, 5vh);
     background-color: #C0D6DF;
+}
+
+#title {
+    background-color: rgba(39, 48, 67, 0.9);
+    font-size: max(9vw, 6vh);
+}
+
+@media screen and (max-width: 768px) {
+    .achievement {
+        display: flex;
+        align-items: center;
+        background-color: #C0D6DF;
+        margin: 1%;
+        width: 90%;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    #backBtn {
+        margin: 5px 5px;
+        width: 50px;
+        height: 50px;
+    }
+
+    .achievementP {
+        font-size: 1em;
+    }
+
+    .achievementH2 {
+        font-size: 1.5em;
+    }
+
+    .achievement > div {
+        padding: 0 4%;
+    }
 }

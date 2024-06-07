@@ -23,6 +23,7 @@ function generatePostits() {
         var img = document.createElement('img')
         img.src = images[Math.floor(Math.random() * images.length)]
         img.className = 'randomImage';
+        img.alt = ""
         img.style.top = Math.random() * (window.innerHeight - postitDiagonalDimension) + 'px'
         img.style.left = Math.random() * (window.innerWidth - postitDiagonalDimension) + 'px'
         img.style.transform = 'rotate(' + Math.random() * 360 + 'deg)'

@@ -10,11 +10,12 @@ fetch('achievements.php').then(response => response.json())
             h2.textContent = achievement.name;
             let p = template.content.querySelector('.achievementP')
             p.textContent = achievement.description;
+            let container = document.querySelector('main')
             if (achievement.state === "1") {
                 img.src = '../resources/achievements/achievement-unlocked.svg';
-                document.body.insertBefore(template.content, document.querySelector(".lockedbanner"));
+                container.insertBefore(template.content, document.querySelector(".lockedbanner"));
             } else {
-                document.body.appendChild(template.content);
+                container.appendChild(template.content);
                 img.src = '../resources/achievements/achievement-locked.svg';
             }
         });
