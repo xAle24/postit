@@ -3,6 +3,10 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+#logo {
+    width: 30%;
+}
+
 body {
     display: flex;
     justify-content: center;
@@ -48,6 +52,8 @@ h2 {
     text-align: center;
     width: 100%;
     font-size: calc(1rem + 1vw + 1vh);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 #email, #password {
@@ -87,6 +93,8 @@ p {
     margin: 10px;
     width: 60%;
     text-align: center;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 p > a {

@@ -47,7 +47,7 @@ function submitForm() {
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
     if (email === "" || password === "") {
-        showPopup("Errore: tutti i campi devono essere compilati");
+        alert("Errore: tutti i campi devono essere compilati");
         return;
     }
     console.log($("#form").serialize());
@@ -59,7 +59,7 @@ function submitForm() {
             if (response === "Success    ") {
                 window.location.href = "../homepage/homepage.html";
             } else {
-                showPopup(response);
+                alert(response);
             }
         }
     });
