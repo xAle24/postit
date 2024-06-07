@@ -16,6 +16,7 @@ body {
 .chat-list {
     padding-inline-start: 0;
 }
+
 .chat {
     display: flex;
     align-items: center;
@@ -23,6 +24,7 @@ body {
     background-color: #C0D6DF;
     margin: 2%;
 }
+
 .chatImg {
     margin-right: 1rem;
     width: 10%;

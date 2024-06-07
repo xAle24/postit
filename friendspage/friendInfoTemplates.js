@@ -1,7 +1,7 @@
 const friendInfoTemplate = `
 <div class="friendBlock">
     <div class="friendInfo">
-        <img class="profileImg">
+        <img class="profileImg" alt="postit friend image">
         </img>
         <h2 class="profileName">
         </h2>
