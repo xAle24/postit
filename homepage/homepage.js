@@ -38,7 +38,12 @@ function closeNav() {
 
 function fetchPosts() {
     fetch('loadPosts.php')
-        .then(response => response.json())
+        .then(response => {
+            if(!response.ok) {
+                throw new Error('No posts found')
+            }
+            return response.json()
+        })
         .then(posts => {
             posts.forEach(post => {
                 createPost(post.imagePath, post.name + ' ' + post.surname, post.meetingID, post.title)
@@ -48,6 +53,9 @@ function fetchPosts() {
             const posts = document.querySelectorAll('.post') // Get all the posts on the page
             console.log("Posts content: " + JSON.stringify(posts))
             rotatePosts(posts) // Rotate the posts
+        })
+        .catch(error => {
+            // do nothing if there are no posts
         })
 }
 
