@@ -4,7 +4,7 @@ fetch('chatmainpage.php').then(response => response.json())
             let template = document.createElement('template')
             template.innerHTML = chatListTemplate.trim()
             let img = template.content.querySelector('.chatImg')
-            img.src = '../resources/straight-post-it.png';
+            img.src = student.imagePath === '' ? "../database-content/profile-image/User-avatar.png" : student.imagePath
             let h2 = template.content.querySelector('.chatH2')
             h2.textContent = student.name;
             let chat = template.content.querySelector('.chat')

@@ -2,7 +2,7 @@
 include "../db/db_connect.php";
 session_start();
 
-error_log("Content of \$_POST: " . print_r($_POST, true) . "\n", 3, "error-log");
+error_log("Content of \$_POST: " . print_r($_POST, true) . "\n", 3, "error.log");
 
 $postTitle = $_POST["postTitle"];
 $postDescription = $_POST["postDescription"];
@@ -129,7 +129,7 @@ $endTime, $meetingType, $locationIdentifier, $subjectID, $conn) {
     . $_SESSION["email"] . ", \n location identifier =" 
     . $locationIdentifier . ", \n subject ID =" 
     . $subjectID === null ? "null" : $subjectID . "\n", 
-    3, "error-log.log");
+    3, "error.log.log");
 
     mysqli_stmt_bind_param($stmt, "sssssisss", $postTitle, $postDescription, 
     $availabilityDate, $startTime, $endTime, $meetingType, $_SESSION["email"], $locationIdentifier, $subjectID);
