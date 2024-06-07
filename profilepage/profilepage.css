@@ -11,6 +11,10 @@ body {
     text-align: center;
 }
 
+#personName {
+    color: white;
+}
+
 #backBtn {
     background-image: url(../resources/back_icon.svg);
     transform: scaleX(-1);
