@@ -262,7 +262,7 @@ CREATE TRIGGER update_achievement_state
 AFTER INSERT ON meeting
 FOR EACH ROW
 BEGIN
-    DECLARE achievement_id INT;
+    DECLARE achievement_id VARCHAR(36);
     SELECT achievementID INTO achievement_id FROM achievement WHERE name = 'Organizzatore novello';
     IF achievement_id IS NOT NULL THEN
         UPDATE achievement_student

@@ -1,0 +1,150 @@
+#notification {
+    display: none;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    position: absolute;
+    width: 30%;
+    height: 50vh;
+    min-height: 300px;
+    border-radius: 30px;
+    top: -50%;
+    padding: 5%;
+    right: 0;
+    z-index: 1;
+    transition: top 0.3s ease;
+    background: linear-gradient(to right, rgba(39, 48, 67, 0.99), rgba(25, 175, 209, 0.5));
+    overflow-y: auto;
+    flex-direction: column;
+    align-items: center;
+}
+
+#notification.show {
+    top: 130%;
+    /* Other styles... */
+    box-shadow:
+        0 0 5px #75DDDE,
+        /* Inner glow */
+        0 0 10px #75DDDE,
+        /* Middle glow */
+        0 0 15px #75DDDE,
+        /* Outer glow */
+        0 0 20px #75DDDE;
+    /* Far outer glow */
+    border: 1px solid #75DDDE;
+    /* Neon color */
+    outline: 4px double white;
+    outline-offset: -10px;
+    /* transition: box-shadow 0.3s ease; */
+    animation: glow 5s ease-in-out infinite;
+}
+
+/* Used to make the popup slide out of the view. */
+@keyframes slideOutUp {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes glow {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 5px #75DDDE,
+            /* Inner glow */
+            0 0 10px #75DDDE,
+            /* Middle glow */
+            0 0 15px #75DDDE,
+            /* Outer glow */
+            0 0 20px #75DDDE;
+        /* Far outer glow */
+    }
+
+    25%,
+    75% {
+        box-shadow:
+            0 0 10px #75DDDE,
+            /* Inner glow */
+            0 0 15px #75DDDE,
+            /* Middle glow */
+            0 0 20px #75DDDE,
+            /* Outer glow */
+            0 0 25px #75DDDE;
+        /* Far outer glow */
+    }
+
+    50% {
+        box-shadow:
+            0 0 15px #75DDDE,
+            /* Inner glow */
+            0 0 20px #75DDDE,
+            /* Middle glow */
+            0 0 25px #75DDDE,
+            /* Outer glow */
+            0 0 30px #75DDDE;
+        /* Far outer glow */
+    }
+}
+
+.hide {
+    animation: slideOutUp 0.5s forwards;
+    box-shadow: none;
+}
+
+#notificationContent>p {
+    color: white;
+    font-size: 1.25em;
+    width: 100%;
+    background-color: #273043;
+    padding: 17px 10px;
+    outline: 2px solid azure;
+    box-sizing: border-box;
+    border-radius: 10px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+#notification::-webkit-scrollbar {
+    display: none;
+}
+
+#clearNotifications {
+    background-color: #273043;
+    color: #75DDDE;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
+    cursor: pointer;
+    width: fit-content;
+    font-size: 1.25em;
+}
+
+@media only screen and (max-width: 768px) {
+    #notification {
+        width: min(80%, 60vw);
+        overflow-y: auto;
+        border-radius: 20px;
+    }
+
+    header button {
+        height: min(40px, 10vw);
+        width: min(40px, 10vw);
+    }
+
+    #createPostButton {
+        height: fit-content;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        width: max(40px, 15vw);
+        font-size: 1em;
+    }
+
+    #clearNotifications {
+        height: fit-content;
+    }
+}

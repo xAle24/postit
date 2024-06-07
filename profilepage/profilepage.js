@@ -120,6 +120,12 @@ function createPost(imagePath, author, postID, postTitle) {
         })
     })
 
+    // Setting a random background image
+    let div = template.content.querySelector('.post')
+    let imageUrl = chooseRandomPostitBackground()
+    console.log("Chosen random image: " + imageUrl)
+    div.style.backgroundImage = `url(${imageUrl})`
+
     let container = document.querySelector('.postContainer')
     container.appendChild(template.content)
 }

@@ -2,7 +2,7 @@
 include "../db/db_connect.php";
 session_start();
 
-error_log("Content of \$_POST: " . print_r($_POST, true) . "\n", 3, "error-log.log");
+error_log("Content of \$_POST: " . print_r($_POST, true) . "\n", 3, "error-log");
 
 $postTitle = $_POST["postTitle"];
 $postDescription = $_POST["postDescription"];
@@ -26,7 +26,7 @@ if ($subject !== null) {
     $subjectID = getSubjectUUID($subject, $conn);
 }
 
-error_log("Subject UUID: " . $subjectID . "\n", 3, "error-log.log");
+error_log("Subject UUID: " . $subjectID . "\n", 3, "error.log");
 
 // First, I need to create the location if it doesn't exist.
 if (!doesLocationExist($postLocation, $conn)) {
@@ -35,7 +35,7 @@ if (!doesLocationExist($postLocation, $conn)) {
 
 // Now I need the location identifier.
 $locationIdentifier = getLocationUUID($postLocation, $conn);
-error_log("Location identifier: " . $locationIdentifier . "\n", 3, "error-log.log");
+error_log("Location identifier: " . $locationIdentifier . "\n", 3, "error.log");
 
 // Creating as many posts as the availabilities are.
 for ($i = 0; $i < $numberOfPostsToCreate; $i++) {
@@ -51,7 +51,7 @@ for ($i = 0; $i < $numberOfPostsToCreate; $i++) {
                $conn);
 }
 
-error_log("Operation completed!", 3, "error-log.log");
+error_log("Operation completed!", 3, "error.log");
 $conn->close();
 
 /* Functions */
@@ -60,7 +60,7 @@ function createLocation($postLocation, $locationStreet, $streetNumber, $location
     $sql = "INSERT INTO location (locationID, name, street, streetNumber, city, cap) VALUES (UUID(), ?, ?, ?, ?, ?)";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        error_log("SQL statement to create location failed to prepare: " . mysqli_error($conn) . "\n", 3, "error-log.log");
+        error_log("SQL statement to create location failed to prepare: " . mysqli_error($conn) . "\n", 3, "error.log");
         exit();
     }
 
@@ -73,7 +73,7 @@ function doesLocationExist($postLocation, $conn) {
     $sql = "SELECT * FROM `location` WHERE `name` = ?";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        error_log("SQL statement to see if location exists failed to prepare: " . mysqli_error($conn) . "\n", 3, "error-log.log");
+        error_log("SQL statement to see if location exists failed to prepare: " . mysqli_error($conn) . "\n", 3, "error.log");
         exit();
     }
 
@@ -87,7 +87,7 @@ function getLocationUUID($postLocation, $conn) {
     $sql = "SELECT `locationID` FROM `location` WHERE `name` = ?";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        error_log("SQL statement to fetch location uuid failed to prepare: " . mysqli_error($conn) . "\n", 3, "error-log.log");
+        error_log("SQL statement to fetch location uuid failed to prepare: " . mysqli_error($conn) . "\n", 3, "error.log");
         exit();
     }
 
@@ -101,7 +101,7 @@ function getSubjectUUID($subjectName, $conn) {
     $sql = "SELECT `subjectID` FROM `subject` WHERE `name` = ?";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        error_log("SQL statement to fetch subject uuid failed to prepare: " . mysqli_error($conn) . "\n", 3, "error-log.log");
+        error_log("SQL statement to fetch subject uuid failed to prepare: " . mysqli_error($conn) . "\n", 3, "error.log");
         exit();
     }
 

@@ -3,13 +3,14 @@
 
 <head>
     <meta charset="UTF-8" name="description" content="The homepage of the site.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HomePage</title>
     <link rel="stylesheet" href="homepage.css">
     <link rel="stylesheet" href="post.css">
+    <link rel="stylesheet" href="notificationsPopUp.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
@@ -28,7 +29,10 @@
             <button id="chatBtn" onclick="window.location.href='../chatpage/chatmainpage.html'" aria-label="open chat page"></button>
         </div>
         <div id="notification">
-            <div id="notificationContent"></div>
+            <div id="notificationContent">
+                <!-- Notifications will be added here by JavaScript and PHP -->
+            </div>
+            <button id='clearNotifications'>Rimuovi notifiche</button>
         </div>
     </header>
     <main>

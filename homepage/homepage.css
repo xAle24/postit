@@ -12,6 +12,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 1vh;
+    position: relative; /* To make the notification pop-up appear on top of the header. */
 }
 
 button {
@@ -37,7 +38,8 @@ div.insertPost {
     align-items: center;
     padding: 1rem;
     font-size: 3vw;
-    gap: 2%; /* Separation between the div's elements. */
+    gap: 2%;
+    /* Separation between the div's elements. */
 }
 
 div.insertPost>p {
@@ -127,20 +129,7 @@ div.insertPost>button:hover {
     flex-wrap: wrap;
     justify-content: center;
 }
-#notification {
-    display: none;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    position: absolute;
-    width: 30%;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    transition: top 0.3s ease;
-}
-#notification.show {
-    top: 0;
-}
+
 @media screen and (max-width: 769px) {
     div.insertPost>p {
         color: white;
