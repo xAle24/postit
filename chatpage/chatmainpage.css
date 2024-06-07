@@ -26,4 +26,6 @@ body {
 .chatImg {
     margin-right: 1rem;
     width: 10%;
+    display: flex;
+    padding: 2%;
 }
