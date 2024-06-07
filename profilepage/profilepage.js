@@ -83,7 +83,7 @@ function createPost(imagePath, author, postID, postTitle) {
     let img = template.content.querySelector('img')
     let p = template.content.querySelector('p')
     let a = template.content.querySelector('a')
-    img.src = imagePath
+    img.src = imagePath === '' ? "../database-content/profile-image/User-avatar.png" : imagePath
     p.textContent = author
     //a.href = link
     a.textContent = postTitle

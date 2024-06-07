@@ -1,5 +1,5 @@
 <?php
-    include "../db/db_connect.php"; // Include your database connection script
+    include "../db/db_connect.php";
     session_start();
 
     $sql = "SELECT * FROM student WHERE email = ?";

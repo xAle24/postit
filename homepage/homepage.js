@@ -1,10 +1,24 @@
 window.onload = onWindowLoad
+document.getElementById('logoutA').addEventListener('click', logout)
+document.getElementById("notificationBtn").onclick = function() {
+    var x = document.getElementById("notification");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+        setTimeout(function() {
+            x.className = "show";
+        }, 10); // Timeout for CSS transition
+    } else {
+        x.className = "";
+        setTimeout(function() {
+            x.style.display = "none";
+        }, 300); // Timeout for CSS transition
+    }
+}
 
 function onWindowLoad() {
     console.log('Window loaded')
     fetchPosts()
 }
-
 
 function rotatePosts(posts) {
     posts.forEach(post => {
@@ -20,20 +34,6 @@ function openNav() {
 
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0"
-}
-document.getElementById("notificationBtn").onclick = function() {
-    var x = document.getElementById("notification");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-        setTimeout(function() {
-            x.className = "show";
-        }, 10); // Timeout for CSS transition
-    } else {
-        x.className = "";
-        setTimeout(function() {
-            x.style.display = "none";
-        }, 300); // Timeout for CSS transition
-    }
 }
 
 function fetchPosts() {
@@ -62,7 +62,7 @@ function createPost(imagePath, author, postID, postTitle) {
     let img = template.content.querySelector('img')
     let p = template.content.querySelector('p')
     let a = template.content.querySelector('a')
-    img.src = imagePath
+    img.src = imagePath === '' ? "../database-content/profile-image/User-avatar.png" : imagePath
     p.textContent = author
     //a.href = link
     a.textContent = postTitle
@@ -78,6 +78,22 @@ function createPost(imagePath, author, postID, postTitle) {
         })
     })
 
+    // Setting a random background image
+    let div = template.content.querySelector('.post')
+    let imageUrl = chooseRandomPostitBackground()
+    console.log("Chosen random image: " + imageUrl)
+    div.style.backgroundImage = `url(${imageUrl})`
+
     let container = document.querySelector('.postContainer')
     container.appendChild(template.content)
+}
+
+function logout() {
+    $.ajax({
+        type: "post",
+        url: "logout.php",
+        success: function() {
+            window.location.href = '../loginpage/login.html'
+        }
+    })
 }

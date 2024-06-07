@@ -14,7 +14,7 @@ textarea.addEventListener('input', autoResize, false)
     
 function changeProfileImage(imagePath) {
     let profileImage = document.getElementById('mainAvatar')
-    profileImage.src = imagePath
+    profileImage.src = imagePath === '' ? "../database-content/profile-image/User-avatar.png" : imagePath
     createBlurryBackgroundLayer()
 }
 
