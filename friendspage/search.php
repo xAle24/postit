@@ -2,7 +2,7 @@
     include '../db/db_connect.php';
     session_start();
     $search = $_POST["search"];
-    $sql = "SELECT student.email,student.name 
+    $sql = "SELECT student.email, student.name, student.imagePath
         FROM student WHERE name LIKE ? AND email NOT IN (
         SELECT adds.second_stu_email 
         FROM adds

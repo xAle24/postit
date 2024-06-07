@@ -14,7 +14,7 @@ $("#searchbar").on("input", function() {
             let template = document.createElement('template')
             template.innerHTML = friendInfoTemplate.trim()
             let img = template.content.querySelector('.profileImg')
-            img.src = '../resources/straight-post-it.png';
+            img.src = friend.imagePath === '' ? "../database-content/profile-image/User-avatar.png" : friend.imagePath
             let h2 = template.content.querySelector('.profileName')
             h2.textContent = friend.name;
             let followBtn = template.content.querySelector('.follow-button')

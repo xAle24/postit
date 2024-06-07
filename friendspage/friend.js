@@ -4,7 +4,8 @@ fetch('friend.php').then(response => response.json())
             let template = document.createElement('template')
             template.innerHTML = friendInfoTemplate.trim()
             let img = template.content.querySelector('.profileImg')
-            img.src = '../resources/straight-post-it.png';
+            console.log(student.imagePath)
+            img.src = student.imagePath === '' ? "../database-content/profile-image/User-avatar.png" : student.imagePath
             let h2 = template.content.querySelector('.profileName')
             h2.textContent = student.name;
             let followBtn = template.content.querySelector('.follow-button')

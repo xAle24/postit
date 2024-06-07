@@ -22,6 +22,13 @@ document.getElementById("notificationBtn").onclick = function() {
 document.getElementById('clearNotifications').addEventListener('click', function() {
     var x = document.getElementById("notification")
     x.querySelectorAll('p').forEach(p => { p.remove() })
+    $.ajax({
+        type: "post",
+        url: "clearNotifications.php",
+        success: function() {
+            console.log("Notifications cleared")
+        }
+    })
 })
 
 function onWindowLoad() {
