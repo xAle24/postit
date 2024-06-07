@@ -28,6 +28,7 @@ function onWindowLoad() {
         }
     })
     .then(() => {
+        fetchFollower()
         fetchPosts()
     })   
 }
@@ -36,6 +37,9 @@ function fetchPosts() {
     fetch('loadMyPosts.php')
         .then(response => response.json())
         .then(posts => {
+            if(posts === null) {
+                return
+            }
             posts.forEach(post => {
                 createPost(post.imagePath, post.name + ' ' + post.surname, post.meetingID, post.title)
             })
@@ -44,6 +48,15 @@ function fetchPosts() {
             const posts = document.querySelectorAll('.post') // Get all the posts on the page
             console.log("Posts content: " + JSON.stringify(posts))
             rotatePosts(posts) // Rotate the posts
+        })
+}
+
+function fetchFollower() {
+    fetch('loadFollowers.php')
+        .then(response => response.json())
+        .then(followerDetails=>{
+            console.log("si" + followerDetails)
+            document.getElementById("followersNumber").textContent = "Seguaci: " + followerDetails.followers + "  " +"Seguiti: " + followerDetails.following
         })
 }
 

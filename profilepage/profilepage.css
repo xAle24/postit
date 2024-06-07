@@ -33,6 +33,13 @@ body {
     margin-top: 5%;
 }
 
+#followersNumber {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    color: white;
+}
+
 #modifyImg {
     margin-top: 1%;
 }
