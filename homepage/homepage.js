@@ -1,19 +1,28 @@
 window.onload = onWindowLoad
+window.addEventListener('load', function() {
+    document.getElementById('notification').style.display = 'none'
+})
 document.getElementById('logoutA').addEventListener('click', logout)
 document.getElementById("notificationBtn").onclick = function() {
     var x = document.getElementById("notification");
     if (x.style.display === "none") {
-        x.style.display = "block";
+        x.style.display = "flex";
+        x.querySelectorAll('p').forEach(p => { p.style.display = 'block' })
         setTimeout(function() {
             x.className = "show";
         }, 10); // Timeout for CSS transition
     } else {
-        x.className = "";
+        x.className = "hide";
+        x.querySelectorAll('p').forEach(p => { p.style.display = 'none' })
         setTimeout(function() {
             x.style.display = "none";
         }, 300); // Timeout for CSS transition
     }
 }
+document.getElementById('clearNotifications').addEventListener('click', function() {
+    var x = document.getElementById("notification")
+    x.querySelectorAll('p').forEach(p => { p.remove() })
+})
 
 function onWindowLoad() {
     console.log('Window loaded')
