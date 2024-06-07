@@ -46,7 +46,7 @@ function submitForm() {
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
     if (email === "" || password === "") {
-        showPopup("Error: All fields must be filled out");
+        showPopup("Errore: tutti i campi devono essere compilati");
         return ;
     }    
     console.log($("#form").serialize());
@@ -79,3 +79,16 @@ function showPopup(message) {
         document.getElementById("form").removeChild(notification);
     }, 3000);
 }
+
+// FRONTEND
+
+/* window.addEventListener('resize', function() {
+    let width = window.innerWidth
+    let content = document.getElementById('content')
+    if (width >= 750) {
+        content.style.width = 'auto'
+    } else {
+        content.style.width = '600px'
+        content.style.height = content.innerWidth + 'px'
+    }
+}) */

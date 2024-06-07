@@ -1,15 +1,16 @@
 * {
     box-sizing: border-box;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 90vh;
+    height: 100vh;
     background-color: #273043;
     background-position: center;
-    margin: 5vh 0 0 0;
+    margin: 0;
 }
 
 .randomImage {
@@ -17,6 +18,12 @@ body {
     position: absolute;
     max-width: 50px;
     max-height: 50px;
+}
+
+button:hover, input[type=submit]:hover {
+    background-color: white;
+    border: 2px solid #273043;
+    color: #273043;
 }
 
 #content {
@@ -27,7 +34,8 @@ body {
     background-image: url(../resources/straight-post-it.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;
-    padding: 1rem;
+    padding: 5%;
+    gap: 5%;
 }
 
 #form {
@@ -38,64 +46,52 @@ body {
 }
 
 h2 {
-    display: flex;
-    justify-content: center;
+    text-align: center;
     width: 100%;
-    margin: 0 0 2vh 0;
-    font-size: 7vw;
+    font-size: 60px;
 }
 
 #email, #password {
     width: 100%;
     padding: 5%;
-    margin: 0.5rem;
     border-radius: 2rem;
 }
 
-input[type=submit] {
-    width: 100%;
-    height: 80%;
-    padding: 7%;
-    margin: 5%;
-    background-color: #273043;
-    color: #BEEE22;
-    border-radius: 5rem;
-    border: none;
+input[type=text] {
+    margin: 20px;
 }
 
-#registrationBtn {
-    width: 55%;
-    padding: 2%;
+input[type=submit] {
+    margin: 20px;
+    width: 100%;
+    height: auto;
+    padding: 7%;
     background-color: #273043;
     color: #BEEE22;
     border-radius: 5rem;
-    border: none;
 }
-#notification {
-    background-color: #f44336;
-    color: white;
+
+button {
+    padding: 10px 10px;
+    background-color: #273043;
+    color: #BEEE22;
+    border-radius: 5rem;
 }
-@media screen and (min-width: 750px){
-    #content {
-        width: 35vw;
-        height: 35vw;
-    }
-    h2 {
-        font-size: 2.5vw;
-    }
+
+@media screen and (min-width: 769px){
     input {
         font-size: 2vw;
     }
     #registrationBtn {
-        height: 14%;
+        height: fit-content;
         font-size: 1.5vw;
     }
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 768px) {
     #content {
-        width: 90vw;
-        height: 90vw;
+        width: 600px;
+        height: 600px;
     }
     input {
         font-size: 4vw;
