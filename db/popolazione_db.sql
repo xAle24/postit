@@ -4,6 +4,8 @@ INSERT INTO `achievement`(`achievementID`, `name`, `description`) VALUES (UUID()
 INSERT INTO `achievement`(`achievementID`, `name`, `description`) VALUES (UUID(),'Organizzatore novello','Hai pubblicato il tuo primo post per creare un incontro.');
 -- Filling the subject table
 INSERT INTO `subject`(`subjectID`, `name`, `CFU`) VALUES (UUID(), 'OOP', 12);
-INSERT INTO `subject`(`subjectID`, `name`, `CFU`) VALUES (UUID(), 'WEB', 6);
+INSERT INTO `subject`(`subjectID`, `name`, `CFU`) VALUES (UUID(), 'TECNOLOGIE WEB', 6);
 INSERT INTO `subject`(`subjectID`, `name`, `CFU`) VALUES (UUID(), 'IOT', 42);
 INSERT INTO `subject`(`subjectID`, `name`, `CFU`) VALUES (UUID(), 'MOBILE', 6);
+INSERT INTO `subject`(`subjectID`, `name`, `CFU`) VALUES (UUID(), 'DATABASE', 6);
+INSERT INTO `subject`(`subjectID`, `name`, `CFU`) VALUES (UUID(), 'ALGEBRA', 13);
