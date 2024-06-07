@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="it">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" name="description" content="The homepage of the site.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PostDetails</title>
     <link rel="stylesheet" href="postdetails.css">
     <link rel="stylesheet" href="availabilitiesbox.css">
@@ -23,7 +24,7 @@
                 <div class="postHeaderTextContainer">
                     <h1 id="postTitle">Studiare Web in campus</h1>
                     <hr>
-                    <h3 id="authorName">Mario Rossi</h3>
+                    <h2 id="authorName">Mario Rossi</h2>
                 </div>
             </div>
         </header>
@@ -72,7 +73,7 @@
             <hr>
             <div class="commentInputContainer">
                 <textarea id="commentTextArea" placeholder="Scrivi un commento pubblico..."></textarea>
-                <button id="commentButton" onclick="addComment()"></button>
+                <button id="commentButton" onclick="addComment()" aria-label="click to comment"></button>
             </div>
             <ul class="commentsList" id="commentsList">
                 <!-- Comments filled in here by Javascript and PHP -->

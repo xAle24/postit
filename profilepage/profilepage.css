@@ -11,6 +11,10 @@ body {
     text-align: center;
 }
 
+#personName {
+    color: white;
+}
+
 #backBtn {
     background-image: url(../resources/back_icon.svg);
     transform: scaleX(-1);
@@ -27,6 +31,13 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 5%;
+}
+
+#followersNumber {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    color: white;
 }
 
 #modifyImg {

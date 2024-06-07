@@ -1,29 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="it">
 
 <head>
+    <meta charset="UTF-8" name="description" content="The homepage of the site.">
     <title>HomePage</title>
     <link rel="stylesheet" href="homepage.css">
     <link rel="stylesheet" href="post.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
     <header>
         <div id="mySidenav" class="sidenav">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fas fa-times"></i></a>
+            <a class="closebtn" onclick="closeNav()" aria-label="close Side Navigation"><i class="fas fa-times"></i></a>
             <a href="../profilepage/profilepage.html">Profilo</a>
             <a href="../achievementspage/achievementspage.html">Achievements</a>
             <a href="../friendspage/friendpage.html">Amici</a>
             <a href="../educationalresourcespage/educationalresourcespage.html">Risorse</a>
             <a href="#logout" id="logoutA">Logout</a>
         </div>
-        <button class="openbtn" onclick="openNav()"></button>
+        <button class="openbtn" onclick="openNav()" aria-label="open Side Navigation"></button>
         <div id="rightBtnDiv">
-            <button id="notificationBtn"></button>
-            <button id="chatBtn" onclick="window.location.href='../chatpage/chatmainpage.html'"></button>
+            <button id="notificationBtn" aria-label="openNotification"></button>
+            <button id="chatBtn" onclick="window.location.href='../chatpage/chatmainpage.html'" aria-label="open chat page"></button>
         </div>
         <div id="notification">
             <div id="notificationContent"></div>

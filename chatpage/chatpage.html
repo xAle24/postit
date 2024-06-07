@@ -1,20 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="it">
+
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <title>Chat page</title>
     <link rel="stylesheet" href="chatpage.css">
 </head>
 <body>
     <div class="chat-header">
-        <button id="backBtn" onclick="location.href='../chatpage/chatmainpage.html'"></button>
+        <button id="backBtn" aria-label="button to go back to homepage" onclick="location.href='../chatpage/chatmainpage.html'"></button>
         <img id="profile-img" src="../resources/logo-no-writing.png" alt="//TODO">
         <h1 id="chat-title"></h1>
     </div>
     <div class="chat-window" id="chat-window"></div>
     <div class="chat-bottom">
         <input class="message-input" id="message-input" type="text" placeholder="Type a message...">
-        <button id="sendButton" onclick="sendMessage()">Send</button> <!-- onclick="sendMessage()" -->
+        <button id="sendButton" aria-label="button send the message" onclick="sendMessage()">Send</button> <!-- onclick="sendMessage()" -->
     </div>
     <script src="chatpage.js">
         /* var friendName = decodeURIComponent(window.location.search.substring(6));

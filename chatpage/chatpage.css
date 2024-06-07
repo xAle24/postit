@@ -14,8 +14,8 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     margin: 1%;
-    width: 7vh;
-    height: 7vh;
+    width: 5vh;
+    height: 5vh;
 }
 .chat-header {
     display: flex;
@@ -30,6 +30,7 @@ body {
 #chat-title {
     display: flex;
     text-align: center;
+    color: white;
 }
 .chat-bottom {
     display: flex;

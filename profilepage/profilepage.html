@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="it">
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <title>Profile</title>
@@ -11,7 +12,7 @@
 
 <body>
     <div id="back-button">
-        <button id="backBtn" onclick="window.location.href='../homepage/homepage.html'"></button>
+        <button id="backBtn" aria-label="button to go back to homepage" onclick="window.location.href='../homepage/homepage.html'"></button>
     </div>
     <div id="profile-head">
         <h2 id="personName">Person's name</h2>
@@ -33,6 +34,7 @@
             </div>
         </form>
     </div>
+    <p id="followersNumber"></p>
     <div class="postContainer">
         <!-- Posts will be populated here using JavaScript and PHP -->
     </div>
