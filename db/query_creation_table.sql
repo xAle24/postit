@@ -74,6 +74,7 @@ create table LOCATION (
 
 create table MEETING (
      meetingID char(36) not null DEFAULT (uuid()),
+     title varchar(100) not null,
      content varchar(200) not null,
      appointment date not null,
      startTime time not null,
